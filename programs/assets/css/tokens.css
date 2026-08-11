@@ -1,0 +1,140 @@
+/* ==========================================================================
+   GenSpark Programs Library — CENTRAL THEME LAYER
+   --------------------------------------------------------------------------
+   This is the SINGLE source of truth for the visual identity. Every component
+   and page reads from these custom properties. To restyle the whole section,
+   edit values here only — do NOT hardcode colours, spacing, or radii elsewhere.
+
+   EXACT VALUES: confirmed against the live genspark.net theme via the browser
+   (computed styles, Aug 2026). Brand green #4C9560, ink #101820, body text
+   #212529, footer #101015, container 1320px, font Barlow. Edit here to
+   restyle the whole section — one file.
+   ========================================================================== */
+
+:root {
+  /* --- Brand colours (confirmed from live site) ---------------------- */
+  --gs-color-brand-primary: #4C9560;   /* GenSpark green (accent4)         */
+  --gs-color-brand-primary-rgb: 76 149 96;
+  --gs-color-brand-dark:    #3C7A4E;   /* solid green on white (AA text)   */
+  --gs-color-brand-darker:  #2F6440;   /* hover / pressed                  */
+  --gs-color-brand-tint:    #EAF3ED;   /* light green surface              */
+  --gs-color-accent:        #4C9560;
+
+  /* --- Text ----------------------------------------------------------- */
+  --gs-color-ink:           #101820;   /* headings / high-emphasis         */
+  --gs-color-text-primary:  #212529;   /* body text                        */
+  --gs-color-text-muted:    #5C6670;   /* supporting text                  */
+  --gs-color-text-invert:   #FFFFFF;
+
+  /* --- Backgrounds & surfaces ---------------------------------------- */
+  --gs-color-background:    #FFFFFF;
+  --gs-color-surface:       #F5F7F5;   /* section tint / cards          */
+  --gs-color-surface-alt:   #EEF2EE;   /* alternating section           */
+  --gs-color-border:        #E4E8E5;   /* hairlines / card borders      */
+  --gs-color-border-strong: #CCD3CD;
+  --gs-color-footer:        #101015;   /* footer background (live)      */
+
+  /* --- On dark surfaces (footer, CTA bands) --------------------------- */
+  --gs-color-on-dark:        #FFFFFF;
+  --gs-color-on-dark-muted:  #C7D0DA;
+  --gs-color-on-dark-subtle: #92A0AE;
+  --gs-border-on-dark:       rgba(255, 255, 255, 0.12);
+  --gs-border-on-dark-strong:rgba(255, 255, 255, 0.5);
+
+  /* --- Feedback ------------------------------------------------------- */
+  --gs-color-focus:         #3C7A4E;   /* focus ring colour             */
+
+  /* --- Typography ----------------------------------------------------- */
+  /* Barlow is the live genspark.net font (confirmed via computed styles).
+     Loaded from Google Fonts in the page <head>. Headings on the live site
+     use Barlow 500–700; body 400.                                         */
+  --gs-font-heading: "Barlow", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --gs-font-body:    "Barlow", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --gs-weight-regular: 400;
+  --gs-weight-medium:  500;
+  --gs-weight-semibold: 600;
+  --gs-weight-bold:    700;
+
+  /* Fluid type scale (clamp = mobile → desktop, no media queries needed) */
+  --gs-fs-display: clamp(2.1rem, 1.4rem + 3vw, 3.5rem);    /* hero H1 (live 56px) */
+  --gs-fs-h1:      clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  --gs-fs-h2:      clamp(1.4rem, 1.15rem + 1.1vw, 2rem);
+  --gs-fs-h3:      clamp(1.15rem, 1.05rem + 0.5vw, 1.375rem);
+  --gs-fs-lead:    clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+  --gs-fs-body:    1rem;
+  --gs-fs-small:   0.875rem;
+  --gs-fs-xsmall:  0.78rem;
+
+  --gs-lh-tight:   1.15;
+  --gs-lh-heading: 1.25;
+  --gs-lh-body:    1.6;
+
+  /* --- Header / sticky ------------------------------------------------ */
+  --gs-header-height: 76px;      /* main nav bar height                    */
+  --gs-utility-height: 44px;     /* top partner/utility bar height         */
+  --gs-sticky-offset: 92px;      /* used by any sticky content below header */
+
+  /* --- Layout --------------------------------------------------------- */
+  --gs-container-max: 1320px;    /* live site container width */
+  --gs-container-narrow: 820px;
+  --gs-gutter: clamp(1.15rem, 0.6rem + 2vw, 2.25rem);
+  --gs-aside-width: 340px;       /* program summary column width           */
+
+  --gs-section-space: clamp(3rem, 2rem + 4vw, 5.5rem);      /* vertical rhythm */
+  --gs-section-space-tight: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  --gs-block-space: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+
+  /* --- Radii ---------------------------------------------------------- */
+  --gs-radius-card:   16px;
+  --gs-radius-panel:  20px;
+  --gs-radius-button: 10px;
+  --gs-radius-chip:   999px;
+  --gs-radius-sm:     8px;
+
+  /* --- Shadows -------------------------------------------------------- */
+  --gs-shadow-card: 0 1px 2px rgba(14, 27, 43, 0.04), 0 8px 24px rgba(14, 27, 43, 0.06);
+  --gs-shadow-card-hover: 0 4px 10px rgba(14, 27, 43, 0.08), 0 16px 40px rgba(14, 27, 43, 0.10);
+  --gs-shadow-header: 0 1px 0 rgba(14, 27, 43, 0.06);
+
+  /* --- Buttons -------------------------------------------------------- */
+  --gs-btn-pad-y: 0.8rem;
+  --gs-btn-pad-x: 1.5rem;
+  --gs-btn-font: var(--gs-weight-semibold) var(--gs-fs-body)/1 var(--gs-font-body);
+
+  /* --- Icons ---------------------------------------------------------- */
+  --gs-icon-sm: 20px;
+  --gs-icon-md: 24px;
+  --gs-icon-lg: 30px;
+  --gs-logo-box: 60px;   /* consistent bounding box for program logos */
+  --gs-logo-box-lg: 76px;/* program-hero identity tile */
+
+  /* --- Component spacing / grid rails --------------------------------- */
+  --gs-card-pad: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --gs-grid-min-card: 300px;   /* program cards */
+  --gs-grid-min-skill: 236px;  /* capability cards */
+  --gs-grid-min-audience: 240px;
+  --gs-grid-min-step: 200px;   /* timeline stages */
+  --gs-timeline-dot: 34px;     /* timeline node diameter */
+
+  /* --- Motion --------------------------------------------------------- */
+  --gs-transition-fast: 140ms ease;
+  --gs-transition-standard: 240ms cubic-bezier(0.2, 0.6, 0.2, 1);
+
+  /* --- Focus ring ----------------------------------------------------- */
+  --gs-focus-ring: 3px solid var(--gs-color-focus);
+  --gs-focus-offset: 2px;
+
+  /* --- Breakpoints (documented; used by JS + comments) ---------------
+     Narrow mobile ≤ 380  |  Mobile ≤ 640  |  Tablet ≤ 900
+     Laptop ≤ 1200        |  Desktop > 1200
+     ------------------------------------------------------------------- */
+}
+
+/* Respect reduced-motion globally */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --gs-transition-fast: 0ms;
+    --gs-transition-standard: 0ms;
+  }
+}
