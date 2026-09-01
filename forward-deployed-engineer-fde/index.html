@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenSpark — FDE Talent for Systems Integrators</title>
+  
+  <!-- Typography: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. COLOR PALETTE & VARIABLES
+       ========================================================================== */
+    :root {
+      --color-black: #131216;
+      --color-deep-green: #13322B;
+      --color-primary-green: #4C9560;
+      --color-pale-green: #EBF8EB;
+      --color-soft-pale-green: #E3F4E1;
+      --color-white: #FFFFFF;
+      --max-width: 1200px;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* ==========================================================================
+       2. BASE & RESET
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-pale-green);
+      color: var(--color-black);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-primary-green);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .highlight {
+      color: var(--color-primary-green);
+    }
+
+    /* ==========================================================================
+       3. HEADER
+       ========================================================================== */
+    header {
+      padding: 32px 0;
+      background-color: var(--color-pale-green);
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-black);
+    }
+
+    .header-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-deep-green);
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 80px 0 120px 0;
+      background-color: var(--color-pale-green);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--color-black);
+      margin-bottom: 24px;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      color: var(--color-black);
+      opacity: 0.85;
+      margin-bottom: 48px;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+
+    .hero-proof {
+      border-left: 3px solid var(--color-primary-green);
+      padding-left: 20px;
+    }
+
+    .hero-stat {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--color-primary-green);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 14px;
+      color: var(--color-black);
+      opacity: 0.75;
+      margin-top: 4px;
+    }
+
+    .hero-image-container {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: var(--color-soft-pale-green);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    /* ==========================================================================
+       5. WHAT MAKES AN FDE?
+       ========================================================================== */
+    .fde-profile {
+      padding: 120px 0;
+      background-color: var(--color-soft-pale-green);
+    }
+
+    .section-header {
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--color-black);
+    }
+
+    .section-description {
+      font-size: 18px;
+      color: var(--color-black);
+      opacity: 0.85;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .card {
+      background-color: var(--color-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .card-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary-green);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--color-black);
+    }
+
+    .card-text {
+      font-size: 16px;
+      color: var(--color-black);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       6. WHY FDEs, WHY NOW?
+       ========================================================================== */
+    .why-now {
+      padding: 120px 0;
+      background-color: var(--color-pale-green);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .why-block {
+      border-top: 2px solid var(--color-primary-green);
+      padding-top: 24px;
+    }
+
+    .why-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary-green);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .why-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+      color: var(--color-black);
+    }
+
+    .why-text {
+      font-size: 16px;
+      color: var(--color-black);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       7. PROVEN IN PRACTICE (DARK SECTION)
+       ========================================================================== */
+    .proven-in-practice {
+      padding: 120px 0;
+      background-color: var(--color-deep-green);
+      color: var(--color-white);
+    }
+
+    .proven-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .proven-in-practice .eyebrow {
+      color: var(--color-primary-green);
+    }
+
+    .proven-in-practice .section-title {
+      color: var(--color-white);
+      margin-bottom: 20px;
+    }
+
+    .proven-in-practice .section-description {
+      color: var(--color-white);
+      opacity: 0.85;
+      font-size: 18px;
+    }
+
+    .stat-display-box {
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 64px 48px;
+      text-align: center;
+    }
+
+    .stat-large {
+      font-size: 110px;
+      font-weight: 700;
+      line-height: 0.9;
+      color: var(--color-primary-green);
+      margin-bottom: 12px;
+    }
+
+    .stat-heading {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .stat-subtext {
+      font-size: 15px;
+      color: var(--color-white);
+      opacity: 0.7;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       8. HOW WE BUILD FDE CAPABILITY
+       ========================================================================== */
+    .how-we-build {
+      padding: 120px 0;
+      background-color: var(--color-soft-pale-green);
+    }
+
+    .capability-group {
+      margin-bottom: 64px;
+    }
+
+    .group-heading {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-black);
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--color-primary-green);
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .capability-card {
+      background-color: var(--color-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .capability-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-black);
+      margin-bottom: 12px;
+    }
+
+    .capability-card-text {
+      font-size: 16px;
+      color: var(--color-black);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    .flexible-banner {
+      background-color: var(--color-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.3);
+      border-radius: 16px;
+      padding: 48px;
+      margin-top: 64px;
+      text-align: center;
+    }
+
+    .flexible-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-black);
+      margin-bottom: 12px;
+    }
+
+    .flexible-text {
+      font-size: 18px;
+      color: var(--color-black);
+      opacity: 0.85;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       9. CLOSING STATEMENT
+       ========================================================================== */
+    .closing-statement {
+      padding: 140px 0;
+      background-color: var(--color-pale-green);
+      text-align: center;
+    }
+
+    .closing-text {
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--color-black);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       10. FOOTER
+       ========================================================================== */
+    footer {
+      background-color: var(--color-black);
+      color: var(--color-white);
+      padding: 40px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      opacity: 0.5;
+    }
+
+    /* ==========================================================================
+       11. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .container {
+        padding: 0 40px;
+      }
+
+      .hero-title {
+        font-size: 56px;
+      }
+
+      .section-title {
+        font-size: 38px;
+      }
+
+      .closing-text {
+        font-size: 40px;
+      }
+
+      .stat-large {
+        font-size: 88px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+
+      .hero {
+        padding: 48px 0 80px 0;
+      }
+
+      .hero-grid,
+      .cards-grid,
+      .why-grid,
+      .proven-grid,
+      .capability-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .hero-title {
+        font-size: 44px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .closing-statement {
+        padding: 80px 0;
+      }
+
+      .closing-text {
+        font-size: 32px;
+      }
+
+      .flexible-banner {
+        padding: 32px 20px;
+      }
+
+      .flexible-title {
+        font-size: 22px;
+      }
+
+      footer .container {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="brand-logo">GenSpark</div>
+      <div class="header-label">FDE Talent Transformation</div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">Build the talent that <span class="highlight">builds what's next.</span></h1>
+          <p class="hero-description">
+            Build a deployment-ready FDE talent pipeline equipped to solve real client problems across AI, data, cloud and emerging technologies.
+          </p>
+          <div class="hero-proof">
+            <div class="hero-stat">40+ FDEs deployed</div>
+            <div class="hero-stat-label">through our FDE program</div>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+            alt="Engineers collaborating in a client delivery environment" 
+            class="hero-image"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES AN FDE? -->
+  <section class="fde-profile">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">The FDE Profile</span>
+        <h2 class="section-title">What makes an FDE?</h2>
+        <p class="section-description">
+          FDEs sit at the intersection of technology, problem-solving and client delivery, turning emerging technology into solutions that work in the real world.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-number">01</span>
+          <h3 class="card-title">Technical Fluency</h3>
+          <p class="card-text">Strong foundations across AI, software, data and cloud technologies.</p>
+        </div>
+        <div class="card">
+          <span class="card-number">02</span>
+          <h3 class="card-title">Problem Solving</h3>
+          <p class="card-text">Break ambiguous client problems into practical, buildable solutions.</p>
+        </div>
+        <div class="card">
+          <span class="card-number">03</span>
+          <h3 class="card-title">Client Readiness</h3>
+          <p class="card-text">Communicate clearly, collaborate with stakeholders and operate confidently in client environments.</p>
+        </div>
+        <div class="card">
+          <span class="card-number">04</span>
+          <h3 class="card-title">Build & Deploy</h3>
+          <p class="card-text">Move beyond prototypes to solutions that can be implemented, tested and scaled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FDEs, WHY NOW? -->
+  <section class="why-now">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why FDEs. Why now?</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-block">
+          <span class="why-number">01</span>
+          <h3 class="why-title">AI is moving from experimentation to execution</h3>
+          <p class="why-text">Clients increasingly need teams that can take AI from idea to implementation.</p>
+        </div>
+        <div class="why-block">
+          <span class="why-number">02</span>
+          <h3 class="why-title">SI delivery models are evolving</h3>
+          <p class="why-text">Traditional delivery needs to be complemented by talent that can build, adapt and deploy alongside clients.</p>
+        </div>
+        <div class="why-block">
+          <span class="why-number">03</span>
+          <h3 class="why-title">The talent gap is real</h3>
+          <p class="why-text">The challenge isn't just finding technical talent, it's finding people who combine technical depth with client-facing execution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVEN IN PRACTICE -->
+  <section class="proven-in-practice">
+    <div class="container">
+      <div class="proven-grid">
+        <div class="proven-content">
+          <span class="eyebrow">Proven in Practice</span>
+          <h2 class="section-title">We've already built the playbook.</h2>
+          <p class="section-description">
+            We partnered with a US-based Systems Integrator to build and deploy an Associate FDE talent pipeline: from structured training to deployment.
+          </p>
+        </div>
+        <div class="proven-stat-container">
+          <div class="stat-display-box">
+            <div class="stat-large">40+</div>
+            <div class="stat-heading">FDEs deployed</div>
+            <p class="stat-subtext">A proven approach to building deployment-ready FDE talent at scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE BUILD FDE CAPABILITY -->
+  <section class="how-we-build">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">THE APPROACH</span>
+        <h2 class="section-title">How We Build FDE Capability</h2>
+        <p class="section-description">
+          Whether upskilling existing talent or developing new hires, we combine technical capability with the workplace readiness required for client deployment.
+        </p>
+      </div>
+
+      <!-- Group 1: Technical Capability -->
+      <div class="capability-group">
+        <h3 class="group-heading">Technical Capability</h3>
+        <div class="capability-grid">
+          <div class="capability-card">
+            <h4 class="capability-card-title">AI-Paired Development</h4>
+            <p class="capability-card-text">Build with modern AI tools and enterprise development practices.</p>
+          </div>
+          <div class="capability-card">
+            <h4 class="capability-card-title">Client-Mirrored Projects</h4>
+            <p class="capability-card-text">Work on realistic problems modelled on the complexity and expectations of SI engagements.</p>
+          </div>
+          <div class="capability-card">
+            <h4 class="capability-card-title">Sprint-Based Execution</h4>
+            <p class="capability-card-text">Learn to scope, prioritize and deliver work within enterprise delivery rhythms.</p>
+          </div>
+          <div class="capability-card">
+            <h4 class="capability-card-title">Technical Reviews & Retrospectives</h4>
+            <p class="capability-card-text">Receive structured feedback through reviews, demos and continuous improvement.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 2: Professional & Workplace Readiness -->
+      <div class="capability-group">
+        <h3 class="group-heading">Professional & Workplace Readiness</h3>
+        <div class="capability-grid">
+          <div class="capability-card">
+            <h4 class="capability-card-title">Stakeholder Communication</h4>
+            <p class="capability-card-text">Translate technical work into clear updates, recommendations and client-ready communication.</p>
+          </div>
+          <div class="capability-card">
+            <h4 class="capability-card-title">Socratic Learning</h4>
+            <p class="capability-card-text">Defend technical decisions, respond to questioning and develop confidence under scrutiny.</p>
+          </div>
+          <div class="capability-card">
+            <h4 class="capability-card-title">Collaboration & Teamwork</h4>
+            <p class="capability-card-text">Work effectively across engineering, consulting and client-facing teams.</p>
+          </div>
+          <div class="capability-card">
+            <h4 class="capability-card-title">Ownership & Accountability</h4>
+            <p class="capability-card-text">Own workstreams end-to-end, from understanding the problem to building, demonstrating and delivering the solution.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flexible By Design Banner -->
+      <div class="flexible-banner">
+        <span class="eyebrow" style="margin-bottom: 8px;">FLEXIBLE BY DESIGN</span>
+        <h3 class="flexible-title">Your needs. Your talent. Your FDE pathway.</h3>
+        <p class="flexible-text">
+          We can tailor the capability focus and learning journey to your specific delivery environment.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLOSING STATEMENT -->
+  <section class="closing-statement">
+    <div class="container">
+      <h2 class="closing-text">
+        The talent to deliver <br>
+        <span class="highlight">what’s next.</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">GenSpark</div>
+      <div class="footer-copyright">&copy; GenSpark 2026</div>
+    </div>
+  </footer>
+
+</body>
+</html>
