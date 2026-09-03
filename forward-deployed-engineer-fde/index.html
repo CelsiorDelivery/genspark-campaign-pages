@@ -11,9 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ==========================================================================
-       1. COLOR PALETTE & VARIABLES
-       ========================================================================== */
     :root {
       --color-black: #131216;
       --color-deep-green: #13322B;
@@ -25,20 +22,21 @@
       --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    /* ==========================================================================
-       2. BASE & RESET
-       ========================================================================== */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--color-pale-green);
       color: var(--color-black);
       font-family: var(--font-family);
-      line-height: 1.6;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -61,7 +59,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-primary-green);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       display: block;
     }
 
@@ -69,11 +67,9 @@
       color: var(--color-primary-green);
     }
 
-    /* ==========================================================================
-       3. HEADER
-       ========================================================================== */
+    /* HEADER */
     header {
-      padding: 32px 0;
+      padding: 28px 0;
       background-color: var(--color-pale-green);
     }
 
@@ -93,25 +89,23 @@
     .header-label {
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-deep-green);
     }
 
-    /* ==========================================================================
-       ACT 1: THE FDE PROBLEM & MARKET SURGE (HERO)
-       ========================================================================== */
+    /* ACT 1: HERO */
     .hero {
-      padding: 64px 0 120px 0;
+      padding: 48px 0 96px 0;
       background-color: var(--color-pale-green);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 48fr 52fr;
-      gap: 72px;
+      grid-template-columns: 52fr 48fr;
+      gap: 56px;
       align-items: center;
-      margin-bottom: 96px;
+      margin-bottom: 72px;
     }
 
     .hero-content {
@@ -121,51 +115,75 @@
     }
 
     .hero-title {
-      font-size: 54px;
+      font-size: 52px;
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
       color: var(--color-black);
-      margin-bottom: 24px;
-    }
-
-    .hero-intro {
-      font-size: 18px;
-      line-height: 1.65;
-      color: var(--color-black);
-      opacity: 0.9;
-    }
-
-    .hero-intro p {
       margin-bottom: 16px;
     }
 
-    .hero-intro p:last-child {
-      margin-bottom: 0;
+    .hero-intro {
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--color-black);
+      opacity: 0.88;
+      margin-bottom: 28px;
+      max-width: 500px;
     }
 
-    .hero-punchline {
-      font-size: 20px;
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-size: 15px;
       font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--color-deep-green);
+      color: var(--color-white);
+      border: 1px solid var(--color-deep-green);
+    }
+
+    .btn-primary:hover {
+      background-color: #0d231e;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
       color: var(--color-deep-green);
-      margin-top: 12px;
+      border: 1.5px solid var(--color-deep-green);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(19, 50, 43, 0.06);
+      transform: translateY(-1px);
     }
 
     .hero-image-container {
-      position: relative;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 20px 48px -12px rgba(19, 50, 43, 0.12);
-      line-height: 0;
-      font-size: 0;
     }
 
     .hero-image {
       width: 100%;
-      height: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-      display: block;
     }
 
     /* Market Surge Box */
@@ -173,310 +191,154 @@
       background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
       border-radius: 20px;
-      padding: 48px;
+      padding: 40px;
     }
 
     .market-header {
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .market-title {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--color-black);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .market-subtitle {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--color-black);
-      opacity: 0.85;
+      opacity: 0.8;
       font-weight: 500;
     }
 
     .market-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-bottom: 32px;
+      gap: 24px;
+      margin-bottom: 24px;
     }
 
     .market-stat-card {
       background-color: var(--color-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.2);
-      border-radius: 16px;
-      padding: 28px 24px;
+      border-radius: 14px;
+      padding: 24px 20px;
       text-align: center;
     }
 
     .stat-metric {
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 800;
       line-height: 1;
       color: var(--color-primary-green);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .stat-label {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--color-black);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .stat-timeline {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--color-black);
-      opacity: 0.65;
+      opacity: 0.6;
       font-weight: 500;
     }
 
     .market-footer-callout {
       text-align: center;
-      padding-top: 24px;
+      padding-top: 20px;
       border-top: 1px solid rgba(76, 149, 96, 0.2);
     }
 
     .market-footer-text {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--color-deep-green);
     }
 
-    /* ==========================================================================
-       ACT 2: THE BOTTLENECK & BUSINESS IMPACT
-       ========================================================================== */
-    .bottleneck-section {
-      padding: 120px 0;
-      background-color: var(--color-soft-pale-green);
+    /* ACT 2: THE PROFILE */
+    .profile-section {
+      padding: 96px 0;
+      background-color: var(--color-pale-green);
     }
 
     .section-header {
-      max-width: 860px;
-      margin-bottom: 64px;
+      max-width: 760px;
+      margin-bottom: 48px;
     }
 
     .section-title {
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 800;
       letter-spacing: -0.025em;
       line-height: 1.15;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       color: var(--color-black);
     }
 
     .section-description {
-      font-size: 18px;
-      color: var(--color-black);
-      opacity: 0.85;
-      line-height: 1.6;
-    }
-
-    .bottleneck-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-bottom: 80px;
-    }
-
-    .bottleneck-card {
-      background-color: var(--color-pale-green);
-      border: 1px solid rgba(76, 149, 96, 0.25);
-      border-radius: 16px;
-      padding: 36px 32px;
-    }
-
-    .bottleneck-number {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-primary-green);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .bottleneck-card-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 14px;
-      line-height: 1.25;
-      color: var(--color-black);
-    }
-
-    .bottleneck-text {
-      font-size: 16px;
-      color: var(--color-black);
-      opacity: 0.8;
-      line-height: 1.55;
-    }
-
-    /* Business Impact Layout */
-    .business-impact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: stretch;
-    }
-
-    .impact-left-column {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .impact-title {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--color-black);
-      margin-bottom: 4px;
-    }
-
-    .impact-subtitle {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--color-deep-green);
-      margin-bottom: 20px;
-      line-height: 1.4;
-    }
-
-    .impact-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      flex-grow: 1;
-    }
-
-    .impact-item {
-      padding: 22px 26px;
-      background-color: var(--color-pale-green);
-      border: 1px solid rgba(76, 149, 96, 0.2);
-      border-radius: 14px;
-    }
-
-    .impact-item-title {
       font-size: 17px;
-      font-weight: 700;
-      color: var(--color-deep-green);
-      margin-bottom: 4px;
-    }
-
-    .impact-item-text {
-      font-size: 15px;
       color: var(--color-black);
       opacity: 0.85;
-      line-height: 1.45;
-    }
-
-    /* Result Card */
-    .result-callout {
-      background-color: var(--color-pale-green);
-      border: 1px solid rgba(76, 149, 96, 0.25);
-      border-radius: 16px;
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: left;
-    }
-
-    .result-label {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-primary-green);
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .result-text {
-      font-size: 26px;
-      font-weight: 700;
-      line-height: 1.35;
-      color: var(--color-black);
-    }
-
-    /* ==========================================================================
-       ACT 3: THE PROFILE
-       ========================================================================== */
-    .profile-section {
-      padding: 120px 0;
-      background-color: var(--color-pale-green);
+      line-height: 1.55;
     }
 
     .cards-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 20px;
     }
 
     .card {
       background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.2);
-      border-radius: 16px;
-      padding: 40px;
+      border-radius: 14px;
+      padding: 32px;
     }
 
     .card-number {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--color-primary-green);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       display: block;
     }
 
     .card-title {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       color: var(--color-black);
     }
 
     .card-text {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--color-black);
       opacity: 0.8;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
-    /* ==========================================================================
-       SPANNED STATEMENT SECTION
-       ========================================================================== */
-    .statement-section {
-      padding: 80px 0;
-      background-color: var(--color-soft-pale-green);
-      border-top: 1px solid rgba(76, 149, 96, 0.2);
-      border-bottom: 1px solid rgba(76, 149, 96, 0.2);
-      text-align: center;
-    }
-
-    .statement-text {
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.45;
-      letter-spacing: -0.015em;
-      color: var(--color-deep-green);
-      max-width: 1040px;
-      margin: 0 auto;
-    }
-
-    /* ==========================================================================
-       ACT 4: THE ENGAGEMENT MODELS
-       ========================================================================== */
+    /* ACT 3: ENGAGEMENT MODELS */
     .engagement-models {
-      padding: 120px 0;
-      background-color: var(--color-pale-green);
+      padding: 96px 0;
+      background-color: var(--color-soft-pale-green);
+      scroll-margin-top: 30px;
     }
 
     .models-card-container {
-      background-color: var(--color-soft-pale-green);
+      background-color: var(--color-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
-      border-radius: 24px;
-      padding: 56px 48px;
+      border-radius: 20px;
+      padding: 44px 40px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      gap: 48px;
     }
 
     .model-col {
@@ -486,63 +348,61 @@
 
     .model-col:first-child {
       border-right: 1px solid rgba(76, 149, 96, 0.2);
-      padding-right: 56px;
+      padding-right: 48px;
     }
 
     .model-badge {
       display: inline-block;
       align-self: flex-start;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--color-deep-green);
-      background-color: var(--color-pale-green);
+      background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.3);
       border-radius: 6px;
-      padding: 4px 12px;
-      margin-bottom: 16px;
+      padding: 3px 10px;
+      margin-bottom: 14px;
     }
 
     .model-title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       color: var(--color-black);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       letter-spacing: -0.01em;
     }
 
     .model-pathway {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--color-primary-green);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .model-summary-desc {
       font-size: 15px;
       color: var(--color-black);
       opacity: 0.85;
-      line-height: 1.5;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .model-list {
       list-style: none;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .model-list li {
       position: relative;
-      padding-left: 20px;
-      margin-bottom: 12px;
-      font-size: 15px;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--color-black);
       opacity: 0.9;
-      line-height: 1.5;
     }
 
     .model-list li::before {
@@ -551,8 +411,7 @@
       left: 0;
       color: var(--color-primary-green);
       font-weight: 800;
-      font-size: 18px;
-      line-height: 1;
+      font-size: 16px;
     }
 
     .model-outcomes-container {
@@ -565,7 +424,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-deep-green);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: block;
       opacity: 0.75;
     }
@@ -573,242 +432,229 @@
     .outcomes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
 
     .outcome-pill {
-      background-color: var(--color-pale-green);
+      background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.2);
-      border-radius: 10px;
-      padding: 14px 10px;
+      border-radius: 8px;
+      padding: 10px 8px;
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--color-deep-green);
-      line-height: 1.3;
+      line-height: 1.25;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* ==========================================================================
-       ACT 5: PROVEN IN PRACTICE (DARK ANCHOR)
-       ========================================================================== */
-    .proven-in-practice {
-      padding: 120px 0;
-      background-color: var(--color-deep-green);
-      color: var(--color-white);
-    }
-
-    .proven-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .proven-in-practice .eyebrow {
-      color: var(--color-primary-green);
-    }
-
-    .proven-in-practice .section-title {
-      color: var(--color-white);
-      margin-bottom: 20px;
-    }
-
-    .proven-in-practice .section-description {
-      color: var(--color-white);
-      opacity: 0.85;
-      font-size: 18px;
-    }
-
-    .stat-display-box {
-      background-color: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 64px 48px;
-      text-align: center;
-    }
-
-    .stat-large {
-      font-size: 110px;
-      font-weight: 800;
-      line-height: 0.9;
-      color: var(--color-primary-green);
-      margin-bottom: 12px;
-    }
-
-    .stat-heading {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--color-white);
-      margin-bottom: 12px;
-    }
-
-    .stat-subtext {
-      font-size: 15px;
-      color: var(--color-white);
-      opacity: 0.75;
-      max-width: 340px;
-      margin: 0 auto;
-    }
-
-    /* ==========================================================================
-       ACT 6: THE SYSTEM & WHAT MAKES THE MODEL DIFFERENT
-       ========================================================================== */
+    /* ACT 4: THE SYSTEM */
     .how-we-build {
-      padding: 120px 0;
-      background-color: var(--color-soft-pale-green);
+      padding: 96px 0;
+      background-color: var(--color-pale-green);
     }
 
-    /* 5-Step Process Flow */
     .process-flow-container {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin-bottom: 96px;
-      position: relative;
+      gap: 14px;
     }
 
     .process-card {
-      background-color: var(--color-pale-green);
+      background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
-      border-radius: 16px;
-      padding: 28px 20px;
+      border-radius: 14px;
+      padding: 24px 18px;
       display: flex;
       flex-direction: column;
-      position: relative;
     }
 
     .process-step-num {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
       color: var(--color-primary-green);
       letter-spacing: 0.08em;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: block;
     }
 
     .process-step-title {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
       color: var(--color-black);
-      margin-bottom: 6px;
-      line-height: 1.2;
+      margin-bottom: 4px;
     }
 
     .process-step-tagline {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--color-deep-green);
-      margin-bottom: 14px;
-      line-height: 1.35;
+      margin-bottom: 10px;
     }
 
     .process-step-desc {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--color-black);
       opacity: 0.8;
-      line-height: 1.5;
+      line-height: 1.45;
       flex-grow: 1;
     }
 
-    /* What Makes The Model Different */
-    .model-comparison-header {
-      margin-bottom: 40px;
+    /* ACT 5: FIELD EVIDENCE */
+    .case-studies-section {
+      padding: 96px 0;
+      background-color: var(--color-soft-pale-green);
+      border-top: 1px solid rgba(76, 149, 96, 0.15);
+      border-bottom: 1px solid rgba(76, 149, 96, 0.15);
+      overflow: hidden;
     }
 
-    .model-comparison-title {
+    .case-header-row {
+      margin-bottom: 36px;
+    }
+
+    .case-header-text {
+      max-width: 680px;
+    }
+
+    .case-studies-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 24px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-primary-green) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .case-studies-scroll::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .case-studies-scroll::-webkit-scrollbar-thumb {
+      background-color: var(--color-primary-green);
+      border-radius: 999px;
+    }
+
+    .case-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      background-color: var(--color-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.25);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .case-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-primary-green);
+    }
+
+    .case-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .case-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-deep-green);
+      background-color: var(--color-soft-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.3);
+      padding: 3px 8px;
+      border-radius: 5px;
+    }
+
+    .case-read-time {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-black);
+      opacity: 0.55;
+    }
+
+    .case-metric-highlight {
       font-size: 32px;
       font-weight: 800;
-      color: var(--color-black);
+      color: var(--color-primary-green);
+      line-height: 1;
+      margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
 
-    .model-split-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    .model-pillar {
-      background-color: var(--color-pale-green);
-      border: 1px solid rgba(76, 149, 96, 0.25);
-      border-radius: 20px;
-      padding: 40px 36px;
-    }
-
-    .pillar-heading {
-      font-size: 24px;
+    .case-card-title {
+      font-size: 18px;
       font-weight: 800;
       color: var(--color-black);
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--color-primary-green);
-      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 8px;
     }
 
-    .pillar-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    .case-card-summary {
+      font-size: 14px;
+      color: var(--color-black);
+      opacity: 0.8;
+      line-height: 1.45;
+      margin-bottom: 20px;
     }
 
-    .pillar-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .pillar-item-title {
-      font-size: 18px;
+    .case-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--color-deep-green);
+      margin-top: auto;
     }
 
-    .pillar-item-desc {
-      font-size: 15px;
-      color: var(--color-black);
-      opacity: 0.85;
-      line-height: 1.5;
+    .case-card-cta svg {
+      transition: transform 0.2s ease;
     }
 
-    /* ==========================================================================
-       ACT 7: FLEXIBLE BY DESIGN (CLEAN EDITORIAL TEXT CLOSING)
-       ========================================================================== */
+    .case-card:hover .case-card-cta svg {
+      transform: translateX(3px);
+    }
+
+    /* ACT 6: CLOSING */
     .closing-text-section {
-      padding: 100px 0 140px 0;
+      padding: 80px 0 100px 0;
       background-color: var(--color-pale-green);
       text-align: center;
     }
 
-    .closing-eyebrow {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-primary-green);
-      margin-bottom: 16px;
-      display: block;
-    }
-
     .closing-headline {
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 800;
       letter-spacing: -0.025em;
       color: var(--color-black);
       line-height: 1.15;
-      max-width: 860px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: 0 auto 28px auto;
     }
 
-    /* ==========================================================================
-       8. FOOTER
-       ========================================================================== */
+    .closing-actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* FOOTER */
     footer {
       background-color: var(--color-black);
       color: var(--color-white);
-      padding: 40px 0;
+      padding: 32px 0;
     }
 
     footer .container {
@@ -818,18 +664,16 @@
     }
 
     .footer-logo {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
     }
 
     .footer-copyright {
-      font-size: 14px;
+      font-size: 13px;
       opacity: 0.5;
     }
 
-    /* ==========================================================================
-       9. RESPONSIVE BREAKPOINTS
-       ========================================================================== */
+    /* BREAKPOINTS */
     @media (max-width: 1024px) {
       .process-flow-container {
         grid-template-columns: repeat(3, 1fr);
@@ -838,127 +682,94 @@
 
     @media (max-width: 992px) {
       .container {
-        padding: 0 40px;
+        padding: 0 36px;
       }
 
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
       }
 
       .hero-title {
-        font-size: 44px;
+        font-size: 40px;
       }
 
       .section-title {
-        font-size: 38px;
+        font-size: 34px;
       }
 
-      .statement-text {
-        font-size: 24px;
-      }
-
-      .market-grid,
-      .business-impact-layout,
-      .model-split-grid {
+      .market-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 16px;
       }
 
       .models-card-container {
         grid-template-columns: 1fr;
-        gap: 48px;
-        padding: 40px 32px;
+        gap: 36px;
+        padding: 32px 24px;
       }
 
       .model-col:first-child {
         border-right: none;
         border-bottom: 1px solid rgba(76, 149, 96, 0.2);
         padding-right: 0;
-        padding-bottom: 48px;
+        padding-bottom: 36px;
       }
 
       .closing-headline {
-        font-size: 38px;
-      }
-
-      .stat-large {
-        font-size: 88px;
+        font-size: 34px;
       }
     }
 
     @media (max-width: 768px) {
       .container {
-        padding: 0 24px;
+        padding: 0 20px;
       }
 
       .hero {
-        padding: 40px 0 72px 0;
+        padding: 36px 0 60px 0;
       }
 
       .hero-grid,
-      .bottleneck-grid,
       .cards-grid,
-      .proven-grid,
       .process-flow-container {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 16px;
       }
 
       .hero-title {
-        font-size: 36px;
+        font-size: 32px;
       }
 
-      .hero-image-container {
-        min-height: 320px;
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
       }
 
       .section-title {
-        font-size: 30px;
+        font-size: 28px;
       }
 
-      .statement-text {
-        font-size: 20px;
+      .market-surge-box {
+        padding: 24px 16px;
       }
 
-      .market-surge-box,
-      .model-pillar {
-        padding: 32px 20px;
-      }
-
-      .market-title,
-      .model-comparison-title {
-        font-size: 24px;
-      }
-
-      .result-callout {
-        padding: 32px 24px;
-      }
-
-      .result-text {
-        font-size: 22px;
-      }
-
-      .models-card-container {
-        padding: 32px 20px;
-      }
-
-      .outcomes-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .closing-text-section {
-        padding: 60px 0 100px 0;
+      .case-card {
+        flex: 0 0 280px;
+        padding: 24px 18px;
       }
 
       .closing-headline {
-        font-size: 28px;
+        font-size: 26px;
       }
 
       footer .container {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         align-items: flex-start;
       }
     }
@@ -970,20 +781,24 @@
   <header>
     <div class="container">
       <div class="brand-logo">GenSpark</div>
-      <div class="header-label">FDE Talent Transformation</div>
+      <div class="header-label">FDE Capability</div>
     </div>
   </header>
 
-  <!-- ACT 1: THE HERO & MARKET SURGE -->
+  <!-- ACT 1: HERO & MARKET SURGE -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <h1 class="hero-title">AI is raising the bar for <span class="highlight">SI delivery.</span></h1>
+          <h1 class="hero-title">AI raised the bar.<br/><span class="highlight">FDEs clear it.</span></h1>
           
-          <div class="hero-intro">
-            <p>As AI accelerates software delivery, the bottleneck in systems integration has shifted from writing code to solving the right problem. Modern clients expect engineers who can sit with domain experts in the morning and push production-grade systems by the afternoon. That is the role of the Forward Deployed Engineer (FDE).</p>
-            <p class="hero-punchline">FDEs connect the “why” to the “how.”</p>
+          <p class="hero-intro">
+            The best AI-enabled teams don’t just write code faster. They put engineers who understand the domain, the customer, and the business outcome directly into the delivery loop.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#engagement-models" class="btn btn-primary">Build Your FDE Bench</a>
+            <a href="#engagement-models" class="btn btn-secondary">Explore Delivery Models</a>
           </div>
         </div>
 
@@ -996,11 +811,11 @@
         </div>
       </div>
 
-      <!-- Market Growth Proof Points -->
+      <!-- Market Proof Points -->
       <div class="market-surge-box">
         <div class="market-header">
-          <h2 class="market-title">The FDE Shift</h2>
-          <p class="market-subtitle">The demand for FDE capability is accelerating.</p>
+          <h2 class="market-title">The Market Shift</h2>
+          <p class="market-subtitle">Client demand for cross-functional deployment talent is exploding.</p>
         </div>
         <div class="market-grid">
           <div class="market-stat-card">
@@ -1010,89 +825,30 @@
           </div>
           <div class="market-stat-card">
             <div class="stat-metric">5,800+</div>
-            <div class="stat-label">Active FDE job postings</div>
+            <div class="stat-label">Active FDE roles</div>
             <div class="stat-timeline">August 2026</div>
           </div>
           <div class="market-stat-card">
             <div class="stat-metric">~270×</div>
-            <div class="stat-label">FDE role growth</div>
+            <div class="stat-label">Role demand growth</div>
             <div class="stat-timeline">2023 → 2026E</div>
           </div>
-      </div>
-      <div class="market-footer-callout">
-        <p class="market-footer-text">For SIs, the opportunity is not simply to hire FDEs. It is to build the capability at scale.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- ACT 2: THE BOTTLENECK & BUSINESS IMPACT -->
-  <section class="bottleneck-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Strong engineers do not automatically become FDEs.</h2>
-        <p class="section-description">
-          SIs have technical talent. The challenge is building engineers who can translate ambiguous client problems into solutions, work across unfamiliar systems, communicate with stakeholders, and own delivery through deployment.
-        </p>
-      </div>
-
-      <div class="bottleneck-grid">
-        <div class="bottleneck-card">
-          <span class="bottleneck-number">01</span>
-          <h3 class="bottleneck-card-title">Technical Talent ≠ FDE Readiness</h3>
-          <p class="bottleneck-text">Engineering depth is only the foundation. FDEs combine technical fluency with problem-solving, adaptability, and client context.</p>
         </div>
-        <div class="bottleneck-card">
-          <span class="bottleneck-number">02</span>
-          <h3 class="bottleneck-card-title">Training ≠ Deployment Readiness</h3>
-          <p class="bottleneck-text">FDE capability comes from applied, client-mirrored experience, where engineers scope, build, defend, and deliver under real-world constraints.</p>
-        </div>
-        <div class="bottleneck-card">
-          <span class="bottleneck-number">03</span>
-          <h3 class="bottleneck-card-title">There Are No Ready-Made FDEs</h3>
-          <p class="bottleneck-text">The role is still emerging, so the talent pool is limited. Building FDE capability requires developing engineers for the role, not just recruiting them.</p>
+        <div class="market-footer-callout">
+          <p class="market-footer-text">The winning move for SIs: build FDE capability at scale.</p>
         </div>
       </div>
-
-      <!-- Business Impact -->
-      <div class="business-impact-layout">
-        <div class="impact-left-column">
-          <h3 class="impact-title">THE Talent Gap</h3>
-          <p class="impact-subtitle">The right talent is scarce. Expensive. Hard to scale.</p>
-          <div class="impact-stack">
-            <div class="impact-item">
-              <h4 class="impact-item-title">Scarce</h4>
-              <p class="impact-item-text">The full FDE skill stack rarely comes together in one profile.</p>
-            </div>
-            <div class="impact-item">
-              <h4 class="impact-item-title">Expensive</h4>
-              <p class="impact-item-text">Engineers who combine technical depth with client-facing judgment command a premium.</p>
-            </div>
-            <div class="impact-item">
-              <h4 class="impact-item-title">Hard to scale</h4>
-              <p class="impact-item-text">Building this capability requires more than recruiting. It requires a repeatable development pipeline.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-callout">
-          <span class="result-label">The Result</span>
-          <p class="result-text">Higher costs. Slower delivery. Missed AI opportunities.</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ACT 3: THE FDE PROFILE -->
+  <!-- ACT 2: THE FDE PROFILE -->
   <section class="profile-section">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">THE FDE PROFILE</span>
-        <h2 class="section-title">Two FDE archetypes are emerging in the market.</h2>
+        <span class="eyebrow">The FDE Profile</span>
+        <h2 class="section-title">Who is an FDE?</h2>
         <p class="section-description">
-          Junior FDEs typically sit in the 0–5 year range, while Senior FDEs tend to have 5–10+ years of experience. The market currently skews toward the senior archetype, but FDE capability is not defined by tenure. With the right training and applied experience, it can be built across career stages.<br/><br/>
-          The FDE skill set can be distilled into four core capability areas:
+          The market hasn't settled on one definition, but the demand is unambiguous: engineers who solve business problems directly in production.
         </p>
       </div>
 
@@ -1100,235 +856,254 @@
         <div class="card">
           <span class="card-number">01</span>
           <h3 class="card-title">Technical Fluency</h3>
-          <p class="card-text">Apply AI, software, data, and cloud technologies to design solutions within real enterprise constraints.</p>
+          <p class="card-text">Deliver reliable AI, cloud, and modern software architectures inside real enterprise constraints.</p>
         </div>
         <div class="card">
           <span class="card-number">02</span>
           <h3 class="card-title">Problem Solving</h3>
-          <p class="card-text">Translate business pain and ambiguity into clear, solvable problems and practical solutions.</p>
+          <p class="card-text">Translate ambiguous business pain into crisp scopes, clean architectures, and workable code.</p>
         </div>
         <div class="card">
           <span class="card-number">03</span>
           <h3 class="card-title">Client Acumen</h3>
-          <p class="card-text">Understand business needs, navigate client environments, and connect technical solutions to real outcomes.</p>
+          <p class="card-text">Navigate client stakeholders, manage expectations, and map tech choices directly to ROI.</p>
         </div>
         <div class="card">
           <span class="card-number">04</span>
           <h3 class="card-title">Build & Deploy</h3>
-          <p class="card-text">Build, deploy, monitor, and improve solutions in real production environments.</p>
+          <p class="card-text">Own delivery end-to-end, from scaffolding and test harnesses to live production deployment.</p>
         </div>
       </div>
-  </div>
-</section>
-
-  <!-- SPANNED STATEMENT SECTION -->
-  <section class="statement-section">
-    <div class="container">
-      <p class="statement-text">
-        There’s no one-size-fits-all FDE. We work with you to define the archetype, capability mix, and talent model that best fits your business and delivery needs.
-      </p>
     </div>
   </section>
 
-  <!-- ACT 4: THE ENGAGEMENT MODELS -->
-  <section class="engagement-models">
+  <!-- ACT 3: ENGAGEMENT MODELS -->
+  <section class="engagement-models" id="engagement-models">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">THE ENGAGEMENT MODELS</span>
-        <h2 class="section-title">Two ways to build your FDE capability.</h2>
+        <span class="eyebrow">Engagement Models</span>
+        <h2 class="section-title">Two ways to build your capability.</h2>
         <p class="section-description">
-          Choose the path that fits your talent strategy.
+          Scale your forward-deployed capacity through internal upskilling or an elastic external bench.
         </p>
       </div>
 
       <div class="models-card-container">
         <!-- Option 1 -->
         <div class="model-col">
-          <span class="model-badge">OPTION 1</span>
-          <h3 class="model-title">Transform Your Existing Talent</h3>
-          <p class="model-pathway">Upskill → Validate → Deploy</p>
-          <p class="model-summary-desc">Turn your engineers into FDE-ready talent.</p>
+          <span class="model-badge">Option 1</span>
+          <h3 class="model-title">Retool Existing Talent</h3>
+          <p class="model-pathway">Assess → Upskill → Deploy</p>
+          <p class="model-summary-desc">Turn your technical engineers into high-impact FDEs.</p>
           
           <ul class="model-list">
-            <li>Assess FDE capability gaps</li>
-            <li>Build technical and client-readiness skills</li>
-            <li>Validate through real-world delivery</li>
-            <li>Deploy back into your teams</li>
+            <li>Pinpoint capability gaps</li>
+            <li>Build applied client-readiness skills</li>
+            <li>Validate on live delivery simulations</li>
+            <li>Redeploy directly into key accounts</li>
           </ul>
 
           <div class="model-outcomes-container">
-            <span class="model-outcomes-label">OUTCOMES</span>
+            <span class="model-outcomes-label">Outcomes</span>
             <div class="outcomes-grid">
-              <div class="outcome-pill">Retain Domain Expertise</div>
-              <div class="outcome-pill">Lower Development Costs</div>
-              <div class="outcome-pill">Faster Activation</div>
+              <div class="outcome-pill">Preserve Domain Context</div>
+              <div class="outcome-pill">Lower Hiring Costs</div>
+              <div class="outcome-pill">Immediate Impact</div>
             </div>
           </div>
         </div>
 
         <!-- Option 2 -->
         <div class="model-col">
-          <span class="model-badge">OPTION 2</span>
-          <h3 class="model-title">Build a New FDE Bench</h3>
-          <p class="model-pathway">Source → Train → Validate → Deploy</p>
-          <p class="model-summary-desc">Build a pipeline of FDE-ready talent around your needs.</p>
+          <span class="model-badge">Option 2</span>
+          <h3 class="model-title">Build a New Bench</h3>
+          <p class="model-pathway">Source → Train → Deploy</p>
+          <p class="model-summary-desc">A continuous pipeline of vetted, deployment-ready talent.</p>
           
           <ul class="model-list">
-            <li>Source high-quality engineering talent</li>
+            <li>Target high-aptitude engineering talent</li>
             <li>Train on your stack and domain</li>
-            <li>Validate through applied projects</li>
-            <li>Deploy ready-to-contribute FDEs</li>
+            <li>Validate through rigorous delivery sprints</li>
+            <li>Deploy plug-and-play FDEs on demand</li>
           </ul>
 
           <div class="model-outcomes-container">
-            <span class="model-outcomes-label">OUTCOMES</span>
+            <span class="model-outcomes-label">Outcomes</span>
             <div class="outcomes-grid">
-              <div class="outcome-pill">Expand Delivery Capacity</div>
-              <div class="outcome-pill">Reduce Training Overhead</div>
-              <div class="outcome-pill">Scale With Demand</div>
+              <div class="outcome-pill">Expand Delivery Margin</div>
+              <div class="outcome-pill">Zero Ramp Overhead</div>
+              <div class="outcome-pill">Scale On Demand</div>
             </div>
           </div>
         </div>
       </div>
-  </div>
-</section>
+    </div>
+  </section>
 
-  <!-- ACT 5: PROVEN IN PRACTICE (DARK ANCHOR) -->
-  <section class="proven-in-practice">
-    <div class="container">
-      <div class="proven-grid">
-        <div class="proven-content">
-          <span class="eyebrow">Proven in Practice</span>
-          <h2 class="section-title">And this isn't theoretical.</h2>
-          <p class="section-description">
-            We partnered with a US-based Systems Integrator to build an Associate FDE talent pipeline, from structured training through deployment.
-          </p>
-        </div>
-        <div class="proven-stat-container">
-          <div class="stat-display-box">
-            <div class="stat-large">40+</div>
-            <div class="stat-heading">FDEs deployed</div>
-            <p class="stat-subtext">A proven approach to building deployment-ready FDE talent at scale.</p>
-          </div>
-        </div>
-      </div>
-  </div>
-</section>
-
-  <!-- ACT 6: THE SYSTEM & WHAT MAKES THE MODEL DIFFERENT -->
+  <!-- ACT 4: THE SYSTEM -->
   <section class="how-we-build">
     <div class="container">
       
-      <!-- System Header -->
       <div class="section-header">
-        <span class="eyebrow">THE SYSTEM</span>
-        <h2 class="section-title">Go grab a coffee. We’ll build your FDE capability.</h2>
+        <span class="eyebrow">The System</span>
+        <h2 class="section-title">Go grab a coffee. We'll build the capability.</h2>
         <p class="section-description">
-          GenSpark combines technical development, applied project experience, and workplace readiness to create engineers who are prepared for real client delivery.
+          A structured blueprint engineered for immediate client delivery readiness.
         </p>
       </div>
 
-      <!-- 5-Step Process Flow -->
       <div class="process-flow-container">
         <div class="process-card">
           <span class="process-step-num">01</span>
           <h3 class="process-step-title">Assess</h3>
-          <p class="process-step-tagline">Identify the capability gaps.</p>
-          <p class="process-step-desc">Assess technical depth, problem-solving ability, communication, and client readiness to identify FDE gaps.</p>
+          <p class="process-step-tagline">Identify the gaps.</p>
+          <p class="process-step-desc">Benchmark technical depth, problem-solving, and communication baseline.</p>
         </div>
 
         <div class="process-card">
           <span class="process-step-num">02</span>
           <h3 class="process-step-title">Build</h3>
-          <p class="process-step-tagline">Develop the skills that matter in delivery.</p>
-          <p class="process-step-desc">Build capability across AI, software, data, cloud, and modern enterprise development practices.</p>
+          <p class="process-step-tagline">Develop core skills.</p>
+          <p class="process-step-desc">Master agentic AI, modern cloud stacks, and modern software architectures.</p>
         </div>
 
         <div class="process-card">
           <span class="process-step-num">03</span>
           <h3 class="process-step-title">Simulate</h3>
-          <p class="process-step-tagline">Learn through client-mirrored work.</p>
-          <p class="process-step-desc">Work on realistic problems with ambiguity, constraints, stakeholders, and delivery expectations.</p>
+          <p class="process-step-tagline">Mirror client reality.</p>
+          <p class="process-step-desc">Execute under messy enterprise constraints, tight sprints, and changing scopes.</p>
         </div>
 
         <div class="process-card">
           <span class="process-step-num">04</span>
           <h3 class="process-step-title">Validate</h3>
-          <p class="process-step-tagline">Prove capability through execution.</p>
-          <p class="process-step-desc">Evaluate engineers through working solutions, technical reviews, demos, retrospectives, and structured feedback.</p>
+          <p class="process-step-tagline">Prove execution.</p>
+          <p class="process-step-desc">Rigorous architecture reviews, live demos, and stakeholder scrutiny.</p>
         </div>
 
         <div class="process-card">
           <span class="process-step-num">05</span>
           <h3 class="process-step-title">Deploy</h3>
-          <p class="process-step-tagline">Put proven talent into the environment.</p>
-          <p class="process-step-desc">Deploy engineers ready to contribute, collaborate with clients, and take ownership of real delivery work.</p>
-        </div>
-      </div>
-
-      <!-- What Makes The Model Different (Side-by-Side Pillars) -->
-      <div class="model-comparison-header">
-        <h3 class="model-comparison-title">What Makes The Model Different</h3>
-      </div>
-
-      <div class="model-split-grid">
-        <!-- Pillar 1: Technical Capability -->
-        <div class="model-pillar">
-          <h4 class="pillar-heading">Technical Capability</h4>
-          <div class="pillar-stack">
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">AI-Paired Development</h5>
-              <p class="pillar-item-desc">Build with modern AI tools and enterprise development practices.</p>
-            </div>
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">Client-Mirrored Projects</h5>
-              <p class="pillar-item-desc">Solve problems modelled on the complexity and expectations of real SI engagements.</p>
-            </div>
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">Sprint-Based Execution</h5>
-              <p class="pillar-item-desc">Scope, prioritize, build, and deliver within enterprise delivery rhythms.</p>
-            </div>
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">Technical Reviews & Retrospectives</h5>
-              <p class="pillar-item-desc">Strengthen technical judgment through continuous feedback, demos, and structured reviews.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pillar 2: Professional & Workplace Readiness -->
-        <div class="model-pillar">
-          <h4 class="pillar-heading">Professional & Workplace Readiness</h4>
-          <div class="pillar-stack">
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">Stakeholder Communication</h5>
-              <p class="pillar-item-desc">Translate technical work into clear updates, recommendations, and client-ready communication.</p>
-            </div>
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">Socratic Learning</h5>
-              <p class="pillar-item-desc">Defend technical decisions, respond to questioning, and build confidence under scrutiny.</p>
-            </div>
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">Collaboration & Teamwork</h5>
-              <p class="pillar-item-desc">Work effectively across engineering, consulting, and client-facing teams.</p>
-            </div>
-            <div class="pillar-item">
-              <h5 class="pillar-item-title">Ownership & Accountability</h5>
-              <p class="pillar-item-desc">Own workstreams end-to-end, from understanding the problem through building, demonstrating, and delivering the solution.</p>
-            </div>
-          </div>
+          <p class="process-step-tagline">Drive client impact.</p>
+          <p class="process-step-desc">Engineers step straight into billable engagements and own delivery.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ACT 7: FLEXIBLE BY DESIGN (CLEAN EDITORIAL TEXT CLOSING) -->
+  <!-- ACT 5: FIELD EVIDENCE (HORIZONTAL SCROLL) -->
+  <section class="case-studies-section">
+    <div class="container">
+      
+      <div class="case-header-row">
+        <div class="case-header-text">
+          <span class="eyebrow">Field Evidence</span>
+          <h2 class="section-title">Proven in practice. Not pitch decks.</h2>
+          <p class="section-description">
+            How systems integrators deploy GenSpark talent to win accounts and compress delivery times.
+          </p>
+        </div>
+      </div>
+
+      <div class="case-studies-scroll">
+        <!-- Card 1 -->
+        <a href="/case-studies/us-si-pipeline" target="_blank" rel="noopener noreferrer" class="case-card">
+          <div>
+            <div class="case-card-meta">
+              <span class="case-tag">Case Study</span>
+              <span class="case-read-time">3 min read</span>
+            </div>
+            <div class="case-metric-highlight">40+ Deployed</div>
+            <h3 class="case-card-title">Building an Associate FDE Bench for a Tier-1 SI</h3>
+            <p class="case-card-summary">
+              Scaled 40 production-ready AI engineers in under 90 days across complex cloud architectures.
+            </p>
+          </div>
+          <div class="case-card-cta">
+            Read Case Study
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/insights/retooling-senior-talent" target="_blank" rel="noopener noreferrer" class="case-card">
+          <div>
+            <div class="case-card-meta">
+              <span class="case-tag">Field Note</span>
+              <span class="case-read-time">4 min read</span>
+            </div>
+            <div class="case-metric-highlight">3.2× Speed</div>
+            <h3 class="case-card-title">Retooling Classical Engineers into AI Integrators</h3>
+            <p class="case-card-summary">
+              Converting senior back-end devs into client-facing architects who deploy working code on day one.
+            </p>
+          </div>
+          <div class="case-card-cta">
+            Read Field Note
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/case-studies/enterprise-agentic-delivery" target="_blank" rel="noopener noreferrer" class="case-card">
+          <div>
+            <div class="case-card-meta">
+              <span class="case-tag">Case Study</span>
+              <span class="case-read-time">4 min read</span>
+            </div>
+            <div class="case-metric-highlight">&lt; 14 Days</div>
+            <h3 class="case-card-title">Accelerating Production in Legacy Enterprise Stacks</h3>
+            <p class="case-card-summary">
+              Sprint simulations cut Fortune 500 client ramp time from two months to two weeks.
+            </p>
+          </div>
+          <div class="case-card-cta">
+            Read Case Study
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="/insights/fde-roi-framework" target="_blank" rel="noopener noreferrer" class="case-card">
+          <div>
+            <div class="case-card-meta">
+              <span class="case-tag">Framework</span>
+              <span class="case-read-time">5 min read</span>
+            </div>
+            <div class="case-metric-highlight">-45% Cost</div>
+            <h3 class="case-card-title">The Enterprise FDE Margin & Unit Economics Guide</h3>
+            <p class="case-card-summary">
+              How cross-functional talent models protect billing margins and eliminate rework.
+            </p>
+          </div>
+          <div class="case-card-cta">
+            Read Guide
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACT 6: CLOSING -->
   <section class="closing-text-section">
     <div class="container">
-      <span class="closing-eyebrow">Flexible By Design</span>
       <h2 class="closing-headline">
         Your FDE capability, built for your environment.
       </h2>
+      <div class="closing-actions">
+        <a href="#engagement-models" class="btn btn-primary">Build Your FDE</a>
+      </div>
     </div>
   </section>
 
