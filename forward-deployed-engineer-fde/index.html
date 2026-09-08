@@ -96,14 +96,48 @@
 
     /* ACT 1: HERO */
     .hero {
+      position: relative;
+      overflow: hidden;
       padding: 48px 0 96px 0;
-      background-color: var(--color-pale-green);
+      background-color: var(--color-deep-green);
+    }
+
+    /* Full-bleed hero background image + scrim */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        100deg,
+        rgba(19, 50, 43, 0.94) 0%,
+        rgba(19, 50, 43, 0.86) 30%,
+        rgba(19, 50, 43, 0.55) 58%,
+        rgba(19, 50, 43, 0.30) 78%,
+        rgba(19, 50, 43, 0.42) 100%
+      );
+    }
+
+    .hero > .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 52fr 48fr;
-      gap: 56px;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
       align-items: center;
       margin-bottom: 72px;
     }
@@ -119,15 +153,19 @@
       font-weight: 800;
       line-height: 1.08;
       letter-spacing: -0.035em;
-      color: var(--color-black);
+      color: var(--color-white);
       margin-bottom: 16px;
+    }
+
+    .hero-title .highlight {
+      color: #9BDBA6;
     }
 
     .hero-intro {
       font-size: 19px;
       line-height: 1.5;
-      color: var(--color-black);
-      opacity: 0.88;
+      color: var(--color-white);
+      opacity: 0.86;
       margin-bottom: 28px;
       max-width: 500px;
     }
@@ -153,37 +191,176 @@
     }
 
     .btn-primary {
-      background-color: var(--color-deep-green);
+      background-color: var(--color-primary-green);
       color: var(--color-white);
-      border: 1px solid var(--color-deep-green);
+      border: 1px solid var(--color-primary-green);
     }
 
     .btn-primary:hover {
-      background-color: #0d231e;
+      background-color: #438654;
       transform: translateY(-1px);
     }
 
     .btn-secondary {
       background-color: transparent;
-      color: var(--color-deep-green);
-      border: 1.5px solid var(--color-deep-green);
+      color: var(--color-white);
+      border: 1.5px solid rgba(255, 255, 255, 0.65);
     }
 
     .btn-secondary:hover {
-      background-color: rgba(19, 50, 43, 0.06);
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-white);
       transform: translateY(-1px);
     }
 
-    .hero-image-container {
+    /* Signup panel replacing the hero image */
+    .hero-signup-panel {
+      background-color: var(--color-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.25);
       border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 48px -12px rgba(19, 50, 43, 0.12);
+      padding: 28px 30px 24px 30px;
+      box-shadow: 0 20px 48px -12px rgba(19, 50, 43, 0.35);
+      scroll-margin-top: 32px;
+      transition: border-color 0.3s ease;
     }
 
-    .hero-image {
+    .hero-signup-panel:target {
+      border-color: var(--color-primary-green);
+      animation: fde-form-pulse 1.6s ease-out 1;
+    }
+
+    @keyframes fde-form-pulse {
+      0% {
+        box-shadow: 0 20px 48px -12px rgba(19, 50, 43, 0.35), 0 0 0 0 rgba(76, 149, 96, 0.55);
+      }
+      60% {
+        box-shadow: 0 20px 48px -12px rgba(19, 50, 43, 0.35), 0 0 0 14px rgba(76, 149, 96, 0);
+      }
+      100% {
+        box-shadow: 0 20px 48px -12px rgba(19, 50, 43, 0.35), 0 0 0 0 rgba(76, 149, 96, 0);
+      }
+    }
+
+    .signup-panel-heading {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--color-black);
+      margin-bottom: 4px;
+    }
+
+    .signup-panel-subheading {
+      font-size: 13px;
+      color: var(--color-black);
+      opacity: 0.75;
+      margin-bottom: 16px;
+    }
+
+    /* Mailchimp form theming */
+    #mc_embed_shell {
+      font-family: var(--font-family);
+    }
+
+    #mc_embed_signup h2 {
+      display: none;
+    }
+
+    #mc_embed_signup .indicates-required {
+      font-size: 11px;
+      color: var(--color-black);
+      opacity: 0.6;
+      margin-bottom: 12px;
+    }
+
+    #mc_embed_signup .asterisk {
+      color: var(--color-primary-green);
+    }
+
+    #mc_embed_signup .mc-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    #mc_embed_signup .mc-field-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      min-width: 0;
+    }
+
+    #mc_embed_signup .mc-field-group label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-deep-green);
+      margin-bottom: 4px;
+    }
+
+    #mc_embed_signup .mc-field-group input {
+      font-family: var(--font-family);
+      font-size: 14px;
+      color: var(--color-black);
+      background-color: var(--color-white);
+      border: 1.5px solid rgba(76, 149, 96, 0.3);
+      border-radius: 8px;
+      padding: 9px 12px;
       width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+      min-width: 0;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #mc_embed_signup .mc-field-group input:focus {
+      outline: none;
+      border-color: var(--color-primary-green);
+      box-shadow: 0 0 0 3px rgba(76, 149, 96, 0.18);
+    }
+
+    #mce-responses {
+      margin-bottom: 4px;
+    }
+
+    #mce-responses .response {
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    #mce-error-response {
+      background-color: #FBE7E7;
+      color: #A02A2A;
+    }
+
+    #mce-success-response {
+      background-color: var(--color-soft-pale-green);
+      color: var(--color-deep-green);
+    }
+
+    #mc_embed_signup .clear {
+      margin-top: 6px;
+    }
+
+    #mc_embed_signup #mc-embedded-subscribe {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 26px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--font-family);
+      background-color: var(--color-deep-green);
+      color: var(--color-white);
+      border: 1px solid var(--color-deep-green);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #mc_embed_signup #mc-embedded-subscribe:hover {
+      background-color: #0d231e;
+      transform: translateY(-1px);
     }
 
     /* Market Surge Box */
@@ -327,8 +504,21 @@
     /* ACT 3: ENGAGEMENT MODELS */
     .engagement-models {
       padding: 96px 0;
-      background-color: var(--color-soft-pale-green);
+      background-color: var(--color-deep-green);
       scroll-margin-top: 30px;
+    }
+
+    .engagement-models .eyebrow {
+      color: #9BDBA6;
+    }
+
+    .engagement-models .section-title {
+      color: var(--color-white);
+    }
+
+    .engagement-models .section-description {
+      color: var(--color-white);
+      opacity: 0.8;
     }
 
     .models-card-container {
@@ -505,10 +695,23 @@
     /* ACT 5: FIELD EVIDENCE */
     .case-studies-section {
       padding: 96px 0;
-      background-color: var(--color-soft-pale-green);
-      border-top: 1px solid rgba(76, 149, 96, 0.15);
-      border-bottom: 1px solid rgba(76, 149, 96, 0.15);
+      background-color: var(--color-deep-green);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       overflow: hidden;
+    }
+
+    .case-studies-section .eyebrow {
+      color: #9BDBA6;
+    }
+
+    .case-studies-section .section-title {
+      color: var(--color-white);
+    }
+
+    .case-studies-section .section-description {
+      color: var(--color-white);
+      opacity: 0.8;
     }
 
     .case-header-row {
@@ -523,10 +726,9 @@
       display: flex;
       gap: 20px;
       overflow-x: auto;
-      padding-bottom: 24px;
-      scroll-snap-type: x mandatory;
+      padding-bottom: 4px;
       scrollbar-width: thin;
-      scrollbar-color: var(--color-primary-green) transparent;
+      scrollbar-color: #9BDBA6 transparent;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -535,20 +737,19 @@
     }
 
     .case-studies-scroll::-webkit-scrollbar-thumb {
-      background-color: var(--color-primary-green);
+      background-color: #9BDBA6;
       border-radius: 999px;
     }
 
     .case-card {
-      flex: 0 0 340px;
-      scroll-snap-align: start;
+      flex: 0 0 300px;
       background-color: var(--color-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
       border-radius: 16px;
-      padding: 28px 24px;
+      padding: 24px 22px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 10px;
       text-decoration: none;
       color: inherit;
       transition: transform 0.2s ease, border-color 0.2s ease;
@@ -559,14 +760,8 @@
       border-color: var(--color-primary-green);
     }
 
-    .case-card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
     .case-tag {
+      align-self: flex-start;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.08em;
@@ -578,36 +773,19 @@
       border-radius: 5px;
     }
 
-    .case-read-time {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-black);
-      opacity: 0.55;
-    }
-
-    .case-metric-highlight {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--color-primary-green);
-      line-height: 1;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
-
     .case-card-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 800;
       color: var(--color-black);
       line-height: 1.3;
-      margin-bottom: 8px;
     }
 
     .case-card-summary {
       font-size: 14px;
       color: var(--color-black);
-      opacity: 0.8;
+      opacity: 0.75;
       line-height: 1.45;
-      margin-bottom: 20px;
+      margin-bottom: 4px;
     }
 
     .case-card-cta {
@@ -648,6 +826,15 @@
     .closing-actions {
       display: flex;
       justify-content: center;
+    }
+
+    .closing-actions .btn-primary {
+      background-color: var(--color-deep-green);
+      border-color: var(--color-deep-green);
+    }
+
+    .closing-actions .btn-primary:hover {
+      background-color: #0d231e;
     }
 
     /* FOOTER */
@@ -758,6 +945,15 @@
         padding: 24px 16px;
       }
 
+      .hero-signup-panel {
+        padding: 24px 22px 22px 22px;
+      }
+
+      #mc_embed_signup .mc-field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
       .case-card {
         flex: 0 0 280px;
         padding: 24px 18px;
@@ -787,6 +983,13 @@
 
   <!-- ACT 1: HERO & MARKET SURGE -->
   <section class="hero">
+    <div class="hero-bg">
+      <img
+        src="corpo.jpg"
+        alt="Forward-deployed engineers collaborating on client delivery"
+      />
+    </div>
+
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
@@ -797,17 +1000,42 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#engagement-models" class="btn btn-primary">Build Your FDE Bench</a>
-            <a href="#engagement-models" class="btn btn-secondary">Explore Delivery Models</a>
+            <a href="#engagement-models" class="btn btn-primary">Explore Engagement Models</a>
           </div>
         </div>
 
-        <div class="hero-image-container">
-          <img 
-            src="corpo.jpg" 
-            alt="Forward-deployed engineers collaborating on client delivery" 
-            class="hero-image"
-          />
+        <div class="hero-signup-panel" id="fde-form">
+          <div class="signup-panel-heading">Let's build your FDE bench</div>
+          <p class="signup-panel-subheading">Tell us a bit about your team and we'll set up a call to map out your FDE capability.</p>
+
+          <div id="mc_embed_shell">
+            <div id="mc_embed_signup">
+              <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=0065bee0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+                <div id="mc_embed_signup_scroll">
+                  <h2>Book a Call</h2>
+                  <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                  <div class="mc-field-row">
+                    <div class="mc-field-group"><label for="mce-FNAME">First Name <span class="asterisk">*</span></label><input type="text" name="FNAME" class="required text" id="mce-FNAME" required="" value=""></div>
+                    <div class="mc-field-group"><label for="mce-LNAME">Last Name </label><input type="text" name="LNAME" class=" text" id="mce-LNAME" value=""></div>
+                  </div>
+                  <div class="mc-field-row">
+                    <div class="mc-field-group"><label for="mce-MMERGE5">Company <span class="asterisk">*</span></label><input type="text" name="MMERGE5" class="required text" id="mce-MMERGE5" value="" required=""></div>
+                    <div class="mc-field-group"><label for="mce-MMERGE6">Designation <span class="asterisk">*</span></label><input type="text" name="MMERGE6" class="required text" id="mce-MMERGE6" required="" value=""></div>
+                  </div>
+                  <div class="mc-field-row">
+                    <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
+                    <div class="mc-field-group"><label for="mce-PHONE">Phone Number </label><input type="text" name="PHONE" class="REQ_CSS" id="mce-PHONE" value=""></div>
+                  </div>
+                  <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display: none;"></div>
+                    <div class="response" id="mce-success-response" style="display: none;"></div>
+                  </div>
+                  <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_5549e504ae14868b2410cb4cf_997b12936f" tabindex="-1" value=""></div>
+                  <div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Book a Call"></div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1006,94 +1234,187 @@
         </div>
       </div>
 
-      <div class="case-studies-scroll">
-        <!-- Card 1 -->
-        <a href="/case-studies/us-si-pipeline" target="_blank" rel="noopener noreferrer" class="case-card">
-          <div>
-            <div class="case-card-meta">
-              <span class="case-tag">Case Study</span>
-              <span class="case-read-time">3 min read</span>
-            </div>
-            <div class="case-metric-highlight">40+ Deployed</div>
-            <h3 class="case-card-title">Building an Associate FDE Bench for a Tier-1 SI</h3>
-            <p class="case-card-summary">
-              Scaled 40 production-ready AI engineers in under 90 days across complex cloud architectures.
-            </p>
-          </div>
-          <div class="case-card-cta">
-            Read Case Study
+      <div class="case-studies-scroll" id="case-studies-track">
+        <!-- Real posts from genspark.net/resources/ -->
+        <a href="https://genspark.net/blog/why-forward-deployed-engineers-exist/" target="_blank" rel="noopener noreferrer" class="case-card">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">Why Forward-Deployed Engineers Exist</h3>
+          <p class="case-card-summary">Why enterprises are pulling engineers directly into the delivery loop with clients.</p>
+          <span class="case-card-cta">
+            Read Now
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
+          </span>
         </a>
 
-        <!-- Card 2 -->
-        <a href="/insights/retooling-senior-talent" target="_blank" rel="noopener noreferrer" class="case-card">
-          <div>
-            <div class="case-card-meta">
-              <span class="case-tag">Field Note</span>
-              <span class="case-read-time">4 min read</span>
-            </div>
-            <div class="case-metric-highlight">3.2× Speed</div>
-            <h3 class="case-card-title">Retooling Classical Engineers into AI Integrators</h3>
-            <p class="case-card-summary">
-              Converting senior back-end devs into client-facing architects who deploy working code on day one.
-            </p>
-          </div>
-          <div class="case-card-cta">
-            Read Field Note
+        <a href="https://genspark.net/blog/forward-deployed-engineers-a-new-role-or-a-new-engineering-capability/" target="_blank" rel="noopener noreferrer" class="case-card">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">FDEs: A New Role, or a New Engineering Capability?</h3>
+          <p class="case-card-summary">Unpacking whether the FDE title marks a real shift in how engineering teams build.</p>
+          <span class="case-card-cta">
+            Read Now
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
+          </span>
         </a>
 
-        <!-- Card 3 -->
-        <a href="/case-studies/enterprise-agentic-delivery" target="_blank" rel="noopener noreferrer" class="case-card">
-          <div>
-            <div class="case-card-meta">
-              <span class="case-tag">Case Study</span>
-              <span class="case-read-time">4 min read</span>
-            </div>
-            <div class="case-metric-highlight">&lt; 14 Days</div>
-            <h3 class="case-card-title">Accelerating Production in Legacy Enterprise Stacks</h3>
-            <p class="case-card-summary">
-              Sprint simulations cut Fortune 500 client ramp time from two months to two weeks.
-            </p>
-          </div>
-          <div class="case-card-cta">
-            Read Case Study
+        <a href="https://genspark.net/blog/how-agentic-ai-is-changing-the-developer-mindset/" target="_blank" rel="noopener noreferrer" class="case-card">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">How Agentic AI Is Changing the Developer Mindset</h3>
+          <p class="case-card-summary">What agentic AI means for how engineers approach problem-solving day to day.</p>
+          <span class="case-card-cta">
+            Read Now
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
+          </span>
         </a>
 
-        <!-- Card 4 -->
-        <a href="/insights/fde-roi-framework" target="_blank" rel="noopener noreferrer" class="case-card">
-          <div>
-            <div class="case-card-meta">
-              <span class="case-tag">Framework</span>
-              <span class="case-read-time">5 min read</span>
-            </div>
-            <div class="case-metric-highlight">-45% Cost</div>
-            <h3 class="case-card-title">The Enterprise FDE Margin & Unit Economics Guide</h3>
-            <p class="case-card-summary">
-              How cross-functional talent models protect billing margins and eliminate rework.
-            </p>
-          </div>
-          <div class="case-card-cta">
-            Read Guide
+        <a href="https://genspark.net/blog/the-future-of-training-is-hybrid-how-genspark-blends-scale-with-personalization/" target="_blank" rel="noopener noreferrer" class="case-card">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">The Future of Training Is Hybrid</h3>
+          <p class="case-card-summary">How GenSpark blends scaled content with personalized coaching to build FDEs faster.</p>
+          <span class="case-card-cta">
+            Read Now
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
+          </span>
+        </a>
+
+        <a href="https://genspark.net/case-study/a-mid-sized-it-firm-empowers-leaders-with-genai-for-productivity-gains/" target="_blank" rel="noopener noreferrer" class="case-card">
+          <span class="case-tag">Case Study</span>
+          <h3 class="case-card-title">Empowering Leaders with GenAI for Productivity Gains</h3>
+          <p class="case-card-summary">How a mid-sized IT firm equipped its leadership with GenAI to unlock real productivity.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a href="https://genspark.net/case-study/driving-ai-enabled-delivery-excellence-for-a-leading-technology-organization/" target="_blank" rel="noopener noreferrer" class="case-card">
+          <span class="case-tag">Case Study</span>
+          <h3 class="case-card-title">Driving AI-Enabled Delivery Excellence</h3>
+          <p class="case-card-summary">How a leading technology organization raised delivery quality with AI-enabled execution.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Duplicate set for seamless auto-scroll loop -->
+        <a href="https://genspark.net/blog/why-forward-deployed-engineers-exist/" target="_blank" rel="noopener noreferrer" class="case-card" aria-hidden="true" tabindex="-1">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">Why Forward-Deployed Engineers Exist</h3>
+          <p class="case-card-summary">Why enterprises are pulling engineers directly into the delivery loop with clients.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <a href="https://genspark.net/blog/forward-deployed-engineers-a-new-role-or-a-new-engineering-capability/" target="_blank" rel="noopener noreferrer" class="case-card" aria-hidden="true" tabindex="-1">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">FDEs: A New Role, or a New Engineering Capability?</h3>
+          <p class="case-card-summary">Unpacking whether the FDE title marks a real shift in how engineering teams build.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <a href="https://genspark.net/blog/how-agentic-ai-is-changing-the-developer-mindset/" target="_blank" rel="noopener noreferrer" class="case-card" aria-hidden="true" tabindex="-1">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">How Agentic AI Is Changing the Developer Mindset</h3>
+          <p class="case-card-summary">What agentic AI means for how engineers approach problem-solving day to day.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <a href="https://genspark.net/blog/the-future-of-training-is-hybrid-how-genspark-blends-scale-with-personalization/" target="_blank" rel="noopener noreferrer" class="case-card" aria-hidden="true" tabindex="-1">
+          <span class="case-tag">Blog</span>
+          <h3 class="case-card-title">The Future of Training Is Hybrid</h3>
+          <p class="case-card-summary">How GenSpark blends scaled content with personalized coaching to build FDEs faster.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <a href="https://genspark.net/case-study/a-mid-sized-it-firm-empowers-leaders-with-genai-for-productivity-gains/" target="_blank" rel="noopener noreferrer" class="case-card" aria-hidden="true" tabindex="-1">
+          <span class="case-tag">Case Study</span>
+          <h3 class="case-card-title">Empowering Leaders with GenAI for Productivity Gains</h3>
+          <p class="case-card-summary">How a mid-sized IT firm equipped its leadership with GenAI to unlock real productivity.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <a href="https://genspark.net/case-study/driving-ai-enabled-delivery-excellence-for-a-leading-technology-organization/" target="_blank" rel="noopener noreferrer" class="case-card" aria-hidden="true" tabindex="-1">
+          <span class="case-tag">Case Study</span>
+          <h3 class="case-card-title">Driving AI-Enabled Delivery Excellence</h3>
+          <p class="case-card-summary">How a leading technology organization raised delivery quality with AI-enabled execution.</p>
+          <span class="case-card-cta">
+            Read Now
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
         </a>
       </div>
 
     </div>
   </section>
+
+  <script>
+    (function () {
+      var track = document.getElementById('case-studies-track');
+      if (!track) return;
+
+      var speed = 0.6; // pixels per frame
+      var paused = false;
+      var loopPoint = 0;
+
+      function measure() {
+        loopPoint = track.scrollWidth / 2;
+      }
+      measure();
+      window.addEventListener('resize', measure);
+
+      track.addEventListener('mouseenter', function () { paused = true; });
+      track.addEventListener('mouseleave', function () { paused = false; });
+      track.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+      track.addEventListener('touchend', function () { paused = false; });
+      track.addEventListener('focusin', function () { paused = true; });
+      track.addEventListener('focusout', function () { paused = false; });
+
+      function step() {
+        if (!paused) {
+          track.scrollLeft += speed;
+          if (track.scrollLeft >= loopPoint) {
+            track.scrollLeft -= loopPoint;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    })();
+  </script>
+
 
   <!-- ACT 6: CLOSING -->
   <section class="closing-text-section">
@@ -1102,7 +1423,7 @@
         Your FDE capability, built for your environment.
       </h2>
       <div class="closing-actions">
-        <a href="#engagement-models" class="btn btn-primary">Build Your FDE</a>
+        <a href="#fde-form" class="btn btn-primary">Build Your FDE</a>
       </div>
     </div>
   </section>
