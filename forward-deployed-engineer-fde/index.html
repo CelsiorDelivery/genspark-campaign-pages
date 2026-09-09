@@ -10,8 +10,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
+  
+
+<!-- Exact GenSpark header/footer dependencies -->
+<link rel="stylesheet"
+      href="https://genspark.net/wp-content/themes/genspark/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+      href="https://genspark.net/wp-content/themes/genspark/assets/css/app.min.css">
+
+<!-- Original FDE design, isolated from GenSpark/Bootstrap -->
+<style id="fde-isolated-styles">
+
+    .fde-page{
       --color-black: #131216;
       --color-deep-green: #13322B;
       --color-primary-green: #4C9560;
@@ -22,17 +32,17 @@
       --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    * {
+    .fde-page *{
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
+    .fde-page{
       scroll-behavior: smooth;
     }
 
-    body {
+    .fde-page{
       background-color: var(--color-pale-green);
       color: var(--color-black);
       font-family: var(--font-family);
@@ -41,19 +51,19 @@
       overflow-x: hidden;
     }
 
-    img {
+    .fde-page img{
       max-width: 100%;
       height: auto;
       display: block;
     }
 
-    .container {
+    .fde-page .container{
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 64px;
     }
 
-    .eyebrow {
+    .fde-page .eyebrow{
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -63,30 +73,30 @@
       display: block;
     }
 
-    .highlight {
+    .fde-page .highlight{
       color: var(--color-primary-green);
     }
 
     /* HEADER */
-    header {
+    .fde-page header{
       padding: 28px 0;
       background-color: var(--color-pale-green);
     }
 
-    header .container {
+    .fde-page header .container{
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .brand-logo {
+    .fde-page .brand-logo{
       font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.03em;
       color: var(--color-black);
     }
 
-    .header-label {
+    .fde-page .header-label{
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -95,7 +105,7 @@
     }
 
     /* ACT 1: HERO */
-    .hero {
+    .fde-page .hero{
       position: relative;
       overflow: hidden;
       padding: 48px 0 96px 0;
@@ -103,19 +113,19 @@
     }
 
     /* Full-bleed hero background image + scrim */
-    .hero-bg {
+    .fde-page .hero-bg{
       position: absolute;
       inset: 0;
       z-index: 0;
     }
 
-    .hero-bg img {
+    .fde-page .hero-bg img{
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .hero-bg::after {
+    .fde-page .hero-bg::after{
       content: "";
       position: absolute;
       inset: 0;
@@ -129,12 +139,12 @@
       );
     }
 
-    .hero > .container {
+    .fde-page .hero > .container{
       position: relative;
       z-index: 1;
     }
 
-    .hero-grid {
+    .fde-page .hero-grid{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
@@ -142,13 +152,13 @@
       margin-bottom: 72px;
     }
 
-    .hero-content {
+    .fde-page .hero-content{
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .hero-title {
+    .fde-page .hero-title{
       font-size: 52px;
       font-weight: 800;
       line-height: 1.08;
@@ -157,11 +167,11 @@
       margin-bottom: 16px;
     }
 
-    .hero-title .highlight {
+    .fde-page .hero-title .highlight{
       color: #9BDBA6;
     }
 
-    .hero-intro {
+    .fde-page .hero-intro{
       font-size: 19px;
       line-height: 1.5;
       color: var(--color-white);
@@ -170,14 +180,14 @@
       max-width: 500px;
     }
 
-    .hero-actions {
+    .fde-page .hero-actions{
       display: flex;
       gap: 14px;
       align-items: center;
       flex-wrap: wrap;
     }
 
-    .btn {
+    .fde-page .btn{
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -192,31 +202,31 @@
       appearance: none;
     }
 
-    .btn-primary {
+    .fde-page .btn-primary{
       background-color: var(--color-primary-green);
       color: var(--color-white);
       border: 1px solid var(--color-primary-green);
     }
 
-    .btn-primary:hover {
+    .fde-page .btn-primary:hover{
       background-color: #438654;
       transform: translateY(-1px);
     }
 
-    .btn-secondary {
+    .fde-page .btn-secondary{
       background-color: transparent;
       color: var(--color-white);
       border: 1.5px solid rgba(255, 255, 255, 0.65);
     }
 
-    .btn-secondary:hover {
+    .fde-page .btn-secondary:hover{
       background-color: rgba(255, 255, 255, 0.1);
       border-color: var(--color-white);
       transform: translateY(-1px);
     }
 
     /* Signup panel replacing the hero image */
-    .hero-signup-panel {
+    .fde-page .hero-signup-panel{
       background-color: var(--color-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
       border-radius: 20px;
@@ -226,12 +236,12 @@
       transition: border-color 0.3s ease;
     }
 
-    .hero-signup-panel:target {
+    .fde-page .hero-signup-panel:target{
       border-color: var(--color-primary-green);
       animation: fde-form-pulse 1.6s ease-out 1;
     }
 
-    @keyframes fde-form-pulse {
+    @keyframes fde-form-pulse{
       0% {
         box-shadow: 0 20px 48px -12px rgba(19, 50, 43, 0.35), 0 0 0 0 rgba(76, 149, 96, 0.55);
       }
@@ -243,7 +253,7 @@
       }
     }
 
-    .signup-panel-heading {
+    .fde-page .signup-panel-heading{
       font-size: 20px;
       font-weight: 800;
       letter-spacing: -0.015em;
@@ -251,7 +261,7 @@
       margin-bottom: 4px;
     }
 
-    .signup-panel-subheading {
+    .fde-page .signup-panel-subheading{
       font-size: 13px;
       color: var(--color-black);
       opacity: 0.75;
@@ -259,7 +269,7 @@
     }
 
     /* Build Your FDE modal */
-    .fde-modal-overlay {
+    .fde-page .fde-modal-overlay{
       position: fixed;
       inset: 0;
       z-index: 1000;
@@ -273,12 +283,12 @@
       transition: opacity 0.25s ease;
     }
 
-    .fde-modal-overlay.is-open {
+    .fde-page .fde-modal-overlay.is-open{
       opacity: 1;
       pointer-events: auto;
     }
 
-    .fde-modal {
+    .fde-page .fde-modal{
       position: relative;
       width: 100%;
       max-width: 480px;
@@ -293,11 +303,11 @@
       transition: transform 0.25s ease;
     }
 
-    .fde-modal-overlay.is-open .fde-modal {
+    .fde-page .fde-modal-overlay.is-open .fde-modal{
       transform: translateY(0);
     }
 
-    .fde-modal-close {
+    .fde-page .fde-modal-close{
       position: absolute;
       top: 14px;
       right: 14px;
@@ -318,17 +328,17 @@
       transition: background-color 0.15s ease, opacity 0.15s ease;
     }
 
-    .fde-modal-close:hover {
+    .fde-page .fde-modal-close:hover{
       background-color: rgba(76, 149, 96, 0.12);
       opacity: 1;
     }
 
-    .fde-thanks-modal {
+    .fde-page .fde-thanks-modal{
       max-width: 380px;
       text-align: center;
     }
 
-    .fde-thanks-icon {
+    .fde-page .fde-thanks-icon{
       width: 48px;
       height: 48px;
       margin: 0 auto 16px auto;
@@ -342,56 +352,56 @@
       font-weight: 800;
     }
 
-    .fde-thanks-modal .signup-panel-heading {
+    .fde-page .fde-thanks-modal .signup-panel-heading{
       text-align: center;
     }
 
-    .fde-thanks-modal .signup-panel-subheading {
+    .fde-page .fde-thanks-modal .signup-panel-subheading{
       text-align: center;
       margin-bottom: 0;
     }
 
     /* Mailchimp form theming */
-    .mc-form-shell {
+    .fde-page .mc-form-shell{
       font-family: var(--font-family);
     }
 
-    .mc-form h2 {
+    .fde-page .mc-form h2{
       display: none;
     }
 
-    .mc-form .indicates-required {
+    .fde-page .mc-form .indicates-required{
       font-size: 11px;
       color: var(--color-black);
       opacity: 0.6;
       margin-bottom: 12px;
     }
 
-    .mc-form .asterisk {
+    .fde-page .mc-form .asterisk{
       color: var(--color-primary-green);
     }
 
-    .mc-form .mc-field-row {
+    .fde-page .mc-form .mc-field-row{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .mc-form .mc-field-group {
+    .fde-page .mc-form .mc-field-group{
       display: flex;
       flex-direction: column;
       margin-bottom: 10px;
       min-width: 0;
     }
 
-    .mc-form .mc-field-group label {
+    .fde-page .mc-form .mc-field-group label{
       font-size: 12px;
       font-weight: 700;
       color: var(--color-deep-green);
       margin-bottom: 4px;
     }
 
-    .mc-form .mc-field-group input {
+    .fde-page .mc-form .mc-field-group input{
       font-family: var(--font-family);
       font-size: 14px;
       color: var(--color-black);
@@ -404,17 +414,17 @@
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .mc-form .mc-field-group input:focus {
+    .fde-page .mc-form .mc-field-group input:focus{
       outline: none;
       border-color: var(--color-primary-green);
       box-shadow: 0 0 0 3px rgba(76, 149, 96, 0.18);
     }
 
-    .mc-form-responses {
+    .fde-page .mc-form-responses{
       margin-bottom: 4px;
     }
 
-    .mc-form-responses .response {
+    .fde-page .mc-form-responses .response{
       font-size: 13px;
       font-weight: 600;
       border-radius: 8px;
@@ -422,21 +432,21 @@
       margin-bottom: 10px;
     }
 
-    .mc-form-error-response {
+    .fde-page .mc-form-error-response{
       background-color: #FBE7E7;
       color: #A02A2A;
     }
 
-    .mc-form-success-response {
+    .fde-page .mc-form-success-response{
       background-color: var(--color-soft-pale-green);
       color: var(--color-deep-green);
     }
 
-    .mc-form .clear {
+    .fde-page .mc-form .clear{
       margin-top: 6px;
     }
 
-    .mc-form .mc-form-submit {
+    .fde-page .mc-form .mc-form-submit{
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -453,24 +463,24 @@
       transition: all 0.2s ease;
     }
 
-    .mc-form .mc-form-submit:hover {
+    .fde-page .mc-form .mc-form-submit:hover{
       background-color: #0d231e;
       transform: translateY(-1px);
     }
 
     /* Market Surge Box */
-    .market-surge-box {
+    .fde-page .market-surge-box{
       background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
       border-radius: 20px;
       padding: 40px;
     }
 
-    .market-header {
+    .fde-page .market-header{
       margin-bottom: 28px;
     }
 
-    .market-title {
+    .fde-page .market-title{
       font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -478,21 +488,21 @@
       margin-bottom: 4px;
     }
 
-    .market-subtitle {
+    .fde-page .market-subtitle{
       font-size: 16px;
       color: var(--color-black);
       opacity: 0.8;
       font-weight: 500;
     }
 
-    .market-grid {
+    .fde-page .market-grid{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-bottom: 24px;
     }
 
-    .market-stat-card {
+    .fde-page .market-stat-card{
       background-color: var(--color-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.2);
       border-radius: 14px;
@@ -500,7 +510,7 @@
       text-align: center;
     }
 
-    .stat-metric {
+    .fde-page .stat-metric{
       font-size: 44px;
       font-weight: 800;
       line-height: 1;
@@ -508,44 +518,44 @@
       margin-bottom: 6px;
     }
 
-    .stat-label {
+    .fde-page .stat-label{
       font-size: 14px;
       font-weight: 700;
       color: var(--color-black);
       margin-bottom: 2px;
     }
 
-    .stat-timeline {
+    .fde-page .stat-timeline{
       font-size: 12px;
       color: var(--color-black);
       opacity: 0.6;
       font-weight: 500;
     }
 
-    .market-footer-callout {
+    .fde-page .market-footer-callout{
       text-align: center;
       padding-top: 20px;
       border-top: 1px solid rgba(76, 149, 96, 0.2);
     }
 
-    .market-footer-text {
+    .fde-page .market-footer-text{
       font-size: 17px;
       font-weight: 700;
       color: var(--color-deep-green);
     }
 
     /* ACT 2: THE PROFILE */
-    .profile-section {
+    .fde-page .profile-section{
       padding: 96px 0;
       background-color: var(--color-pale-green);
     }
 
-    .section-header {
+    .fde-page .section-header{
       max-width: 760px;
       margin-bottom: 48px;
     }
 
-    .section-title {
+    .fde-page .section-title{
       font-size: 44px;
       font-weight: 800;
       letter-spacing: -0.025em;
@@ -554,27 +564,27 @@
       color: var(--color-black);
     }
 
-    .section-description {
+    .fde-page .section-description{
       font-size: 17px;
       color: var(--color-black);
       opacity: 0.85;
       line-height: 1.55;
     }
 
-    .cards-grid {
+    .fde-page .cards-grid{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
-    .card {
+    .fde-page .card{
       background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.2);
       border-radius: 14px;
       padding: 32px;
     }
 
-    .card-number {
+    .fde-page .card-number{
       font-size: 13px;
       font-weight: 700;
       color: var(--color-primary-green);
@@ -582,14 +592,14 @@
       display: block;
     }
 
-    .card-title {
+    .fde-page .card-title{
       font-size: 20px;
       font-weight: 700;
       margin-bottom: 8px;
       color: var(--color-black);
     }
 
-    .card-text {
+    .fde-page .card-text{
       font-size: 15px;
       color: var(--color-black);
       opacity: 0.8;
@@ -597,26 +607,26 @@
     }
 
     /* ACT 3: ENGAGEMENT MODELS */
-    .engagement-models {
+    .fde-page .engagement-models{
       padding: 96px 0;
       background-color: var(--color-deep-green);
       scroll-margin-top: 30px;
     }
 
-    .engagement-models .eyebrow {
+    .fde-page .engagement-models .eyebrow{
       color: #9BDBA6;
     }
 
-    .engagement-models .section-title {
+    .fde-page .engagement-models .section-title{
       color: var(--color-white);
     }
 
-    .engagement-models .section-description {
+    .fde-page .engagement-models .section-description{
       color: var(--color-white);
       opacity: 0.8;
     }
 
-    .models-card-container {
+    .fde-page .models-card-container{
       background-color: var(--color-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
       border-radius: 20px;
@@ -626,17 +636,17 @@
       gap: 48px;
     }
 
-    .model-col {
+    .fde-page .model-col{
       display: flex;
       flex-direction: column;
     }
 
-    .model-col:first-child {
+    .fde-page .model-col:first-child{
       border-right: 1px solid rgba(76, 149, 96, 0.2);
       padding-right: 48px;
     }
 
-    .model-badge {
+    .fde-page .model-badge{
       display: inline-block;
       align-self: flex-start;
       font-size: 11px;
@@ -651,7 +661,7 @@
       margin-bottom: 14px;
     }
 
-    .model-title {
+    .fde-page .model-title{
       font-size: 24px;
       font-weight: 800;
       color: var(--color-black);
@@ -659,7 +669,7 @@
       letter-spacing: -0.01em;
     }
 
-    .model-pathway {
+    .fde-page .model-pathway{
       font-size: 12px;
       font-weight: 700;
       color: var(--color-primary-green);
@@ -668,19 +678,19 @@
       margin-bottom: 12px;
     }
 
-    .model-summary-desc {
+    .fde-page .model-summary-desc{
       font-size: 15px;
       color: var(--color-black);
       opacity: 0.85;
       margin-bottom: 20px;
     }
 
-    .model-list {
+    .fde-page .model-list{
       list-style: none;
       margin-bottom: 28px;
     }
 
-    .model-list li {
+    .fde-page .model-list li{
       position: relative;
       padding-left: 18px;
       margin-bottom: 8px;
@@ -690,7 +700,7 @@
       opacity: 0.9;
     }
 
-    .model-list li::before {
+    .fde-page .model-list li::before{
       content: "•";
       position: absolute;
       left: 0;
@@ -699,11 +709,11 @@
       font-size: 16px;
     }
 
-    .model-outcomes-container {
+    .fde-page .model-outcomes-container{
       margin-top: auto;
     }
 
-    .model-outcomes-label {
+    .fde-page .model-outcomes-label{
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.1em;
@@ -714,13 +724,13 @@
       opacity: 0.75;
     }
 
-    .outcomes-grid {
+    .fde-page .outcomes-grid{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
 
-    .outcome-pill {
+    .fde-page .outcome-pill{
       background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.2);
       border-radius: 8px;
@@ -736,18 +746,18 @@
     }
 
     /* ACT 4: THE SYSTEM */
-    .how-we-build {
+    .fde-page .how-we-build{
       padding: 96px 0;
       background-color: var(--color-pale-green);
     }
 
-    .process-flow-container {
+    .fde-page .process-flow-container{
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 14px;
     }
 
-    .process-card {
+    .fde-page .process-card{
       background-color: var(--color-soft-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
       border-radius: 14px;
@@ -756,7 +766,7 @@
       flex-direction: column;
     }
 
-    .process-step-num {
+    .fde-page .process-step-num{
       font-size: 12px;
       font-weight: 800;
       color: var(--color-primary-green);
@@ -765,21 +775,21 @@
       display: block;
     }
 
-    .process-step-title {
+    .fde-page .process-step-title{
       font-size: 20px;
       font-weight: 800;
       color: var(--color-black);
       margin-bottom: 4px;
     }
 
-    .process-step-tagline {
+    .fde-page .process-step-tagline{
       font-size: 12px;
       font-weight: 700;
       color: var(--color-deep-green);
       margin-bottom: 10px;
     }
 
-    .process-step-desc {
+    .fde-page .process-step-desc{
       font-size: 13px;
       color: var(--color-black);
       opacity: 0.8;
@@ -788,7 +798,7 @@
     }
 
     /* ACT 5: FIELD EVIDENCE */
-    .case-studies-section {
+    .fde-page .case-studies-section{
       padding: 96px 0;
       background-color: var(--color-deep-green);
       border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -796,28 +806,28 @@
       overflow: hidden;
     }
 
-    .case-studies-section .eyebrow {
+    .fde-page .case-studies-section .eyebrow{
       color: #9BDBA6;
     }
 
-    .case-studies-section .section-title {
+    .fde-page .case-studies-section .section-title{
       color: var(--color-white);
     }
 
-    .case-studies-section .section-description {
+    .fde-page .case-studies-section .section-description{
       color: var(--color-white);
       opacity: 0.8;
     }
 
-    .case-header-row {
+    .fde-page .case-header-row{
       margin-bottom: 36px;
     }
 
-    .case-header-text {
+    .fde-page .case-header-text{
       max-width: 680px;
     }
 
-    .case-studies-scroll {
+    .fde-page .case-studies-scroll{
       display: flex;
       gap: 20px;
       overflow-x: auto;
@@ -827,16 +837,16 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    .case-studies-scroll::-webkit-scrollbar {
+    .fde-page .case-studies-scroll::-webkit-scrollbar{
       height: 5px;
     }
 
-    .case-studies-scroll::-webkit-scrollbar-thumb {
+    .fde-page .case-studies-scroll::-webkit-scrollbar-thumb{
       background-color: #9BDBA6;
       border-radius: 999px;
     }
 
-    .case-card {
+    .fde-page .case-card{
       flex: 0 0 300px;
       background-color: var(--color-pale-green);
       border: 1px solid rgba(76, 149, 96, 0.25);
@@ -850,12 +860,12 @@
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .case-card:hover {
+    .fde-page .case-card:hover{
       transform: translateY(-3px);
       border-color: var(--color-primary-green);
     }
 
-    .case-tag {
+    .fde-page .case-tag{
       align-self: flex-start;
       font-size: 11px;
       font-weight: 800;
@@ -868,14 +878,14 @@
       border-radius: 5px;
     }
 
-    .case-card-title {
+    .fde-page .case-card-title{
       font-size: 17px;
       font-weight: 800;
       color: var(--color-black);
       line-height: 1.3;
     }
 
-    .case-card-summary {
+    .fde-page .case-card-summary{
       font-size: 14px;
       color: var(--color-black);
       opacity: 0.75;
@@ -883,7 +893,7 @@
       margin-bottom: 4px;
     }
 
-    .case-card-cta {
+    .fde-page .case-card-cta{
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -893,22 +903,22 @@
       margin-top: auto;
     }
 
-    .case-card-cta svg {
+    .fde-page .case-card-cta svg{
       transition: transform 0.2s ease;
     }
 
-    .case-card:hover .case-card-cta svg {
+    .fde-page .case-card:hover .case-card-cta svg{
       transform: translateX(3px);
     }
 
     /* ACT 6: CLOSING */
-    .closing-text-section {
+    .fde-page .closing-text-section{
       padding: 80px 0 100px 0;
       background-color: var(--color-pale-green);
       text-align: center;
     }
 
-    .closing-headline {
+    .fde-page .closing-headline{
       font-size: 44px;
       font-weight: 800;
       letter-spacing: -0.025em;
@@ -918,163 +928,384 @@
       margin: 0 auto 28px auto;
     }
 
-    .closing-actions {
+    .fde-page .closing-actions{
       display: flex;
       justify-content: center;
     }
 
-    .closing-actions .btn-primary {
+    .fde-page .closing-actions .btn-primary{
       background-color: var(--color-deep-green);
       border-color: var(--color-deep-green);
     }
 
-    .closing-actions .btn-primary:hover {
+    .fde-page .closing-actions .btn-primary:hover{
       background-color: #0d231e;
     }
 
     /* FOOTER */
-    footer {
+    .fde-page footer{
       background-color: var(--color-black);
       color: var(--color-white);
       padding: 32px 0;
     }
 
-    footer .container {
+    .fde-page footer .container{
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .footer-logo {
+    .fde-page .footer-logo{
       font-size: 18px;
       font-weight: 700;
     }
 
-    .footer-copyright {
+    .fde-page .footer-copyright{
       font-size: 13px;
       opacity: 0.5;
     }
 
     /* BREAKPOINTS */
-    @media (max-width: 1024px) {
-      .process-flow-container {
+    @media (max-width: 1024px){
+      .fde-page .process-flow-container{
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 992px) {
-      .container {
+    @media (max-width: 992px){
+      .fde-page .container{
         padding: 0 36px;
       }
 
-      .hero-grid {
+      .fde-page .hero-grid{
         grid-template-columns: 1fr;
         gap: 40px;
       }
 
-      .hero-title {
+      .fde-page .hero-title{
         font-size: 40px;
       }
 
-      .section-title {
+      .fde-page .section-title{
         font-size: 34px;
       }
 
-      .market-grid {
+      .fde-page .market-grid{
         grid-template-columns: 1fr;
         gap: 16px;
       }
 
-      .models-card-container {
+      .fde-page .models-card-container{
         grid-template-columns: 1fr;
         gap: 36px;
         padding: 32px 24px;
       }
 
-      .model-col:first-child {
+      .fde-page .model-col:first-child{
         border-right: none;
         border-bottom: 1px solid rgba(76, 149, 96, 0.2);
         padding-right: 0;
         padding-bottom: 36px;
       }
 
-      .closing-headline {
+      .fde-page .closing-headline{
         font-size: 34px;
       }
     }
 
-    @media (max-width: 768px) {
-      .container {
+    @media (max-width: 768px){
+      .fde-page .container{
         padding: 0 20px;
       }
 
-      .hero {
+      .fde-page .hero{
         padding: 36px 0 60px 0;
       }
 
-      .hero-grid,
-      .cards-grid,
-      .process-flow-container {
+      .fde-page .hero-grid, .fde-page .cards-grid, .fde-page .process-flow-container{
         grid-template-columns: 1fr;
         gap: 16px;
       }
 
-      .hero-title {
+      .fde-page .hero-title{
         font-size: 32px;
       }
 
-      .hero-actions {
+      .fde-page .hero-actions{
         flex-direction: column;
         align-items: stretch;
       }
 
-      .btn {
+      .fde-page .btn{
         text-align: center;
       }
 
-      .section-title {
+      .fde-page .section-title{
         font-size: 28px;
       }
 
-      .market-surge-box {
+      .fde-page .market-surge-box{
         padding: 24px 16px;
       }
 
-      .hero-signup-panel {
+      .fde-page .hero-signup-panel{
         padding: 24px 22px 22px 22px;
       }
 
-      .mc-form .mc-field-row {
+      .fde-page .mc-form .mc-field-row{
         grid-template-columns: 1fr;
         gap: 0;
       }
 
-      .case-card {
+      .fde-page .case-card{
         flex: 0 0 280px;
         padding: 24px 18px;
       }
 
-      .closing-headline {
+      .fde-page .closing-headline{
         font-size: 26px;
       }
 
-      footer .container {
+      .fde-page footer .container{
         flex-direction: column;
         gap: 8px;
         align-items: flex-start;
       }
     }
-  </style>
+  
+</style>
+
+
+<style id="fde-integration-safeguards">
+/*
+ * Keep GenSpark's fixed/sticky header from visually swallowing
+ * the first pixels of the standalone FDE content.
+ */
+.fde-page {
+    position: relative;
+    width: 100%;
+}
+
+/* Ensure FDE images retain their intended behaviour. */
+.fde-page img {
+    max-width: 100%;
+}
+
+/* Do not allow Bootstrap's blue primary button to win. */
+.fde-page .btn-primary {
+    background-color: var(--color-primary-green);
+    border-color: var(--color-primary-green);
+    color: var(--color-white);
+}
+
+.fde-page .btn-primary:hover {
+    background-color: #438654;
+    border-color: #438654;
+}
+</style>
+
+
+<style id="fde-header-offset-fix">
+/* GenSpark desktop header is fixed/sticky and measures 105px. */
+@media (min-width: 992px) {
+    .fde-page {
+        padding-top: 105px;
+        margin-top: -105px;
+        transform: translateY(105px);
+        margin-bottom: 105px;
+    }
+}
+</style>
+
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
+<!-- Exact rendered GenSpark navbar -->
+<header class="header__navbar__wrapper">
+  <!-- Top Nav -->
+  <div class="top__nav__wrapper">
     <div class="container">
-      <div class="brand-logo">GenSpark</div>
-      <div class="header-label">FDE Capability</div>
+      <div class="nav_bar_flex">
+        <div class="items">
+          <div class="inner_flex">
+                      <a href="https://pyramidci.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791-1.svg" class="dark"  alt="Pyramid Consulting Logo"
+               width="90" 
+     height="29"/><noscript><img  class="dark" src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791-1.svg"  alt="Pyramid Consulting Logo"
+               width="90" 
+     height="29"/></noscript>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg" class="light"  alt="Pyramid Consulting Logo"/><noscript><img  class="light" src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg"  alt="Pyramid Consulting Logo"/></noscript>
+            </a>
+                        <a href="https://pyramidci.com/talent-home-page/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792-1.svg" class="dark"  alt="Pyramid Talent Logo"
+               width="90" 
+     height="28"/><noscript><img  class="dark" src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792-1.svg"  alt="Pyramid Talent Logo"
+               width="90" 
+     height="28"/></noscript>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg" class="light"  alt="Pyramid Talent Logo"/><noscript><img  class="light" src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg"  alt="Pyramid Talent Logo"/></noscript>
+            </a>
+                        <a href="https://celsiortech.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685-1.svg" class="dark"  alt="Celsior Logo"
+               width="67" 
+     height="28"/><noscript><img  class="dark" src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685-1.svg"  alt="Celsior Logo"
+               width="67" 
+     height="28"/></noscript>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg" class="light"  alt="Celsior Logo"/><noscript><img  class="light" src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg"  alt="Celsior Logo"/></noscript>
+            </a>
+                      </div>
+        </div>
+
+        <div class="items">
+          <div class="inner_flex second">
+                      <div class="dropdown">
+              <button class="dropdown-toggle" type="button" id="dropdownMenuButton0" data-bs-toggle="dropdown" aria-expanded="false">
+              Company              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton0">
+                              <li><a class="dropdown-item" target="" href="https://pyramidci.com/about-us/">About Us</a></li>
+                                <li><a class="dropdown-item" target="" href="https://pyramidci.com/career-overview/">Careers</a></li>
+                              </ul>
+            </div>
+                        <a href="https://genspark.net/contact-us/" target="" class="links">Contact Us</a>
+                                   </div>
+        </div>
+      </div>
     </div>
-  </header>
+  </div>
+
+  <!-- Botton Nav -->
+  <div class="main__navbar__wrapper">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container mobile">
+        <a class="navbar-brand" href="https://genspark.net">
+                      <img src="https://genspark.net/wp-content/uploads/2024/11/Genspark.svg"
+     alt="Genspark Logo"
+     width="125"
+     height="44" /><noscript><img src="https://genspark.net/wp-content/uploads/2024/11/Genspark.svg"
+     alt="Genspark Logo"
+     width="125"
+     height="44" /></noscript>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        ></button>
+        <div
+          class="collapse_wrapper collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
+        <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/workforce-upskilling/" target="">
+              Workforce Upskilling              </a>
+            </li>
+                        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/ai-adoption/" target="">
+              AI Adoption              </a>
+            </li>
+                        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/hire-train-deploy/" target="">
+              Hire-Train-Deploy              </a>
+            </li>
+                        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/resources/" target="">
+              Resources              </a>
+            </li>
+                                  </ul>
+
+          <!-- Mobile Nav -->
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+                      <div class="accordion-item">
+              <h2><a href="https://genspark.net/workforce-upskilling/" target="">Workforce Upskilling</a></h2>
+            </div>
+                        <div class="accordion-item">
+              <h2><a href="https://genspark.net/ai-adoption/" target="">AI Adoption</a></h2>
+            </div>
+                        <div class="accordion-item">
+              <h2><a href="https://genspark.net/hire-train-deploy/" target="">Hire-Train-Deploy</a></h2>
+            </div>
+                        <div class="accordion-item">
+              <h2><a href="https://genspark.net/resources/" target="">Resources</a></h2>
+            </div>
+                                  </div>
+          
+                          
+          <div class="accordion accordion-flush" id="accordionFlushHeader">
+                           <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTop0">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTop0"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTop0"
+                >
+                Company                </button>
+              </h2>
+              <div
+                id="flush-collapseTop0"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingTop0"
+                data-bs-parent="#accordionFlushHeader"
+              >
+                <div class="accordion-body">
+                  <ul>
+                                      <li>
+                      <a href="https://pyramidci.com/about-us/" target="">About Us</a>
+                    </li>
+                                        <li>
+                      <a href="https://pyramidci.com/career-overview/" target="">Careers</a>
+                    </li>
+                                      </ul>
+                </div>
+              </div>
+            </div>
+                        <div class="accordion-item">
+              <h2><a href="https://genspark.net/contact-us/" target="">Contact Us</a></h2>
+            </div>
+                      </div>
+          
+          <div class="products_flex d-lg-none">
+                      <a href="https://pyramidci.com/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg"
+                alt="Pyramid Consulting Logo"
+              /><noscript><img
+                src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg"
+                alt="Pyramid Consulting Logo"
+              /></noscript>
+            </a>
+                        <a href="https://pyramidci.com/talent-home-page/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg"
+                alt="Pyramid Talent Logo"
+              /><noscript><img
+                src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg"
+                alt="Pyramid Talent Logo"
+              /></noscript>
+            </a>
+                        <a href="https://celsiortech.com/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg"
+                alt="Celsior Logo"
+              /><noscript><img
+                src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg"
+                alt="Celsior Logo"
+              /></noscript>
+            </a>
+                      </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- FDE page is deliberately isolated from GenSpark theme CSS -->
+<div class="fde-page">
+
 
   <!-- ACT 1: HERO & MARKET SURGE -->
   <section class="hero">
@@ -1524,127 +1755,351 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  
+</div>
+
+<!-- Exact rendered GenSpark footer -->
+<footer class="footer_wrap footer_new">
+  <div class="sub_footer">
     <div class="container">
-      <div class="footer-logo">GenSpark</div>
-      <div class="footer-copyright">&copy; GenSpark 2026</div>
-    </div>
-  </footer>
+        
+        
+      <!--Desktop View-->
+      <div class="row d-none d-md-flex">
+        <div class="col-12 col-md-3">
+          <div class="share_logos_wrap">
+                          <a href="https://www.linkedin.com/company/genspark1/" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg"
+                     width="24"
+                     height="24"
+                     alt="Frame (1)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg"
+                     width="24"
+                     height="24"
+                     alt="Frame (1)" /></noscript>
+              </a>
+                          <a href="https://www.facebook.com/GenSpark2/" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg"
+                     width="24"
+                     height="24"
+                     alt="Frame-1 (1)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg"
+                     width="24"
+                     height="24"
+                     alt="Frame-1 (1)" /></noscript>
+              </a>
+                          <a href="https://www.instagram.com/genspark1/" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg"
+                     width="24"
+                     height="24"
+                     alt="2 (2)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg"
+                     width="24"
+                     height="24"
+                     alt="2 (2)" /></noscript>
+              </a>
+                          <a href="https://x.com/GenSpark4" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg"
+                     width="24"
+                     height="24"
+                     alt="3 (2)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg"
+                     width="24"
+                     height="24"
+                     alt="3 (2)" /></noscript>
+              </a>
+                      </div>
+        </div>
 
-  <!-- Hidden target so form submissions don't navigate away to Mailchimp -->
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="form submission target"></iframe>
+                    <div class="col-12 col-md-2 ">
+              <div class="footer_menu">
+                                  <h6>SOLUTIONS</h6>
+                                <ul class="footer_item our_programs_list">
+                                      <li>
+                      <a href="https://genspark.net/workforce-upskilling/"
+                         target="">
+                        Workforce Upskilling                      </a>
+                    </li>
+                                      <li>
+                      <a href="https://genspark.net/hire-train-deploy/"
+                         target="">
+                        Hire-Train-Deploy                      </a>
+                    </li>
+                                      <li>
+                      <a href="https://genspark.net/ai-adoption/"
+                         target="">
+                        AI Adoption                      </a>
+                    </li>
+                                  </ul>
+              </div>
+            </div>
+                    <div class="col-12 col-md-3 offset-md-1">
+              <div class="footer_menu">
+                                  <h6>RESOURCES</h6>
+                                <ul class="footer_item our_programs_list">
+                                      <li>
+                      <a href="https://genspark.net/resources/?type=post"
+                         target="">
+                        Blogs                      </a>
+                    </li>
+                                      <li>
+                      <a href="https://genspark.net/resources/?type=case-study"
+                         target="">
+                        Case Studies                      </a>
+                    </li>
+                                  </ul>
+              </div>
+            </div>
+                    <div class="col-12 col-md-3 ">
+              <div class="footer_menu">
+                                  <h6>CONTACT</h6>
+                                <ul class="footer_item our_programs_list">
+                                      <li>
+                      <a href="https://genspark.net/contact-us/"
+                         target="">
+                        Contact Us                      </a>
+                    </li>
+                                  </ul>
+              </div>
+            </div>
+        
 
-  <!-- Thank-you confirmation modal -->
-  <div class="fde-modal-overlay" id="fde-thanks-overlay" aria-hidden="true">
-    <div class="fde-modal fde-thanks-modal" role="dialog" aria-modal="true" aria-labelledby="fde-thanks-heading">
-      <button type="button" class="fde-modal-close" id="fde-thanks-close" aria-label="Close">&times;</button>
-      <div class="fde-thanks-icon">&#10003;</div>
-      <div class="signup-panel-heading" id="fde-thanks-heading">You're all set!</div>
-      <p class="signup-panel-subheading">Thanks for reaching out, we'll get back to you within the next 24 hours.</p>
+      </div>
+      <!--Desktop View Completed-->
+
+      <!--Mobile View-->
+      <div class="mobile_view d-block d-md-none">
+
+        <!-- Social Icons - Mobile -->
+        <div class="share_logos_wrap mb-4">
+                      <a href="https://www.linkedin.com/company/genspark1/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg"
+                   width="24"
+                   height="24"
+                   alt="Frame (1)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg"
+                   width="24"
+                   height="24"
+                   alt="Frame (1)" /></noscript>
+            </a>
+                      <a href="https://www.facebook.com/GenSpark2/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg"
+                   width="24"
+                   height="24"
+                   alt="Frame-1 (1)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg"
+                   width="24"
+                   height="24"
+                   alt="Frame-1 (1)" /></noscript>
+            </a>
+                      <a href="https://www.instagram.com/genspark1/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg"
+                   width="24"
+                   height="24"
+                   alt="2 (2)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg"
+                   width="24"
+                   height="24"
+                   alt="2 (2)" /></noscript>
+            </a>
+                      <a href="https://x.com/GenSpark4" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg"
+                   width="24"
+                   height="24"
+                   alt="3 (2)" /><noscript><img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg"
+                   width="24"
+                   height="24"
+                   alt="3 (2)" /></noscript>
+            </a>
+                  </div>
+
+        <!-- Accordions - Solutions & Resources only -->
+        <div class="accordion accordion-flush" id="accordionFlushExamplefooter">
+                      <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-solutions-0">
+                <button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#flush-collapse-solutions-0"
+                  aria-expanded="false" aria-controls="flush-collapse-solutions-0">
+                  SOLUTIONS                </button>
+              </h2>
+              <div id="flush-collapse-solutions-0" class="accordion-collapse collapse"
+                aria-labelledby="flush-heading-solutions-0"
+                data-bs-parent="#accordionFlushExamplefooter">
+                <div class="accordion-body">
+                  <ul class="footer_item our_programs_list">
+                                          <li>
+                        <a href="https://genspark.net/workforce-upskilling/"
+                           target="">
+                          Workforce Upskilling                        </a>
+                      </li>
+                                          <li>
+                        <a href="https://genspark.net/hire-train-deploy/"
+                           target="">
+                          Hire-Train-Deploy                        </a>
+                      </li>
+                                          <li>
+                        <a href="https://genspark.net/ai-adoption/"
+                           target="">
+                          AI Adoption                        </a>
+                      </li>
+                                      </ul>
+                </div>
+              </div>
+            </div>
+                      <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-resources-1">
+                <button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#flush-collapse-resources-1"
+                  aria-expanded="false" aria-controls="flush-collapse-resources-1">
+                  RESOURCES                </button>
+              </h2>
+              <div id="flush-collapse-resources-1" class="accordion-collapse collapse"
+                aria-labelledby="flush-heading-resources-1"
+                data-bs-parent="#accordionFlushExamplefooter">
+                <div class="accordion-body">
+                  <ul class="footer_item our_programs_list">
+                                          <li>
+                        <a href="https://genspark.net/resources/?type=post"
+                           target="">
+                          Blogs                        </a>
+                      </li>
+                                          <li>
+                        <a href="https://genspark.net/resources/?type=case-study"
+                           target="">
+                          Case Studies                        </a>
+                      </li>
+                                      </ul>
+                </div>
+              </div>
+            </div>
+                      <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading-contact-2">
+                <button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#flush-collapse-contact-2"
+                  aria-expanded="false" aria-controls="flush-collapse-contact-2">
+                  CONTACT                </button>
+              </h2>
+              <div id="flush-collapse-contact-2" class="accordion-collapse collapse"
+                aria-labelledby="flush-heading-contact-2"
+                data-bs-parent="#accordionFlushExamplefooter">
+                <div class="accordion-body">
+                  <ul class="footer_item our_programs_list">
+                                          <li>
+                        <a href="https://genspark.net/contact-us/"
+                           target="">
+                          Contact Us                        </a>
+                      </li>
+                                      </ul>
+                </div>
+              </div>
+            </div>
+                  </div>
+        <!-- Accordions End -->
+
+        <!-- Contact - Static block, no accordion -->
+        
+
+      </div>
+      <!--Mobile View Completed-->
+
     </div>
   </div>
 
-  <!-- Build Your FDE modal -->
-  <div class="fde-modal-overlay" id="fde-modal-overlay" aria-hidden="true">
-    <div class="fde-modal" role="dialog" aria-modal="true" aria-labelledby="fde-modal-heading">
-      <button type="button" class="fde-modal-close" id="fde-modal-close" aria-label="Close">&times;</button>
-
-      <div class="signup-panel-heading" id="fde-modal-heading">Let's build your FDE bench</div>
-      <p class="signup-panel-subheading">Tell us a bit about your team and we'll set up a call to map out your FDE capability.</p>
-
-      <div class="mc-form-shell">
-        <div class="mc-form">
-          <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=0065bee0f0" method="post" id="mc-embedded-subscribe-form-modal" name="mc-embedded-subscribe-form" class="validate" target="hidden_iframe" novalidate="">
-            <div id="mc_embed_signup_scroll-modal">
-              <h2>Book a Call</h2>
-              <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-              <div class="mc-field-row">
-                <div class="mc-field-group"><label for="mce-FNAME-modal">First Name <span class="asterisk">*</span></label><input type="text" name="FNAME" class="required text" id="mce-FNAME-modal" required="" value=""></div>
-                <div class="mc-field-group"><label for="mce-LNAME-modal">Last Name </label><input type="text" name="LNAME" class=" text" id="mce-LNAME-modal" value=""></div>
-              </div>
-              <div class="mc-field-row">
-                <div class="mc-field-group"><label for="mce-MMERGE5-modal">Company <span class="asterisk">*</span></label><input type="text" name="MMERGE5" class="required text" id="mce-MMERGE5-modal" value="" required=""></div>
-                <div class="mc-field-group"><label for="mce-MMERGE6-modal">Designation <span class="asterisk">*</span></label><input type="text" name="MMERGE6" class="required text" id="mce-MMERGE6-modal" required="" value=""></div>
-              </div>
-              <div class="mc-field-row">
-                <div class="mc-field-group"><label for="mce-EMAIL-modal">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL-modal" required="" value=""></div>
-                <div class="mc-field-group"><label for="mce-PHONE-modal">Phone Number </label><input type="text" name="PHONE" class="REQ_CSS" id="mce-PHONE-modal" value=""></div>
-              </div>
-              <div id="mce-responses-modal" class="mc-form-responses clear">
-                <div class="response mc-form-error-response" id="mce-error-response-modal" style="display: none;"></div>
-                <div class="response mc-form-success-response" id="mce-success-response-modal" style="display: none;"></div>
-              </div>
-              <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_5549e504ae14868b2410cb4cf_997b12936f" tabindex="-1" value=""></div>
-              <div class="clear"><input type="submit" name="subscribe" class="button mc-form-submit" value="Book a Call"></div>
-            </div>
-          </form>
+  <div class="images_footer_wrap">
+    <div class="container">
+      <div class="main_content_wrap">
+        <div class="logos_wrap">
+          <div class="logo_consulting">
+            <a href="https://pyramidci.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341810-1.svg"
+                   alt="Pyramid Consulting Logo"
+                   width="164"
+                   height="32"><noscript><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341810-1.svg"
+                   alt="Pyramid Consulting Logo"
+                   width="164"
+                   height="32"></noscript>
+            </a>
+          </div>
+          <ul class="sub_logos">
+                          <li>
+                <a href="https://pyramidci.com/talent-home-page/" target="_blank">
+                  <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806.svg" class="n_img"
+                       alt="Pyramid Talent Logo"
+                       width="97"
+                       height="30" /><noscript><img class="n_img"
+                       src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806.svg"
+                       alt="Pyramid Talent Logo"
+                       width="97"
+                       height="30" /></noscript>
+                  <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806-1.svg" class="h_img"
+                       alt="Pyramid Talent Logo" /><noscript><img class="h_img"
+                       src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806-1.svg"
+                       alt="Pyramid Talent Logo" /></noscript>
+                </a>
+              </li>
+                          <li>
+                <a href="https://celsiortech.com/" target="_blank">
+                  <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807.svg" class="n_img"
+                       alt="Celsior Logo"
+                       width="81"
+                       height="30" /><noscript><img class="n_img"
+                       src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807.svg"
+                       alt="Celsior Logo"
+                       width="81"
+                       height="30" /></noscript>
+                  <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807-1.svg" class="h_img"
+                       alt="Celsior Logo" /><noscript><img class="h_img"
+                       src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807-1.svg"
+                       alt="Celsior Logo" /></noscript>
+                </a>
+              </li>
+                          <li>
+                <a href="https://genspark.net/" target="_self">
+                  <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808.svg" class="n_img"
+                       alt="Genspark Logo"
+                       width="104"
+                       height="29" /><noscript><img class="n_img"
+                       src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808.svg"
+                       alt="Genspark Logo"
+                       width="104"
+                       height="29" /></noscript>
+                  <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808-1.svg" class="h_img"
+                       alt="Genspark Logo" /><noscript><img class="h_img"
+                       src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808-1.svg"
+                       alt="Genspark Logo" /></noscript>
+                </a>
+              </li>
+                      </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    (function () {
-      var openBtn = document.getElementById('open-fde-modal');
-      var overlay = document.getElementById('fde-modal-overlay');
-      var closeBtn = document.getElementById('fde-modal-close');
-      var thanksOverlay = document.getElementById('fde-thanks-overlay');
-      var thanksCloseBtn = document.getElementById('fde-thanks-close');
+  <div class="rights_footer_wrap">
+    <div class="container">
+      <div class="rights_wrap">
+                <span>
+                        <a href="https://genspark.net/wp-content/uploads/2024/08/GDPR-v1-6-072024.pdf"
+                 target="_blank">GDPR</a>
+               |               <a href="https://genspark.net/wp-content/uploads/2024/08/CCPA-CRA-v1-3-072024.pdf"
+                 target="_blank">CCPA/CCRA</a>
+               |               <a href="https://genspark.net/wp-content/uploads/2025/10/web-privacy-policy.pdf"
+                 target="_blank">Privacy</a>
+               |               <a href="https://genspark.net/wp-content/uploads/2025/07/PCI_072025_Reasonable-Accomodation-Policy.pdf"
+                 target="_blank">Reasonable Accommodation Policy</a>
+               |               <a href="https://privacy.microsoft.com/en-us/privacystatement"
+                 target="_blank">Microsoft privacy statement</a>
+                      </span>
+        <span>
+                        <a href="https://genspark.net/wp-content/uploads/2024/08/Web-Accessibility-v1-2-072024.pdf"
+                 target="_blank">Web accessibility</a> |
+                        <a href="https://genspark.net/wp-content/uploads/2024/08/Privacy-Policy-Introduction-v2-072024.pdf"
+                 target="_blank">Privacy introduction</a> |
+                    © 2026 Pyramid Consulting, Inc. | All rights reserved
+        </span>
+      </div>
+    </div>
+  </div>
 
-      function openOverlay(el) {
-        el.classList.add('is-open');
-        el.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
+</footer>
 
-      function closeOverlay(el) {
-        el.classList.remove('is-open');
-        el.setAttribute('aria-hidden', 'true');
-        if (!overlay.classList.contains('is-open') && !thanksOverlay.classList.contains('is-open')) {
-          document.body.style.overflow = '';
-        }
-      }
-
-      if (openBtn && overlay && closeBtn) {
-        openBtn.addEventListener('click', function () { openOverlay(overlay); });
-        closeBtn.addEventListener('click', function () { closeOverlay(overlay); });
-        overlay.addEventListener('click', function (e) {
-          if (e.target === overlay) closeOverlay(overlay);
-        });
-      }
-
-      if (thanksOverlay && thanksCloseBtn) {
-        thanksCloseBtn.addEventListener('click', function () { closeOverlay(thanksOverlay); });
-        thanksOverlay.addEventListener('click', function (e) {
-          if (e.target === thanksOverlay) closeOverlay(thanksOverlay);
-        });
-      }
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key !== 'Escape') return;
-        if (overlay && overlay.classList.contains('is-open')) closeOverlay(overlay);
-        if (thanksOverlay && thanksOverlay.classList.contains('is-open')) closeOverlay(thanksOverlay);
-      });
-
-      // Forms post quietly to a hidden iframe (see the <iframe name="hidden_iframe">
-      // above) so the page never navigates to Mailchimp's own confirmation page.
-      // We show our own confirmation right after submitting.
-      function wireForm(formId) {
-        var form = document.getElementById(formId);
-        if (!form) return;
-        form.addEventListener('submit', function () {
-          setTimeout(function () {
-            if (overlay) closeOverlay(overlay);
-            if (thanksOverlay) openOverlay(thanksOverlay);
-            form.reset();
-          }, 300);
-        });
-      }
-
-      wireForm('mc-embedded-subscribe-form');
-      wireForm('mc-embedded-subscribe-form-modal');
-    })();
-  </script>
+<!-- Exact GenSpark navbar/footer behaviour -->
+<script src="https://genspark.net/wp-content/themes/genspark/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://genspark.net/wp-content/themes/genspark/assets/js/app.min.js"></script>
 
 </body>
+
 </html>
