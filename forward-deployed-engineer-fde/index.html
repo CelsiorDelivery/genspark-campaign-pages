@@ -1137,6 +1137,225 @@
 }
 </style>
 
+
+<style id="fde-modal-outside-wrapper-fix">
+
+.fde-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: rgba(19, 50, 43, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.fde-modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fde-modal {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: var(--color-pale-green, #eef6ef);
+    border: 1px solid rgba(76, 149, 96, 0.25);
+    border-radius: 20px;
+    padding: 32px 30px 24px;
+    box-shadow: 0 30px 60px -12px rgba(19, 50, 43, 0.45);
+    transform: translateY(16px);
+    transition: transform 0.25s ease;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.fde-modal-overlay.is-open .fde-modal {
+    transform: translateY(0);
+}
+
+.fde-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    line-height: 1;
+    color: #111;
+    opacity: 0.55;
+    cursor: pointer;
+}
+
+.fde-modal-close:hover {
+    background-color: rgba(76, 149, 96, 0.12);
+    opacity: 1;
+}
+
+.fde-thanks-modal {
+    max-width: 380px;
+    text-align: center;
+}
+
+.fde-thanks-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background-color: #13322b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.fde-modal .signup-panel-heading {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.fde-modal .signup-panel-subheading {
+    font-size: 13px;
+    color: #111;
+    opacity: 0.75;
+    margin-bottom: 16px;
+}
+
+.fde-modal .mc-form-shell {
+    font-family: inherit;
+}
+
+.fde-modal .mc-form h2 {
+    display: none;
+}
+
+</style>
+
+
+<style id="fde-modal-form-style-fix">
+
+.mc-form-shell {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.mc-form h2 {
+    display: none;
+}
+
+.mc-form .indicates-required {
+    font-size: 11px;
+    color: #111;
+    opacity: 0.6;
+    margin-bottom: 12px;
+}
+
+.mc-form .asterisk {
+    color: #4c9560;
+}
+
+.mc-form .mc-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.mc-form .mc-field-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    min-width: 0;
+}
+
+.mc-form .mc-field-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #13322b;
+    margin-bottom: 4px;
+}
+
+.mc-form .mc-field-group input {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    color: #111;
+    background-color: #fff;
+    border: 1.5px solid rgba(76, 149, 96, 0.3);
+    border-radius: 8px;
+    padding: 9px 12px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mc-form .mc-field-group input:focus {
+    outline: none;
+    border-color: #4c9560;
+    box-shadow: 0 0 0 3px rgba(76, 149, 96, 0.18);
+}
+
+.mc-form-responses {
+    margin-bottom: 4px;
+}
+
+.mc-form-responses .response {
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+}
+
+.mc-form .clear {
+    margin-top: 6px;
+}
+
+.mc-form .mc-form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #13322b;
+    color: #fff;
+    border: 1px solid #13322b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mc-form .mc-form-submit:hover {
+    background-color: #0d231e;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+    .mc-form .mc-field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+</style>
+
 </head>
 
 <body>
@@ -1774,9 +1993,122 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  
-</div>
+  <!-- FOOTER --></div>
+
+<!-- Hidden target so form submissions don't navigate away to Mailchimp -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="form submission target"></iframe>
+
+  <!-- Thank-you confirmation modal -->
+  <div class="fde-modal-overlay" id="fde-thanks-overlay" aria-hidden="true">
+    <div class="fde-modal fde-thanks-modal" role="dialog" aria-modal="true" aria-labelledby="fde-thanks-heading">
+      <button type="button" class="fde-modal-close" id="fde-thanks-close" aria-label="Close">&times;</button>
+      <div class="fde-thanks-icon">&#10003;</div>
+      <div class="signup-panel-heading" id="fde-thanks-heading">You're all set!</div>
+      <p class="signup-panel-subheading">Thanks for reaching out, we'll get back to you within the next 24 hours.</p>
+    </div>
+  </div>
+
+  <!-- Build Your FDE modal -->
+  <div class="fde-modal-overlay" id="fde-modal-overlay" aria-hidden="true">
+    <div class="fde-modal" role="dialog" aria-modal="true" aria-labelledby="fde-modal-heading">
+      <button type="button" class="fde-modal-close" id="fde-modal-close" aria-label="Close">&times;</button>
+
+      <div class="signup-panel-heading" id="fde-modal-heading">Let's build your FDE bench</div>
+      <p class="signup-panel-subheading">Tell us a bit about your team and we'll set up a call to map out your FDE capability.</p>
+
+      <div class="mc-form-shell">
+        <div class="mc-form">
+          <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=0065bee0f0" method="post" id="mc-embedded-subscribe-form-modal" name="mc-embedded-subscribe-form" class="validate" target="hidden_iframe" novalidate="">
+            <div id="mc_embed_signup_scroll-modal">
+              <h2>Book a Call</h2>
+              <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+              <div class="mc-field-row">
+                <div class="mc-field-group"><label for="mce-FNAME-modal">First Name <span class="asterisk">*</span></label><input type="text" name="FNAME" class="required text" id="mce-FNAME-modal" required="" value=""></div>
+                <div class="mc-field-group"><label for="mce-LNAME-modal">Last Name </label><input type="text" name="LNAME" class=" text" id="mce-LNAME-modal" value=""></div>
+              </div>
+              <div class="mc-field-row">
+                <div class="mc-field-group"><label for="mce-MMERGE5-modal">Company <span class="asterisk">*</span></label><input type="text" name="MMERGE5" class="required text" id="mce-MMERGE5-modal" value="" required=""></div>
+                <div class="mc-field-group"><label for="mce-MMERGE6-modal">Designation <span class="asterisk">*</span></label><input type="text" name="MMERGE6" class="required text" id="mce-MMERGE6-modal" required="" value=""></div>
+              </div>
+              <div class="mc-field-row">
+                <div class="mc-field-group"><label for="mce-EMAIL-modal">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL-modal" required="" value=""></div>
+                <div class="mc-field-group"><label for="mce-PHONE-modal">Phone Number </label><input type="text" name="PHONE" class="REQ_CSS" id="mce-PHONE-modal" value=""></div>
+              </div>
+              <div id="mce-responses-modal" class="mc-form-responses clear">
+                <div class="response mc-form-error-response" id="mce-error-response-modal" style="display: none;"></div>
+                <div class="response mc-form-success-response" id="mce-success-response-modal" style="display: none;"></div>
+              </div>
+              <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_5549e504ae14868b2410cb4cf_997b12936f" tabindex="-1" value=""></div>
+              <div class="clear"><input type="submit" name="subscribe" class="button mc-form-submit" value="Book a Call"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var openBtn = document.getElementById('open-fde-modal');
+      var overlay = document.getElementById('fde-modal-overlay');
+      var closeBtn = document.getElementById('fde-modal-close');
+      var thanksOverlay = document.getElementById('fde-thanks-overlay');
+      var thanksCloseBtn = document.getElementById('fde-thanks-close');
+
+      function openOverlay(el) {
+        el.classList.add('is-open');
+        el.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeOverlay(el) {
+        el.classList.remove('is-open');
+        el.setAttribute('aria-hidden', 'true');
+        if (!overlay.classList.contains('is-open') && !thanksOverlay.classList.contains('is-open')) {
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (openBtn && overlay && closeBtn) {
+        openBtn.addEventListener('click', function () { openOverlay(overlay); });
+        closeBtn.addEventListener('click', function () { closeOverlay(overlay); });
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) closeOverlay(overlay);
+        });
+      }
+
+      if (thanksOverlay && thanksCloseBtn) {
+        thanksCloseBtn.addEventListener('click', function () { closeOverlay(thanksOverlay); });
+        thanksOverlay.addEventListener('click', function (e) {
+          if (e.target === thanksOverlay) closeOverlay(thanksOverlay);
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (overlay && overlay.classList.contains('is-open')) closeOverlay(overlay);
+        if (thanksOverlay && thanksOverlay.classList.contains('is-open')) closeOverlay(thanksOverlay);
+      });
+
+      // Forms post quietly to a hidden iframe (see the <iframe name="hidden_iframe">
+      // above) so the page never navigates to Mailchimp's own confirmation page.
+      // We show our own confirmation right after submitting.
+      function wireForm(formId) {
+        var form = document.getElementById(formId);
+        if (!form) return;
+        form.addEventListener('submit', function () {
+          setTimeout(function () {
+            if (overlay) closeOverlay(overlay);
+            if (thanksOverlay) openOverlay(thanksOverlay);
+            form.reset();
+          }, 300);
+        });
+      }
+
+      wireForm('mc-embedded-subscribe-form');
+      wireForm('mc-embedded-subscribe-form-modal');
+    })();
+  </script>
 
 <!-- Exact rendered GenSpark footer -->
 <footer class="footer_wrap footer_new">
@@ -2118,8 +2450,6 @@
 
 <!-- Exact GenSpark navbar/footer behaviour -->
 <script src="https://genspark.net/wp-content/themes/genspark/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://genspark.net/wp-content/themes/genspark/assets/js/app.min.js"></script>
-
-</body>
+<script src="https://genspark.net/wp-content/themes/genspark/assets/js/app.min.js"></script></body>
 
 </html>
