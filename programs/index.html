@@ -1,200 +1,1239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Enterprise Technology &amp; Workforce Programs | GenSpark</title>
-  <meta name="description" content="Browse GenSpark’s enterprise training programs across software engineering, cloud, data, AI, and enterprise platforms. Instructor-led, hands-on, and customizable.">
-  <link rel="canonical" href="https://go.genspark.net/programs/">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" href="https://genspark.net/wp-content/uploads/2025/07/favicon.svg">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="GenSpark">
-  <meta property="og:title" content="Enterprise Technology &amp; Workforce Programs | GenSpark">
-  <meta property="og:description" content="Browse GenSpark’s enterprise training programs across software engineering, cloud, data, AI, and enterprise platforms. Instructor-led, hands-on, and customizable.">
-  <meta property="og:url" content="https://go.genspark.net/programs/">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs Directory | GenSpark</title>
+
+  <!-- Typography: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="/programs/assets/css/tokens.css">
-  <link rel="stylesheet" href="/programs/assets/css/base.css">
-  <link rel="stylesheet" href="/programs/assets/css/components.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://genspark.net/"},{"@type":"ListItem","position":2,"name":"Workforce Upskilling","item":"https://genspark.net/workforce-upskilling/"},{"@type":"ListItem","position":3,"name":"Programs"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Enterprise Technology & Workforce Programs | GenSpark","description":"Browse GenSpark’s enterprise training programs across software engineering, cloud, data, AI, and enterprise platforms. Instructor-led, hands-on, and customizable.","url":"https://go.genspark.net/programs/","isPartOf":{"@type":"WebSite","name":"GenSpark","url":"https://genspark.net"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GenSpark","legalName":"Pyramid Consulting, Inc.","url":"https://genspark.net"}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Exact GenSpark header/footer dependencies -->
+<link rel="stylesheet"
+      href="https://genspark.net/wp-content/themes/genspark/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+      href="https://genspark.net/wp-content/themes/genspark/assets/css/app.min.css">
+
+<!-- Original Programs Directory design, isolated from GenSpark/Bootstrap -->
+<style id="programs-isolated-styles">
+    .programs-page {
+      --color-black: #131216;
+      --color-deep-green: #13322B;
+      --color-primary-green: #4C9560;
+      --color-pale-green: #EBF8EB;
+      --color-soft-pale-green: #E3F4E1;
+      --color-white: #FFFFFF;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --max-width: 1200px;
+    }
+
+    .programs-page * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .programs-page {
+      scroll-behavior: smooth;
+    }
+
+    .programs-page {
+      background-color: var(--color-pale-green);
+      color: var(--color-black);
+      font-family: var(--font-family);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .programs-page .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    
+    .programs-page .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary-green);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    
+    .programs-page .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--font-family);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .programs-page .btn-primary {
+      background-color: var(--color-primary-green);
+      color: var(--color-white);
+      border-color: var(--color-primary-green);
+    }
+
+    .programs-page .btn-primary:hover {
+      background-color: #438654;
+      transform: translateY(-1px);
+    }
+
+    
+    .programs-page .hero-section {
+      padding: 88px 0 80px 0;
+      background-color: var(--color-pale-green);
+      border-bottom: 1px solid rgba(76, 149, 96, 0.2);
+    }
+
+    .programs-page .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .programs-page .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-black);
+      margin-bottom: 18px;
+    }
+
+    .programs-page .hero-subtext {
+      font-size: 18px;
+      color: var(--color-black);
+      opacity: 0.85;
+      line-height: 1.55;
+      max-width: 580px;
+      margin-bottom: 32px;
+    }
+
+    
+    .programs-page .explore-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-deep-green);
+      text-decoration: none;
+      padding: 10px 0;
+      transition: color 0.2s ease;
+    }
+
+    .programs-page .explore-cta svg {
+      transition: transform 0.2s ease;
+    }
+
+    .programs-page .explore-cta:hover {
+      color: var(--color-primary-green);
+    }
+
+    .programs-page .explore-cta:hover svg {
+      transform: translateY(3px);
+    }
+
+    
+    .programs-page .rotator-frame {
+      background-color: var(--color-soft-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.25);
+      border-radius: 20px;
+      padding: 48px 36px 36px 36px;
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 16px 36px -12px rgba(19, 50, 43, 0.08);
+    }
+
+    .programs-page .slide-stage {
+      position: relative;
+      flex-grow: 1;
+      min-height: 140px;
+    }
+
+    .programs-page .rotator-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .programs-page .rotator-slide.is-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .programs-page .slide-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: var(--color-deep-green);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .programs-page .slide-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-black);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .programs-page .slide-desc {
+      font-size: 15px;
+      color: var(--color-black);
+      opacity: 0.75;
+      line-height: 1.45;
+    }
+
+    .programs-page .rotator-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .programs-page .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: rgba(19, 50, 43, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      padding: 0;
+    }
+
+    .programs-page .dot.is-active {
+      width: 22px;
+      background-color: var(--color-deep-green);
+    }
+
+    
+    .programs-page .library-section {
+      padding: 80px 0 96px 0;
+      background-color: var(--color-pale-green);
+      scroll-margin-top: 24px;
+    }
+
+    .programs-page .library-header {
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .programs-page .library-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-black);
+    }
+
+    .programs-page .library-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .programs-page .library-count {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-deep-green);
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
+    .programs-page .search-wrapper {
+      position: relative;
+      width: 320px;
+    }
+
+    .programs-page .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-deep-green);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .programs-page .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 40px;
+      font-size: 14px;
+      font-family: var(--font-family);
+      color: var(--color-black);
+      background: var(--color-white);
+      border: 1.5px solid rgba(76, 149, 96, 0.35);
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(19, 50, 43, 0.03);
+    }
+
+    .programs-page .search-input:focus {
+      border-color: var(--color-primary-green);
+      box-shadow: 0 0 0 3px rgba(76, 149, 96, 0.15);
+    }
+
+    .programs-page .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .programs-page .program-card {
+      background-color: var(--color-soft-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.25);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .programs-page .program-card.is-hidden {
+      display: none !important;
+    }
+
+    .programs-page .program-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-primary-green);
+      box-shadow: 0 12px 28px -8px rgba(19, 50, 43, 0.12);
+    }
+
+    .programs-page .card-top {
+      margin-bottom: 24px;
+    }
+
+    .programs-page .card-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .programs-page .card-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: var(--color-deep-green);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .programs-page .card-category {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-deep-green);
+      background-color: var(--color-pale-green);
+      border: 1px solid rgba(76, 149, 96, 0.3);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .programs-page .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-black);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .programs-page .card-subtext {
+      font-size: 14px;
+      color: var(--color-black);
+      opacity: 0.8;
+      line-height: 1.45;
+    }
+
+    .programs-page .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid rgba(76, 149, 96, 0.2);
+    }
+
+    .programs-page .card-duration {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-deep-green);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .programs-page .card-cta {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-deep-green);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+
+    .programs-page .card-cta:hover {
+      color: var(--color-primary-green);
+      gap: 9px;
+    }
+
+    
+    .programs-page .no-results {
+      display: none;
+      text-align: center;
+      padding: 64px 20px;
+      background: var(--color-soft-pale-green);
+      border: 1px dashed rgba(76, 149, 96, 0.4);
+      border-radius: 16px;
+      grid-column: 1 / -1;
+    }
+
+    .programs-page .no-results.is-visible {
+      display: block;
+    }
+
+    .programs-page .no-results h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-deep-green);
+      margin-bottom: 6px;
+    }
+
+    .programs-page .no-results p {
+      font-size: 14px;
+      color: var(--color-black);
+      opacity: 0.75;
+    }
+
+    
+    .programs-page .scale-banner {
+      background-color: var(--color-deep-green);
+      color: var(--color-white);
+      padding: 88px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .programs-page .scale-headline {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      max-width: 860px;
+      margin: 0 auto 16px auto;
+    }
+
+    .programs-page .scale-subtext {
+      font-size: 17px;
+      color: var(--color-white);
+      opacity: 0.82;
+      max-width: 620px;
+      margin: 0 auto 36px auto;
+      line-height: 1.5;
+    }
+
+    
+    @media (max-width: 992px) {
+      .programs-page .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .programs-page .programs-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .programs-page .scale-headline {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .programs-page .library-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .programs-page .library-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .programs-page .search-wrapper {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .programs-page .container {
+        padding: 0 20px;
+      }
+      .programs-page .hero-title {
+        font-size: 34px;
+      }
+      .programs-page .programs-grid {
+        grid-template-columns: 1fr;
+      }
+      .programs-page .scale-headline {
+        font-size: 26px;
+      }
+    }
+
+</style>
+
+
+<style id="programs-integration-safeguards">
+/*
+ * Keep GenSpark's fixed/sticky header from visually swallowing
+ * the first pixels of the standalone Programs content.
+ */
+.programs-page {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.programs-page img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Do not allow Bootstrap's blue primary button to win. */
+.programs-page .btn-primary {
+    background-color: var(--color-primary-green);
+    border-color: var(--color-primary-green);
+    color: var(--color-white);
+}
+
+.programs-page .btn-primary:hover {
+    background-color: #438654;
+    border-color: #438654;
+    color: var(--color-white);
+}
+
+/* Bootstrap resets form controls; keep the search field as designed. */
+.programs-page .search-input:focus {
+    background: var(--color-white);
+    color: var(--color-black);
+}
+</style>
+
+
+<style id="programs-header-offset-fix">
+/*
+ * GenSpark desktop header is fixed/sticky and measures 105px.
+ *
+ * Padding alone. Do NOT add `transform` here: a transformed element
+ * becomes the containing block for its `position: fixed` descendants,
+ * which breaks any fixed overlay added to this page later.
+ */
+@media (min-width: 992px) {
+    .programs-page {
+        padding-top: 105px;
+    }
+}
+</style>
+
+
+<style id="programs-typography-fix">
+/*
+ * Preserve the original paragraph rendering. Applies only inside the
+ * Programs body, not the GenSpark navbar or footer.
+ */
+.programs-page p {
+    text-align: left !important;
+    text-align-last: left !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    white-space: normal !important;
+}
+</style>
+
 </head>
+
 <body>
-<a class="gs-skip-link" href="#mainContents">Skip to main content</a>
-<header class="gs-header">
-  <div class="gs-utility">
-    <div class="gs-container">
-      <div class="gs-partners">
-          <a href="https://pyramidci.com/" aria-label="Pyramid Consulting"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg" alt="Pyramid Consulting" height="20"></a>
-          <a href="https://pyramidci.com/talent-home-page/" aria-label="Pyramid Talent"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg" alt="Pyramid Talent" height="20"></a>
-          <a href="https://celsiortech.com/" aria-label="Celsior"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg" alt="Celsior" height="20"></a>
+<!-- Exact rendered GenSpark navbar -->
+<header class="header__navbar__wrapper">
+  <!-- Top Nav -->
+  <div class="top__nav__wrapper">
+    <div class="container">
+      <div class="nav_bar_flex">
+        <div class="items">
+          <div class="inner_flex">
+            <a href="https://pyramidci.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791-1.svg" class="dark" alt="Pyramid Consulting Logo" width="90" height="29"/>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg" class="light" alt="Pyramid Consulting Logo"/>
+            </a>
+            <a href="https://pyramidci.com/talent-home-page/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792-1.svg" class="dark" alt="Pyramid Talent Logo" width="90" height="28"/>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg" class="light" alt="Pyramid Talent Logo"/>
+            </a>
+            <a href="https://celsiortech.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685-1.svg" class="dark" alt="Celsior Logo" width="67" height="28"/>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg" class="light" alt="Celsior Logo"/>
+            </a>
+          </div>
+        </div>
+
+        <div class="items">
+          <div class="inner_flex second">
+            <div class="dropdown">
+              <button class="dropdown-toggle" type="button" id="dropdownMenuButton0" data-bs-toggle="dropdown" aria-expanded="false">
+              Company              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton0">
+                <li><a class="dropdown-item" target="" href="https://pyramidci.com/about-us/">About Us</a></li>
+                <li><a class="dropdown-item" target="" href="https://pyramidci.com/career-overview/">Careers</a></li>
+              </ul>
+            </div>
+            <a href="https://genspark.net/contact-us/" target="" class="links">Contact Us</a>
+          </div>
+        </div>
       </div>
-      <nav class="gs-utility__links" aria-label="Company">
-          <a href="https://pyramidci.com/about-us/">About Us</a>
-          <a href="https://pyramidci.com/career-overview/">Careers</a>
-          <a href="https://genspark.net/contact-us/">Contact Us</a>
-      </nav>
     </div>
   </div>
-  <div class="gs-header__main">
-    <div class="gs-container">
-      <a class="gs-header__logo" href="https://genspark.net/" aria-label="GenSpark home">
-        <img src="https://genspark.net/wp-content/uploads/2024/11/Genspark.svg" alt="GenSpark" height="30">
-      </a>
-      <button class="gs-nav-toggle" type="button" aria-expanded="false" aria-controls="gs-primary-nav" aria-label="Toggle navigation">
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="gs-header__nav" id="gs-primary-nav" aria-label="Primary">
-        <a href="https://genspark.net/workforce-upskilling/" aria-current="true">Workforce Upskilling</a>
-        <a href="https://genspark.net/ai-adoption/">AI Adoption</a>
-        <a href="https://genspark.net/hire-train-deploy/">Hire-Train-Deploy</a>
-        <a href="https://genspark.net/resources/">Resources</a>
-      </nav>
-    </div>
+
+  <!-- Botton Nav -->
+  <div class="main__navbar__wrapper">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container mobile">
+        <a class="navbar-brand" href="https://genspark.net">
+          <img src="https://genspark.net/wp-content/uploads/2024/11/Genspark.svg" alt="Genspark Logo" width="125" height="44" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        ></button>
+        <div class="collapse_wrapper collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/workforce-upskilling/" target="">
+              Workforce Upskilling              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/ai-adoption/" target="">
+              AI Adoption              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/hire-train-deploy/" target="">
+              Hire-Train-Deploy              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/resources/" target="">
+              Resources              </a>
+            </li>
+          </ul>
+
+          <!-- Mobile Nav -->
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/workforce-upskilling/" target="">Workforce Upskilling</a></h2>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/ai-adoption/" target="">AI Adoption</a></h2>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/hire-train-deploy/" target="">Hire-Train-Deploy</a></h2>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/resources/" target="">Resources</a></h2>
+            </div>
+          </div>
+
+          <div class="accordion accordion-flush" id="accordionFlushHeader">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTop0">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTop0"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTop0"
+                >
+                Company                </button>
+              </h2>
+              <div
+                id="flush-collapseTop0"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingTop0"
+                data-bs-parent="#accordionFlushHeader"
+              >
+                <div class="accordion-body">
+                  <ul>
+                    <li>
+                      <a href="https://pyramidci.com/about-us/" target="">About Us</a>
+                    </li>
+                    <li>
+                      <a href="https://pyramidci.com/career-overview/" target="">Careers</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/contact-us/" target="">Contact Us</a></h2>
+            </div>
+          </div>
+
+          <div class="products_flex d-lg-none">
+            <a href="https://pyramidci.com/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg" alt="Pyramid Consulting Logo" />
+            </a>
+            <a href="https://pyramidci.com/talent-home-page/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg" alt="Pyramid Talent Logo" />
+            </a>
+            <a href="https://celsiortech.com/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg" alt="Celsior Logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>
-<nav class="gs-breadcrumb" aria-label="Breadcrumb">
-    <div class="gs-container"><ol><li><a href="https://genspark.net/">Home</a></li><li><a href="https://genspark.net/workforce-upskilling/">Workforce Upskilling</a></li><li><span aria-current="page">Programs</span></li></ol></div>
-  </nav>
-<main id="mainContents">
-<section class="gs-hero">
-    <div class="gs-container">
-      <p class="gs-hero__eyebrow">Workforce Upskilling</p>
-      <h1 class="gs-hero__title">Enterprise Technology and Workforce Programs</h1>
-      <p class="gs-hero__lead">GenSpark delivers instructor-led, hands-on programs across modern engineering, cloud, data, AI, and enterprise platforms. Every program can be adapted to your teams and objectives during scoping.</p>
-      <form class="gs-search gs-hero__search" role="search" onsubmit="return false" aria-label="Search programs">
-        <span class="gs-search__icon"><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><circle fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" cx="11" cy="11" r="7"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.3-4.3"/></svg></span>
-        <label class="gs-visually-hidden" for="gs-program-search">Search programs by name, technology, or role</label>
-        <input class="gs-search__input" id="gs-program-search" type="search" autocomplete="off"
-          placeholder="Search programs — e.g. Java, Spring Boot, full stack">
-      </form>
+
+<!-- Programs page is deliberately isolated from GenSpark theme CSS -->
+<div class="programs-page">
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left: Eyebrow, Title, Subtext, Explore CTA -->
+        <div class="hero-text-block">
+          <span class="eyebrow">Workforce Upskilling</span>
+          <h1 class="hero-title">Enterprise Technology and Workforce Programs</h1>
+          <p class="hero-subtext">
+            Instructor-led, hands-on curricula across modern engineering, cloud, agentic AI, and enterprise platforms. Every program is scoped and adapted to your team's technical realities.
+          </p>
+
+          <a href="#program-library" class="explore-cta">
+            <span>Explore Programs</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6l5 5 5-5"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Right: Minimalist, Brief & Visual Rotator -->
+        <div class="rotator-frame">
+          <div class="slide-stage">
+
+            <!-- Slide 1 -->
+            <div class="rotator-slide is-active" data-index="0">
+              <div class="slide-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="slide-title">Hands-On Labs</h3>
+              <p class="slide-desc">Zero passive lecture. Engineers write, debug, and ship code in live cloud environments from day zero.</p>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="rotator-slide" data-index="1">
+              <div class="slide-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <h3 class="slide-title">Client-Mirrored Projects</h3>
+              <p class="slide-desc">Real enterprise delivery loops featuring complex dependencies, tight sprints, and actual production PRs.</p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="rotator-slide" data-index="2">
+              <div class="slide-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                </svg>
+              </div>
+              <h3 class="slide-title">Niche &amp; Frontier Tech</h3>
+              <p class="slide-desc">Master agentic AI systems, automated developer workflows, event streams, and modern cloud stacks.</p>
+            </div>
+
+          </div>
+
+          <div class="rotator-dots">
+            <button class="dot is-active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
-<section class="gs-section" id="available"><div class="gs-container"><span id="category-software-engineering" class="gs-anchor"></span><div class="gs-section__head"><span class="gs-section__eyebrow">Library</span><h2>Available programs</h2><p class="gs-section__lead">Programs currently published in the library. Additional programs across the categories below are in development.</p></div>
-    <div class="gs-programs-grid" data-program-grid>
-      <article class="gs-card" data-program data-category="software-engineering" data-search="java full stack software engineering full-stack java capability across back-end services, a modern front end, cloud deployment, and current engineering practice. java spring boot mysql mongodb angular typescript git &amp; github jenkins docker kubernetes aws postman junit java jfs java full stack full stack java spring boot java developer full stack developer java developer software engineer">
-      <div class="gs-card__top">
-        <span class="gs-logo" role="img" aria-label="Java Full Stack"><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
-        <span class="gs-badge gs-badge--neutral">Software Engineering</span>
+
+  <!-- PROGRAM LIBRARY -->
+  <section class="library-section" id="program-library">
+    <div class="container">
+
+      <div class="library-header">
+        <h2 class="library-title">Program Library</h2>
+
+        <div class="library-actions">
+          <span class="library-count" id="program-count">Showing all programs</span>
+          <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="program-search"
+              class="search-input"
+              placeholder="Search programs (Java, AI, Cloud)..."
+              autocomplete="off"
+            >
+          </div>
+        </div>
       </div>
-      <h3 class="gs-card__title"><a href="/programs/java-full-stack/">Java Full Stack</a></h3>
-      <p class="gs-card__desc">Full-stack Java capability across back-end services, a modern front end, cloud deployment, and current engineering practice.</p>
-      <div class="gs-card__meta">
-        <span><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><circle fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" cx="12" cy="12" r="9"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg> 4–12 weeks</span>
-        <span><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 13a9 9 0 1 1 9-9M12 13l4-4"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 20h18"/></svg> Multi-level (Foundational to Advanced)</span>
+
+      <div class="programs-grid" id="programs-grid">
+
+        <!-- Card 1 -->
+        <div class="program-card">
+          <div class="card-top">
+            <div class="card-meta-bar">
+              <div class="card-logo">AI</div>
+              <span class="card-category">Artificial Intelligence</span>
+            </div>
+            <h3 class="card-title">Forward Deployed AI Engineering</h3>
+            <p class="card-subtext">
+              Build autonomous AI agents, retrieval pipelines, and enterprise LLM applications integrated into client delivery loops.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <span class="card-duration">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              8 Weeks
+            </span>
+            <a href="#" class="card-cta">
+              View Program
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="program-card">
+          <div class="card-top">
+            <div class="card-meta-bar">
+              <div class="card-logo">FS</div>
+              <span class="card-category">Cloud &amp; Engineering</span>
+            </div>
+            <h3 class="card-title">Full Stack Java &amp; Microservices</h3>
+            <p class="card-subtext">
+              Modern Spring Boot architectures, event-driven designs with Kafka, and clean React frontends built for enterprise throughput.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <span class="card-duration">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              12 Weeks
+            </span>
+            <a href="#" class="card-cta">
+              View Program
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="program-card">
+          <div class="card-top">
+            <div class="card-meta-bar">
+              <div class="card-logo">DE</div>
+              <span class="card-category">Data &amp; Analytics</span>
+            </div>
+            <h3 class="card-title">Modern Cloud Data Engineering</h3>
+            <p class="card-subtext">
+              Real-time ingestion, streaming pipelines, dbt transformations, and secure governance across Snowflake and AWS ecosystems.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <span class="card-duration">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              10 Weeks
+            </span>
+            <a href="#" class="card-cta">
+              View Program
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Empty state placeholder -->
+        <div class="no-results" id="no-results">
+          <h3>No matching programs found</h3>
+          <p>Try searching for terms like "AI", "Java", "Cloud", or "Data".</p>
+        </div>
+
       </div>
-      <span class="gs-card__cue" aria-hidden="true">View program <svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-    </article>
     </div>
-    <div class="gs-results-bar">
-      <p class="gs-results-count" aria-live="polite"><strong data-result-count>1</strong> program</p>
-    </div>
-    <div class="gs-empty" data-empty>
-      <h3>No programs match your search</h3>
-      <p>Try a different term. GenSpark can also design a custom cohort for your team.</p>
-      <p class="gs-flow"><a class="gs-btn gs-btn--primary" href="https://genspark.net/contact-us/">Talk to GenSpark</a></p>
-    </div></div></section>
-<section class="gs-section gs-section--surface"><div class="gs-container"><div class="gs-section__head"><span class="gs-section__eyebrow">Categories</span><h2>Browse the program library</h2><p class="gs-section__lead">The library spans five capability areas. Categories without a published program yet are shown as part of the framework.</p></div>
-    <div class="gs-grid gs-grid--audience">
-      <article class="gs-cat">
-      <span class="gs-cat__icon"><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
+  </section>
+
+  <!-- FULL BLEED SCALE LINE & CTA -->
+  <section class="scale-banner">
+    <div class="container">
+      <h2 class="scale-headline">
+        Every program is 100% customizable. Delivered with infinite scale across your global footprint.
+      </h2>
       <div>
-        <h3 class="gs-cat__title"><a href="/programs/#category-software-engineering" data-cat-jump="software-engineering">Software Engineering</a></h3>
-        <p class="gs-cat__desc">Full-stack application development across modern languages, frameworks, testing, and delivery practices.</p>
-        <span class="gs-cat__count">1 program available</span>
-      </div>
-    </article><article class="gs-cat">
-      <span class="gs-cat__icon"><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 19h11.5Z"/></svg></span>
-      <div>
-        <h3 class="gs-cat__title">Cloud and Infrastructure</h3>
-        <p class="gs-cat__desc">Cloud platforms, DevOps, and infrastructure engineering.</p>
-        <span class="gs-cat__count gs-cat__count--empty">In development</span>
-      </div>
-    </article><article class="gs-cat">
-      <span class="gs-cat__icon"><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="6" y="6" width="12" height="12" rx="2"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></span>
-      <div>
-        <h3 class="gs-cat__title">Data and AI</h3>
-        <p class="gs-cat__desc">Data engineering, analytics, machine learning, and applied generative AI.</p>
-        <span class="gs-cat__count gs-cat__count--empty">In development</span>
-      </div>
-    </article><article class="gs-cat">
-      <span class="gs-cat__icon"><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2 2 7l10 5 10-5-10-5ZM2 12l10 5 10-5M2 17l10 5 10-5"/></svg></span>
-      <div>
-        <h3 class="gs-cat__title">Enterprise Platforms</h3>
-        <p class="gs-cat__desc">Configuration and development across Salesforce, ServiceNow, Guidewire, SAP, and Oracle ecosystems.</p>
-        <span class="gs-cat__count gs-cat__count--empty">In development</span>
-      </div>
-    </article><article class="gs-cat">
-      <span class="gs-cat__icon"><svg viewBox="0 0 24 24" class="" aria-hidden="true" focusable="false" role="img"><rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="2" y="7" width="20" height="14" rx="2"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
-      <div>
-        <h3 class="gs-cat__title">Business and Delivery</h3>
-        <p class="gs-cat__desc">Agile, Scrum, business analysis, product, and delivery leadership capabilities.</p>
-        <span class="gs-cat__count gs-cat__count--empty">In development</span>
-      </div>
-    </article>
-    </div></div></section>
-<section class="gs-section gs-section--tight"><div class="gs-container"><div class="gs-callout">
-      <h2>Adaptable to your team</h2>
-      <p>Every program is a proven learning structure that GenSpark adapts to your context during scoping — learner experience, technology emphasis, business objectives, timeline, delivery format, and role expectations.</p>
-      <ul class="gs-callout__list"><li>Curriculum emphasis</li><li>Program duration</li><li>Depth and prerequisites</li><li>Labs and projects</li><li>Assessments</li><li>Delivery format</li><li>Tooling emphasis</li></ul>
-    </div></div></section>
-<section class="gs-section gs-section--tight"><div class="gs-container"><div class="gs-cta-band">
-      <h2>Talk to GenSpark about a workforce program</h2>
-      <p>Tell us about your teams and objectives, and we’ll shape a program around them.</p>
-      <div class="gs-cta-band__actions">
-        <a class="gs-btn gs-btn--primary" href="https://genspark.net/contact-us/">Start the Conversation</a>
-        <a class="gs-btn gs-btn--secondary" href="https://genspark.net/workforce-upskilling/">Explore Workforce Upskilling</a>
-      </div>
-    </div></div></section>
-</main>
-<footer class="gs-footer">
-    <div class="gs-container">
-      <div class="gs-footer__top">
-        <a class="gs-footer__logo" href="https://genspark.net/" aria-label="GenSpark home"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808-1.svg" alt="GenSpark" height="30"></a>
-        <div class="gs-social">
-          <a href="https://www.linkedin.com/company/genspark1/" aria-label="LinkedIn"><img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg" alt="" aria-hidden="true" width="16" height="16"></a>
-          <a href="https://www.facebook.com/GenSpark2/" aria-label="Facebook"><img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg" alt="" aria-hidden="true" width="16" height="16"></a>
-          <a href="https://www.instagram.com/genspark1/" aria-label="Instagram"><img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg" alt="" aria-hidden="true" width="16" height="16"></a>
-          <a href="https://x.com/GenSpark4" aria-label="X"><img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg" alt="" aria-hidden="true" width="16" height="16"></a>
-        </div>
-      </div>
-      <div class="gs-footer__grid">
-        <div>
-          <h4>Solutions</h4>
-          <ul><li><a href="https://genspark.net/workforce-upskilling/">Workforce Upskilling</a></li><li><a href="https://genspark.net/hire-train-deploy/">Hire-Train-Deploy</a></li><li><a href="https://genspark.net/ai-adoption/">AI Adoption</a></li></ul>
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ul><li><a href="https://genspark.net/resources/?type=post">Blogs</a></li><li><a href="https://genspark.net/resources/?type=case-study">Case Studies</a></li></ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul><li><a href="https://genspark.net/contact-us/">Contact Us</a></li></ul>
-        </div>
-      </div>
-      <div class="gs-footer__partners">
-        <a href="https://pyramidci.com/" aria-label="Pyramid Consulting"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341810-1.svg" alt="Pyramid Consulting" height="26"></a>
-        <a href="https://pyramidci.com/talent-home-page/" aria-label="Pyramid Talent"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806-1.svg" alt="Pyramid Talent" height="26"></a>
-        <a href="https://celsiortech.com/" aria-label="Celsior"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807-1.svg" alt="Celsior" height="26"></a>
-        <a href="https://genspark.net/" aria-label="GenSpark"><img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808-1.svg" alt="GenSpark" height="26"></a>
-      </div>
-      <div class="gs-footer__legal">
-        <a href="https://genspark.net/wp-content/uploads/2024/08/GDPR-v1-6-072024.pdf">GDPR</a>
-        <a href="https://genspark.net/wp-content/uploads/2024/08/CCPA-CRA-v1-3-072024.pdf">CCPA/CCRA</a>
-        <a href="https://genspark.net/wp-content/uploads/2025/10/web-privacy-policy.pdf">Privacy</a>
-        <a href="https://genspark.net/wp-content/uploads/2025/07/PCI_072025_Reasonable-Accomodation-Policy.pdf">Reasonable Accommodation Policy</a>
-        <a href="https://genspark.net/wp-content/uploads/2024/08/Web-Accessibility-v1-2-072024.pdf">Web accessibility</a>
-        <a href="https://genspark.net/wp-content/uploads/2024/08/Privacy-Policy-Introduction-v2-072024.pdf">Privacy introduction</a>
-        <span class="gs-footer__copy">© 2026 Pyramid Consulting, Inc. | All rights reserved</span>
+        <a href="https://genspark.net/contact-us/" class="btn btn-primary">Book a Call</a>
       </div>
     </div>
-  </footer>
-<script src="/programs/assets/js/nav.js" defer></script>
-<script src="/programs/assets/js/library.js" defer></script>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script>
+    (function () {
+      /* Minimal 4s Rotator */
+      const slides = document.querySelectorAll('.rotator-slide');
+      const dots = document.querySelectorAll('.rotator-dots .dot');
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      let intervalTimer = null;
+      const DELAY = 4000;
+
+      function goToSlide(index) {
+        slides.forEach(slide => slide.classList.remove('is-active'));
+        dots.forEach(dot => dot.classList.remove('is-active'));
+
+        currentIndex = index;
+        slides[currentIndex].classList.add('is-active');
+        dots[currentIndex].classList.add('is-active');
+      }
+
+      function nextSlide() {
+        const next = (currentIndex + 1) % totalSlides;
+        goToSlide(next);
+      }
+
+      function startCycle() {
+        stopCycle();
+        intervalTimer = setInterval(nextSlide, DELAY);
+      }
+
+      function stopCycle() {
+        if (intervalTimer) clearInterval(intervalTimer);
+      }
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          stopCycle();
+          goToSlide(idx);
+          startCycle();
+        });
+      });
+
+      if (totalSlides) startCycle();
+
+      /* Library Search Filter */
+      const searchInput = document.getElementById('program-search');
+      const cards = document.querySelectorAll('.program-card');
+      const countEl = document.getElementById('program-count');
+      const noResultsEl = document.getElementById('no-results');
+      const totalCards = cards.length;
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+          const query = e.target.value.trim().toLowerCase();
+          let visibleCount = 0;
+
+          cards.forEach(card => {
+            const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+            const subtext = card.querySelector('.card-subtext')?.textContent.toLowerCase() || '';
+            const category = card.querySelector('.card-category')?.textContent.toLowerCase() || '';
+
+            const matches = title.includes(query) || subtext.includes(query) || category.includes(query);
+
+            if (matches) {
+              card.classList.remove('is-hidden');
+              visibleCount++;
+            } else {
+              card.classList.add('is-hidden');
+            }
+          });
+
+          if (!query) {
+            countEl.textContent = 'Showing all programs';
+          } else {
+            countEl.textContent = `Showing ${visibleCount} of ${totalCards} programs`;
+          }
+
+          if (visibleCount === 0) {
+            noResultsEl.classList.add('is-visible');
+          } else {
+            noResultsEl.classList.remove('is-visible');
+          }
+        });
+      }
+    })();
+  </script>
+
+</div>
+<!-- /.programs-page -->
+
+<!-- Exact rendered GenSpark footer -->
+<footer class="footer_wrap footer_new">
+  <div class="sub_footer">
+    <div class="container">
+
+      <!--Desktop View-->
+      <div class="row d-none d-md-flex">
+        <div class="col-12 col-md-3">
+          <div class="share_logos_wrap">
+            <a href="https://www.linkedin.com/company/genspark1/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg" width="24" height="24" alt="LinkedIn" />
+            </a>
+            <a href="https://www.facebook.com/GenSpark2/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg" width="24" height="24" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/genspark1/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg" width="24" height="24" alt="Instagram" />
+            </a>
+            <a href="https://x.com/GenSpark4" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg" width="24" height="24" alt="X" />
+            </a>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-2 ">
+          <div class="footer_menu">
+            <h6>SOLUTIONS</h6>
+            <ul class="footer_item our_programs_list">
+              <li><a href="https://genspark.net/workforce-upskilling/" target="">Workforce Upskilling</a></li>
+              <li><a href="https://genspark.net/hire-train-deploy/" target="">Hire-Train-Deploy</a></li>
+              <li><a href="https://genspark.net/ai-adoption/" target="">AI Adoption</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 offset-md-1">
+          <div class="footer_menu">
+            <h6>RESOURCES</h6>
+            <ul class="footer_item our_programs_list">
+              <li><a href="https://genspark.net/resources/?type=post" target="">Blogs</a></li>
+              <li><a href="https://genspark.net/resources/?type=case-study" target="">Case Studies</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 ">
+          <div class="footer_menu">
+            <h6>CONTACT</h6>
+            <ul class="footer_item our_programs_list">
+              <li><a href="https://genspark.net/contact-us/" target="">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!--Desktop View Completed-->
+
+      <!--Mobile View-->
+      <div class="mobile_view d-block d-md-none">
+
+        <div class="share_logos_wrap mb-4">
+          <a href="https://www.linkedin.com/company/genspark1/" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg" width="24" height="24" alt="LinkedIn" />
+          </a>
+          <a href="https://www.facebook.com/GenSpark2/" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg" width="24" height="24" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/genspark1/" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg" width="24" height="24" alt="Instagram" />
+          </a>
+          <a href="https://x.com/GenSpark4" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg" width="24" height="24" alt="X" />
+          </a>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordionFlushExamplefooter">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading-solutions-0">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#flush-collapse-solutions-0"
+                aria-expanded="false" aria-controls="flush-collapse-solutions-0">
+                SOLUTIONS              </button>
+            </h2>
+            <div id="flush-collapse-solutions-0" class="accordion-collapse collapse"
+              aria-labelledby="flush-heading-solutions-0"
+              data-bs-parent="#accordionFlushExamplefooter">
+              <div class="accordion-body">
+                <ul class="footer_item our_programs_list">
+                  <li><a href="https://genspark.net/workforce-upskilling/" target="">Workforce Upskilling</a></li>
+                  <li><a href="https://genspark.net/hire-train-deploy/" target="">Hire-Train-Deploy</a></li>
+                  <li><a href="https://genspark.net/ai-adoption/" target="">AI Adoption</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading-resources-1">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#flush-collapse-resources-1"
+                aria-expanded="false" aria-controls="flush-collapse-resources-1">
+                RESOURCES              </button>
+            </h2>
+            <div id="flush-collapse-resources-1" class="accordion-collapse collapse"
+              aria-labelledby="flush-heading-resources-1"
+              data-bs-parent="#accordionFlushExamplefooter">
+              <div class="accordion-body">
+                <ul class="footer_item our_programs_list">
+                  <li><a href="https://genspark.net/resources/?type=post" target="">Blogs</a></li>
+                  <li><a href="https://genspark.net/resources/?type=case-study" target="">Case Studies</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading-contact-2">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#flush-collapse-contact-2"
+                aria-expanded="false" aria-controls="flush-collapse-contact-2">
+                CONTACT              </button>
+            </h2>
+            <div id="flush-collapse-contact-2" class="accordion-collapse collapse"
+              aria-labelledby="flush-heading-contact-2"
+              data-bs-parent="#accordionFlushExamplefooter">
+              <div class="accordion-body">
+                <ul class="footer_item our_programs_list">
+                  <li><a href="https://genspark.net/contact-us/" target="">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--Mobile View Completed-->
+
+    </div>
+  </div>
+
+  <div class="images_footer_wrap">
+    <div class="container">
+      <div class="main_content_wrap">
+        <div class="logos_wrap">
+          <div class="logo_consulting">
+            <a href="https://pyramidci.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341810-1.svg"
+                   alt="Pyramid Consulting Logo" width="164" height="32">
+            </a>
+          </div>
+          <ul class="sub_logos">
+            <li>
+              <a href="https://pyramidci.com/talent-home-page/" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806.svg" class="n_img" alt="Pyramid Talent Logo" width="97" height="30" />
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806-1.svg" class="h_img" alt="Pyramid Talent Logo" />
+              </a>
+            </li>
+            <li>
+              <a href="https://celsiortech.com/" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807.svg" class="n_img" alt="Celsior Logo" width="81" height="30" />
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807-1.svg" class="h_img" alt="Celsior Logo" />
+              </a>
+            </li>
+            <li>
+              <a href="https://genspark.net/" target="_self">
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808.svg" class="n_img" alt="Genspark Logo" width="104" height="29" />
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808-1.svg" class="h_img" alt="Genspark Logo" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rights_footer_wrap">
+    <div class="container">
+      <div class="rights_wrap">
+        <span>
+          <a href="https://genspark.net/wp-content/uploads/2024/08/GDPR-v1-6-072024.pdf" target="_blank">GDPR</a>
+          |          <a href="https://genspark.net/wp-content/uploads/2024/08/CCPA-CRA-v1-3-072024.pdf" target="_blank">CCPA/CCRA</a>
+          |          <a href="https://genspark.net/wp-content/uploads/2025/10/web-privacy-policy.pdf" target="_blank">Privacy</a>
+          |          <a href="https://genspark.net/wp-content/uploads/2025/07/PCI_072025_Reasonable-Accomodation-Policy.pdf" target="_blank">Reasonable Accommodation Policy</a>
+          |          <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Microsoft privacy statement</a>
+        </span>
+        <span>
+          <a href="https://genspark.net/wp-content/uploads/2024/08/Web-Accessibility-v1-2-072024.pdf" target="_blank">Web accessibility</a> |
+          <a href="https://genspark.net/wp-content/uploads/2024/08/Privacy-Policy-Introduction-v2-072024.pdf" target="_blank">Privacy introduction</a> |
+          &copy; 2026 Pyramid Consulting, Inc. | All rights reserved
+        </span>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Exact GenSpark navbar/footer behaviour -->
+<script src="https://genspark.net/wp-content/themes/genspark/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://genspark.net/wp-content/themes/genspark/assets/js/app.min.js"></script>
 </body>
+
 </html>
