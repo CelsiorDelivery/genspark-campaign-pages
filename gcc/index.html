@@ -62,6 +62,18 @@
 
   .gcc-page img{ max-width: 100%; height: auto; display: block; }
 
+  /* Long unbroken strings must not push the page sideways on a phone. */
+  .gcc-page,
+  .gcc-page h1,
+  .gcc-page h2,
+  .gcc-page h3,
+  .gcc-page p,
+  .gcc-page span,
+  .gcc-page div{
+    overflow-wrap: break-word;
+    -webkit-text-size-adjust: 100%;
+  }
+
   .gcc-page .container{
     max-width: var(--max-width);
     margin: 0 auto;
@@ -1053,6 +1065,21 @@
     .gcc-page .need:nth-child(5){ grid-column: 2 / span 2; }
   }
 
+  /* ---- Tablet: two across rather than one very wide column ---- */
+  @media (max-width: 992px) and (min-width: 721px){
+    .gcc-page .gap-grid,
+    .gcc-page .approach-grid,
+    .gcc-page .story-grid,
+    .gcc-page .stat-row{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 720px){
+    .gcc-page .gap-grid,
+    .gcc-page .approach-grid,
+    .gcc-page .story-grid,
+    .gcc-page .stat-row{ grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 640px){
     .gcc-page .container{ padding: 0 20px; }
     .gcc-page .sec, .gcc-page .final{ padding: 56px 0; }
@@ -1074,6 +1101,44 @@
     .gcc-page .need:nth-child(5){ grid-column: 1 / -1; }
     .gcc-page .banner-line{ font-size: 14.5px; padding: 12px 18px; }
     .gcc-page .btn{ width: 100%; }
+
+    /* iOS zooms the whole page when a focused input is under 16px. */
+    .gcc-page .mc-field-group input{ font-size: 16px; }
+
+    .gcc-page .hero-form-panel{
+      border-radius: 18px;
+      box-shadow: 0 2px 4px rgba(19, 50, 43, 0.08),
+                  0 18px 40px -16px rgba(19, 50, 43, 0.5);
+    }
+
+    .gcc-page .gap-grid{ gap: 28px; }
+    .gcc-page .banner-line{ margin-top: 34px; }
+    .gcc-page .split-head{ margin-bottom: 26px; }
+    .gcc-page .approach-card{ padding: 26px 22px; }
+    .gcc-page .exp-layout{ gap: 28px; }
+    .gcc-page .exp-row{ padding: 20px 0; }
+    .gcc-page .proof-note{ font-size: 15px; margin-bottom: 28px; }
+    .gcc-page .story-card{ padding: 22px 20px; }
+    .gcc-page .thanks-sub{ font-size: 14px; }
+  }
+
+  /* ---- Narrow phones ---- */
+  @media (max-width: 400px){
+    .gcc-page .container{ padding: 0 16px; }
+    .gcc-page .hero-title{ font-size: 27px; }
+    .gcc-page .section-title{ font-size: 23px; }
+
+    /* Stack the figure above its label so neither gets squeezed. */
+    .gcc-page .exp-row{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .gcc-page .exp-value{ flex: none; font-size: 34px; }
+
+    .gcc-page .gcc-modal{ padding: 26px 18px 22px 18px; border-radius: 16px; }
+    .gcc-page .hero-form-panel{ padding: 22px 18px; }
+    .gcc-page .final-panel{ padding: 32px 18px; }
   }
 
 </style>
@@ -1096,16 +1161,28 @@
 
 <style id="gcc-header-offset-fix">
 /*
- * GenSpark desktop header is fixed/sticky and measures 105px.
+ * GenSpark's navbar is fixed at every breakpoint, so the page needs clearance
+ * beneath it or the hero slides under the logo. The height differs between
+ * desktop and mobile, so a script measures the real navbar and writes it to
+ * --gs-header-h; the values below are the pre-script fallback.
  *
- * Padding alone. Do NOT add `transform` here: a transformed element becomes
- * the containing block for its `position: fixed` descendants, which will
- * break any modal or overlay added to this page later.
+ * Padding only. Do NOT add `transform` here: a transformed element becomes
+ * the containing block for its `position: fixed` descendants, which breaks
+ * the modals.
  */
+.gcc-page {
+    padding-top: var(--gs-header-h, 76px);
+}
+
 @media (min-width: 992px) {
     .gcc-page {
-        padding-top: 105px;
+        padding-top: var(--gs-header-h, 105px);
     }
+}
+
+/* Anchor jumps land below the navbar rather than behind it. */
+.gcc-page [id] {
+    scroll-margin-top: calc(var(--gs-header-h, 76px) + 16px);
 }
 </style>
 
@@ -1454,7 +1531,7 @@
           </a>
         </div>
 
-                <div class="approach-card">
+        <div class="approach-card">
           <span class="approach-badge">Embed</span>
           <h3 class="approach-title">Put AI Into Real Workflows</h3>
           <p class="approach-text">Built around your use cases, not generic demos. We help teams integrate AI into how they actually work, establish the right governance, and measure what changes.</p>
@@ -1869,6 +1946,43 @@
       }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
 
       Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      /* --------------------------------------------------------------
+       * GenSpark's navbar is a different height on desktop and mobile,
+       * and it is rendered by their theme rather than by this page, so
+       * the clearance cannot be hard-coded. Measure it and publish the
+       * value as --gs-header-h. If the navbar is not actually fixed or
+       * sticky, the clearance is zero: normal flow already handles it.
+       * -------------------------------------------------------------- */
+      var page = document.querySelector('.gcc-page');
+      var nav = document.querySelector('.header__navbar__wrapper');
+      if (!page || !nav) return;
+
+      function pinned(el) {
+        while (el && el !== document.body) {
+          var pos = window.getComputedStyle(el).position;
+          if (pos === 'fixed' || pos === 'sticky') return true;
+          el = el.parentElement;
+        }
+        return false;
+      }
+
+      function sync() {
+        var h = pinned(nav) ? Math.round(nav.getBoundingClientRect().height) : 0;
+        page.style.setProperty('--gs-header-h', h + 'px');
+      }
+
+      sync();
+      window.addEventListener('resize', sync);
+      window.addEventListener('orientationchange', sync);
+      window.addEventListener('load', sync);
+
+      /* The navbar can change height when the burger menu opens. */
+      if ('ResizeObserver' in window) new ResizeObserver(sync).observe(nav);
     })();
   </script>
 </div>
