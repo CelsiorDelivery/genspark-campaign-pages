@@ -1073,6 +1073,15 @@
     .gcc-page .stat-row{ grid-template-columns: repeat(2, 1fr); }
   }
 
+  /*
+   * Mobile trims. Everything hidden here is repeated elsewhere on the page,
+   * so nothing unique to the page is lost on a phone. Kept in the DOM rather
+   * than removed so desktop is unaffected and the markup stays single-source.
+   */
+  @media (max-width: 720px){
+    .gcc-page .mobile-hide{ display: none !important; }
+  }
+
   @media (max-width: 720px){
     .gcc-page .gap-grid,
     .gcc-page .approach-grid,
@@ -1374,7 +1383,7 @@
             </a>
           </div>
 
-          <div class="pillars">
+          <div class="pillars mobile-hide">
             <div class="pillar">
               <span class="pillar-key">Build</span>
               <span class="pillar-val">Tailored AI capability across teams</span>
@@ -1393,12 +1402,12 @@
         <!-- FORM PANEL -->
         <div class="hero-form-panel" id="gcc-form">
           <div class="form-heading">Build your GCC roadmap</div>
-          <p class="form-subheading">We’re here to help you navigate the journey.</p>
+          <p class="form-subheading mobile-hide">We’re here to help you navigate the journey.</p>
 
           <div class="mc-form">
             <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=00f0bfe0f0" method="post" id="gcc-form-hero" name="mc-embedded-subscribe-form" class="validate">
               <h2>Subscribe</h2>
-              <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+              <div class="indicates-required mobile-hide"><span class="asterisk">*</span> indicates required</div>
 
               <div class="mc-row">
                 <div class="mc-field-group">
@@ -1612,7 +1621,7 @@
         </div>
       </div>
 
-      <p class="proof-note">
+      <p class="proof-note mobile-hide">
         From building AI capability to embedding it into everyday work, the impact should be visible in how teams operate, deliver, and grow.
       </p>
 
@@ -1638,7 +1647,7 @@
           </span>
         </a>
 
-        <a href="https://genspark.net/case-study/ai-orchestration-software-engineering/" target="_blank" rel="noopener noreferrer" class="story-card">
+        <a href="https://genspark.net/case-study/ai-orchestration-software-engineering/" target="_blank" rel="noopener noreferrer" class="story-card mobile-hide">
           <div class="story-client">Software Engineering</div>
           <div class="story-title">AI Orchestration in Engineering Delivery</div>
           <p class="story-text">Embedding AI orchestration into how engineering teams design, build and ship, with the working practices to support it.</p>
@@ -1677,7 +1686,7 @@
       <div class="mc-form">
             <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=00f0bfe0f0" method="post" id="gcc-form-modal" name="mc-embedded-subscribe-form" class="validate">
               <h2>Subscribe</h2>
-              <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+              <div class="indicates-required mobile-hide"><span class="asterisk">*</span> indicates required</div>
 
               <div class="mc-row">
                 <div class="mc-field-group">
@@ -1952,37 +1961,68 @@
   <script>
     (function () {
       /* --------------------------------------------------------------
-       * GenSpark's navbar is a different height on desktop and mobile,
-       * and it is rendered by their theme rather than by this page, so
-       * the clearance cannot be hard-coded. Measure it and publish the
-       * value as --gs-header-h. If the navbar is not actually fixed or
-       * sticky, the clearance is zero: normal flow already handles it.
+       * Clearance under GenSpark's navbar.
+       *
+       * The navbar is rendered by their theme, its height differs between
+       * desktop and mobile, and on mobile the element that is actually
+       * `position: fixed` is a child of <header>, not <header> itself. So
+       * rather than assume which node is pinned, scan the header and its
+       * descendants for anything fixed or sticky that sits against the top
+       * of the viewport, and take the lowest edge of those. That number is
+       * published as --gs-header-h, which the page padding reads.
+       *
+       * Their script can also pin the bar after our first measurement, so
+       * we re-measure on load, on scroll, and a couple of times shortly
+       * after boot.
        * -------------------------------------------------------------- */
       var page = document.querySelector('.gcc-page');
-      var nav = document.querySelector('.header__navbar__wrapper');
-      if (!page || !nav) return;
+      var header = document.querySelector('.header__navbar__wrapper');
+      if (!page || !header) return;
 
-      function pinned(el) {
-        while (el && el !== document.body) {
+      var last = null;
+
+      function overlayHeight() {
+        var nodes = [header].concat(
+          Array.prototype.slice.call(header.querySelectorAll('*'))
+        );
+        var lowest = 0;
+
+        for (var i = 0; i < nodes.length; i++) {
+          var el = nodes[i];
           var pos = window.getComputedStyle(el).position;
-          if (pos === 'fixed' || pos === 'sticky') return true;
-          el = el.parentElement;
+          if (pos !== 'fixed' && pos !== 'sticky') continue;
+
+          var r = el.getBoundingClientRect();
+          /* Only count bars actually parked at the top of the screen. */
+          if (r.height > 0 && r.top <= 2 && r.bottom > lowest) {
+            lowest = r.bottom;
+          }
         }
-        return false;
+        return Math.round(lowest);
       }
 
       function sync() {
-        var h = pinned(nav) ? Math.round(nav.getBoundingClientRect().height) : 0;
+        var h = overlayHeight();
+        if (h === last) return;
+        last = h;
         page.style.setProperty('--gs-header-h', h + 'px');
       }
 
       sync();
+
+      window.addEventListener('load', sync);
       window.addEventListener('resize', sync);
       window.addEventListener('orientationchange', sync);
-      window.addEventListener('load', sync);
+      window.addEventListener('scroll', sync, { passive: true });
 
-      /* The navbar can change height when the burger menu opens. */
-      if ('ResizeObserver' in window) new ResizeObserver(sync).observe(nav);
+      /* Catch the navbar being pinned by their script after we first ran. */
+      [120, 400, 1000, 2500].forEach(function (ms) {
+        setTimeout(sync, ms);
+      });
+
+      if ('ResizeObserver' in window) {
+        new ResizeObserver(sync).observe(header);
+      }
     })();
   </script>
 </div>
