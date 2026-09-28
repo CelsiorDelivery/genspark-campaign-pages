@@ -134,6 +134,7 @@
 
   .gcc-page .sec-dark{
     background-color: var(--color-deep-green);
+    background-image: linear-gradient(180deg, var(--color-deep-green) 0%, #0D231E 100%);
     color: var(--color-white);
   }
   .gcc-page .sec-dark .section-title{ color: var(--color-white); }
@@ -142,9 +143,68 @@
 
   /* ================= HERO ================= */
   .gcc-page .hero{
+    position: relative;
+    overflow: hidden;
     background-color: var(--color-deep-green);
     color: var(--color-white);
-    padding: 64px 0 72px 0;
+    padding: 76px 0 84px 0;
+  }
+
+  /*
+   * The hero photograph is a cool blue-grey. Three layers turn it green
+   * without touching the source file:
+   *   1. the image is desaturated and darkened,
+   *   2. ::before lays deep green over it in `color` blend mode, which
+   *      takes the green hue and keeps the photo's own luminance,
+   *   3. ::after is the readability scrim, heaviest behind the copy.
+   * `isolation: isolate` keeps the blend inside this element.
+   */
+  .gcc-page .hero-bg{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    isolation: isolate;
+  }
+
+  .gcc-page .hero-bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% 50%;
+    filter: grayscale(100%) contrast(1.08) brightness(0.82);
+  }
+
+  .gcc-page .hero-bg::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-primary-green);
+    mix-blend-mode: color;
+  }
+
+  .gcc-page .hero-bg::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        120% 90% at 82% 18%,
+        rgba(76, 149, 96, 0.30) 0%,
+        rgba(19, 50, 43, 0) 58%
+      ),
+      linear-gradient(
+        100deg,
+        rgba(19, 50, 43, 0.97) 0%,
+        rgba(19, 50, 43, 0.93) 34%,
+        rgba(19, 50, 43, 0.74) 60%,
+        rgba(19, 50, 43, 0.60) 82%,
+        rgba(19, 50, 43, 0.74) 100%
+      );
+  }
+
+  .gcc-page .hero > .container{
+    position: relative;
+    z-index: 1;
   }
 
   .gcc-page .hero-grid{
@@ -207,10 +267,12 @@
   /* Form panel replacing the hero image */
   .gcc-page .hero-form-panel{
     background-color: var(--color-white);
-    border: 1px solid rgba(76, 149, 96, 0.3);
-    border-radius: 20px;
-    padding: 30px 30px 28px 30px;
-    box-shadow: 0 24px 54px -14px rgba(19, 50, 43, 0.45);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 22px;
+    padding: 32px 32px 30px 32px;
+    box-shadow:
+      0 2px 4px rgba(19, 50, 43, 0.08),
+      0 32px 64px -18px rgba(19, 50, 43, 0.55);
   }
 
   .gcc-page .form-heading{
@@ -422,43 +484,78 @@
   }
 
   /* ================= GAP SECTION ================= */
+  /*
+   * Section headers stack: title, then its lede directly beneath on the
+   * left. The old two-column version left a dead right-hand column
+   * wherever a section had no lede.
+   */
   .gcc-page .split-head{
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 48px;
-    align-items: start;
-    margin-bottom: 40px;
+    max-width: 780px;
+    margin-bottom: 38px;
   }
 
+  .gcc-page .split-head .section-lede{
+    margin-top: 12px;
+  }
+
+  .gcc-page .split-head .section-title{
+    margin-bottom: 0;
+  }
+
+  /*
+   * Numbered columns rather than cards. Boxed cards stretch to a shared
+   * height, so uneven copy left visible dead space inside each box.
+   * A top rule anchors the columns without enclosing them.
+   */
   .gcc-page .gap-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 44px;
   }
 
-  .gcc-page .gap-card{
-    background-color: var(--color-white);
-    border: 1px solid rgba(76, 149, 96, 0.25);
-    border-radius: 14px;
-    padding: 26px 24px;
+  .gcc-page .gap-item{
+    padding-top: 22px;
+    border-top: 2px solid rgba(76, 149, 96, 0.4);
+  }
+
+  .gcc-page .gap-head{
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    margin-bottom: 10px;
+  }
+
+  .gcc-page .gap-num{
+    flex: 0 0 auto;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-green);
+  }
+
+  .gcc-page .gap-sep{
+    flex: 0 0 auto;
+    font-size: 13px;
+    color: var(--color-primary-green);
+    opacity: 0.55;
   }
 
   .gcc-page .gap-title{
-    font-size: 16.5px;
+    font-size: 17px;
     font-weight: 800;
+    line-height: 1.3;
     color: var(--color-black);
-    margin-bottom: 8px;
   }
 
   .gcc-page .gap-text{
     font-size: 14.5px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--color-black);
-    opacity: 0.8;
+    opacity: 0.78;
   }
 
   .gcc-page .banner-line{
-    margin-top: 24px;
+    margin-top: 44px;
     background-color: var(--color-deep-green);
     border-radius: 10px;
     padding: 13px 24px;
@@ -474,6 +571,16 @@
     color: var(--color-soft-pale-green);
   }
 
+  .gcc-page .banner-kicker{
+    margin-top: 14px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary-green);
+  }
+
   /* ================= APPROACH ================= */
   .gcc-page .approach-grid{
     display: grid;
@@ -483,9 +590,12 @@
 
   .gcc-page .approach-card{
     background-color: var(--color-white);
-    border: 1px solid rgba(76, 149, 96, 0.28);
-    border-radius: 16px;
-    padding: 30px 26px;
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 18px;
+    padding: 32px 28px;
+    box-shadow:
+      0 1px 2px rgba(19, 50, 43, 0.04),
+      0 10px 26px -18px rgba(19, 50, 43, 0.28);
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -584,6 +694,95 @@
     opacity: 0.82;
   }
 
+  /* ================= GCC EXPERIENCE ================= */
+  /*
+   * Two columns: the narrative on the left, the numbers as one panel on
+   * the right. Previously this was a vertical stack of unrelated blocks.
+   */
+  .gcc-page .exp-layout{
+    display: grid;
+    grid-template-columns: 1.05fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .gcc-page .exp-left .section-title{
+    margin-bottom: 18px;
+  }
+
+  .gcc-page .exp-left p{
+    font-size: 16px;
+    line-height: 1.62;
+    color: var(--color-black);
+    opacity: 0.82;
+    margin-bottom: 14px;
+  }
+
+  /* No trailing margin before the recognition callout sets its own gap. */
+  .gcc-page .exp-left p:last-of-type{ margin-bottom: 0; }
+
+  .gcc-page .exp-panel{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 20px;
+    padding: 6px 30px;
+    box-shadow:
+      0 2px 4px rgba(19, 50, 43, 0.05),
+      0 24px 52px -26px rgba(19, 50, 43, 0.4);
+  }
+
+  .gcc-page .exp-row{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 26px 0;
+    border-bottom: 1px solid rgba(76, 149, 96, 0.16);
+  }
+
+  .gcc-page .exp-row:last-child{ border-bottom: none; }
+
+  .gcc-page .exp-value{
+    flex: 0 0 116px;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    color: var(--color-primary-green);
+  }
+
+  .gcc-page .exp-label{
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-black);
+    opacity: 0.8;
+  }
+
+  .gcc-page .recognition{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.28);
+    border-left: 3px solid var(--color-primary-green);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin-top: 26px;
+  }
+
+  .gcc-page .recognition-mark{
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: var(--color-primary-green);
+  }
+
+  .gcc-page .recognition-text{
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--color-deep-green);
+  }
+
   /* ================= PROOF ================= */
   .gcc-page .stat-row{
     display: grid;
@@ -596,7 +795,7 @@
   }
 
   .gcc-page .stat-value{
-    font-size: 46px;
+    font-size: 52px;
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1;
@@ -609,6 +808,15 @@
     line-height: 1.45;
     color: var(--color-white);
     opacity: 0.85;
+  }
+
+  .gcc-page .proof-note{
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-white);
+    opacity: 0.82;
+    max-width: 760px;
+    margin-bottom: 36px;
   }
 
   .gcc-page .story-grid{
@@ -682,12 +890,15 @@
 
   .gcc-page .final-panel{
     background-color: var(--color-white);
-    border: 1px solid rgba(76, 149, 96, 0.28);
-    border-radius: 22px;
-    padding: 56px 48px 52px 48px;
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 24px;
+    padding: 58px 48px 54px 48px;
     max-width: 880px;
     margin: 0 auto;
     text-align: center;
+    box-shadow:
+      0 2px 4px rgba(19, 50, 43, 0.05),
+      0 24px 56px -28px rgba(19, 50, 43, 0.35);
   }
 
   .gcc-page .final-panel .section-title{
@@ -754,18 +965,73 @@
     margin: 0 auto;
   }
 
+
+  /* ================= SCROLL REVEALS ================= */
+  /*
+   * Elements start slightly low and transparent, then settle when they
+   * scroll into view. --d staggers siblings. Anyone who has asked their
+   * OS to reduce motion sees the finished state immediately.
+   */
+  .gcc-page .reveal{
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 0.8, 0.3, 1),
+      transform 0.7s cubic-bezier(0.22, 0.8, 0.3, 1);
+    transition-delay: var(--d, 0ms);
+  }
+
+  .gcc-page .reveal.is-visible{
+    opacity: 1;
+    transform: none;
+  }
+
+  /* The stats panel lifts as a whole, its rows settle one after another. */
+  .gcc-page .exp-panel.reveal{
+    transform: translateY(24px) scale(0.985);
+  }
+
+  .gcc-page .exp-panel.reveal.is-visible{
+    transform: none;
+  }
+
+  .gcc-page .exp-row.reveal{
+    transform: translateY(12px);
+  }
+
+  .gcc-page .final-panel.reveal{
+    transform: translateY(22px) scale(0.99);
+  }
+
+  .gcc-page .final-panel.reveal.is-visible{
+    transform: none;
+  }
+
+  /* Keeps the counter from reflowing the row as digits change. */
+  .gcc-page .exp-value{ font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce){
+    .gcc-page .reveal{
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   /* ================= RESPONSIVE ================= */
   @media (max-width: 992px){
     .gcc-page .container{ padding: 0 32px; }
     .gcc-page .hero-grid{ grid-template-columns: 1fr; gap: 40px; }
     .gcc-page .hero-title{ font-size: 38px; }
     .gcc-page .section-title{ font-size: 30px; }
-    .gcc-page .split-head{ grid-template-columns: 1fr; gap: 20px; margin-bottom: 30px; }
+    .gcc-page .split-head{ margin-bottom: 30px; }
     .gcc-page .gap-grid,
     .gcc-page .approach-grid,
     .gcc-page .story-grid{ grid-template-columns: 1fr; }
     .gcc-page .why-grid{ grid-template-columns: 1fr; gap: 32px; }
     .gcc-page .stat-row{ grid-template-columns: 1fr; gap: 28px; }
+    .gcc-page .exp-layout{ grid-template-columns: 1fr; gap: 36px; }
+    .gcc-page .gap-grid{ gap: 32px; }
     .gcc-page .final-panel{ padding: 44px 32px; }
     .gcc-page .need-list{ grid-template-columns: repeat(4, 1fr); }
     .gcc-page .need:nth-child(4){ grid-column: span 2; }
@@ -775,12 +1041,14 @@
   @media (max-width: 640px){
     .gcc-page .container{ padding: 0 20px; }
     .gcc-page .sec, .gcc-page .final{ padding: 56px 0; }
-    .gcc-page .hero{ padding: 44px 0 52px 0; }
+    .gcc-page .hero{ padding: 52px 0 60px 0; }
     .gcc-page .hero-title{ font-size: 30px; }
     .gcc-page .hero-copy{ font-size: 15.5px; }
     .gcc-page .section-title{ font-size: 25px; }
     .gcc-page .pillars{ grid-template-columns: 1fr; gap: 16px; }
-    .gcc-page .stat-value{ font-size: 38px; }
+    .gcc-page .stat-value{ font-size: 40px; }
+    .gcc-page .exp-value{ flex: 0 0 92px; font-size: 36px; }
+    .gcc-page .exp-panel{ padding: 4px 22px; }
     .gcc-page .hero-form-panel{ padding: 24px 22px; }
     .gcc-page .mc-row{ grid-template-columns: 1fr; gap: 0; }
     .gcc-page .gcc-modal{ padding: 28px 22px 24px 22px; }
@@ -990,6 +1258,10 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero">
+    <div class="hero-bg">
+      <img src="gcco.jpg" alt="Corporate tower rising against the sky">
+    </div>
+
     <div class="container">
       <div class="hero-grid">
 
@@ -1000,12 +1272,12 @@
           </h1>
 
           <p class="hero-copy">
-            AI engineering, AI-assisted delivery, and the governance behind both. We build the workforce capability to own it.
+            Build the AI capabilities your GCC needs to work smarter, move faster, and turn AI into meaningful business outcomes across technical and business functions.
           </p>
 
           <div class="hero-actions">
             <a href="#gcc-form" class="btn btn-primary">
-              Build Your GCC AI Capability Roadmap
+              Build Your GCC Roadmap
               <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
             </a>
           </div>
@@ -1013,11 +1285,11 @@
           <div class="pillars">
             <div class="pillar">
               <span class="pillar-key">Build</span>
-              <span class="pillar-val">AI engineering talent</span>
+              <span class="pillar-val">Tailored AI capability across teams</span>
             </div>
             <div class="pillar">
               <span class="pillar-key">Upskill</span>
-              <span class="pillar-val">Engineers into AI engineers</span>
+              <span class="pillar-val">Your workforce to become AI-Native</span>
             </div>
             <div class="pillar">
               <span class="pillar-key">Embed</span>
@@ -1028,8 +1300,8 @@
 
         <!-- FORM PANEL -->
         <div class="hero-form-panel" id="gcc-form">
-          <div class="form-heading">Build your GCC AI capability roadmap</div>
-          <p class="form-subheading">Tell us where the mandate is heading.</p>
+          <div class="form-heading">Build your GCC roadmap</div>
+          <p class="form-subheading">We’re here to help you navigate the journey.</p>
 
           <div class="mc-form">
             <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=00f0bfe0f0" method="post" id="gcc-form-hero" name="mc-embedded-subscribe-form" class="validate">
@@ -1093,30 +1365,42 @@
 
       <div class="split-head">
         <div>
-          <h2 class="section-title">The AI Bottleneck Is Not the Technology.</h2>
+          <h2 class="section-title">The AI Workforce Gap Is Becoming the GCC&rsquo;s Next Bottleneck.</h2>
         </div>
         <p class="section-lede">
-          Access to models is universal. The capability to build with them, deliver through them and govern them is not.
+          72% of GCCs need to reskill or upskill more than 40% of their workforce. The real challenge: turning AI investment into business value.
         </p>
       </div>
 
       <div class="gap-grid">
-        <div class="gap-card">
-          <div class="gap-title">The mandate now runs through AI</div>
-          <p class="gap-text">GCCs are being asked to own AI engineering, AI-assisted delivery and the governance around both.</p>
+        <div class="gap-item">
+          <div class="gap-head">
+            <span class="gap-num">01</span>
+            <span class="gap-sep">&middot;</span>
+            <span class="gap-title">From pilots to scale</span>
+          </div>
+          <p class="gap-text">AI is moving into the operating model across tech, operations, and business.</p>
         </div>
-        <div class="gap-card">
-          <div class="gap-title">AI skills move faster than hiring</div>
-          <p class="gap-text">Agentic systems, retrieval, evaluation and AI platform requirements outpace traditional hiring and learning cycles.</p>
+        <div class="gap-item">
+          <div class="gap-head">
+            <span class="gap-num">02</span>
+            <span class="gap-sep">&middot;</span>
+            <span class="gap-title">Skills are moving faster</span>
+          </div>
+          <p class="gap-text">AI capabilities are evolving faster than traditional hiring and training cycles.</p>
         </div>
-        <div class="gap-card">
-          <div class="gap-title">Access is not capability</div>
-          <p class="gap-text">Buying the tools is easy. Embedding them in real workflows, around real use cases and with governance in place, is not.</p>
+        <div class="gap-item">
+          <div class="gap-head">
+            <span class="gap-num">03</span>
+            <span class="gap-sep">&middot;</span>
+            <span class="gap-title">Access &ne; capability</span>
+          </div>
+          <p class="gap-text">Tools are easy to buy. Making them work across real workflows, use cases, and governance is harder.</p>
         </div>
       </div>
 
       <div class="banner-line">
-        Your GCC doesn't need more AI tools. <em>It needs more AI capability.</em>
+        The winners won&rsquo;t just adopt AI. <em>They&rsquo;ll build the workforce that puts it to work.</em>
       </div>
 
     </div>
@@ -1136,9 +1420,19 @@
       <div class="approach-grid">
 
         <div class="approach-card">
+          <span class="approach-badge">Embed</span>
+          <h3 class="approach-title">Put AI Into Real Workflows</h3>
+          <p class="approach-text">Built around your use cases, not generic demos. We help teams integrate AI into how they actually work, establish the right governance, and measure what changes.</p>
+          <a href="https://genspark.net/ai-adoption/" class="approach-link">
+            Explore AI Enablement
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="approach-card">
           <span class="approach-badge">Build</span>
-          <h3 class="approach-title">AI Engineering Talent, Built to Deploy</h3>
-          <p class="approach-text">Project-ready AI engineers built around your stack and delivery needs, with the software fundamentals that make AI hold up in production. Pipelines across AI, data, cloud and platform engineering.</p>
+          <h3 class="approach-title">Build the AI Talent You Need</h3>
+          <p class="approach-text">Create AI-ready talent around your specific business needs, whether you're building technical teams, expanding AI capabilities, or filling emerging skill gaps.</p>
           <a href="https://genspark.net/hire-train-deploy/" class="approach-link">
             Explore Hire-Train-Deploy
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
@@ -1147,20 +1441,10 @@
 
         <div class="approach-card">
           <span class="approach-badge">Upskill</span>
-          <h3 class="approach-title">Turn Your Engineers Into AI Engineers</h3>
-          <p class="approach-text">Role-aligned, hands-on AI programs run against real enterprise environments. Measured on what engineers can build and ship, not on course completion.</p>
+          <h3 class="approach-title">Make Your Workforce AI-Ready</h3>
+          <p class="approach-text">Hands-on, role-aligned programs that help people build practical AI skills they can apply to their work, from technical teams to business functions and leadership.</p>
           <a href="https://genspark.net/workforce-upskilling/" class="approach-link">
             Explore Workforce Upskilling
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
-          </a>
-        </div>
-
-        <div class="approach-card">
-          <span class="approach-badge">AI Enablement</span>
-          <h3 class="approach-title">Embed AI Into Real Workflows</h3>
-          <p class="approach-text">Built around your use cases, not generic demos. We work AI into how teams actually deliver, define the governance around it, and measure what changes.</p>
-          <a href="https://genspark.net/ai-adoption/" class="approach-link">
-            Explore AI Enablement
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
           </a>
         </div>
@@ -1169,6 +1453,44 @@
     </div>
   </section>
 
+
+  <!-- ================= BUILT ON REAL GCC EXPERIENCE ================= -->
+  <section class="sec sec-soft">
+    <div class="container">
+      <div class="exp-layout">
+
+        <div class="exp-left reveal">
+          <h2 class="section-title">Built on Real GCC Experience.</h2>
+
+          <p>GenSpark is part of the Pyramid Consulting family of businesses, alongside Celsior, bringing together workforce, technology, and AI capabilities to help organizations build and scale their GCCs.</p>
+
+          <div class="recognition">
+            <svg class="recognition-mark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"></circle>
+              <path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"></path>
+            </svg>
+            <span class="recognition-text">Recognized by Avasant as a Challenger in the 2025 GCC Services RadarView&trade;</span>
+          </div>
+        </div>
+
+        <div class="exp-panel reveal" style="--d:120ms">
+          <div class="exp-row reveal" style="--d:260ms">
+            <div class="exp-value" data-count="20" data-suffix="+">20+</div>
+            <div class="exp-label">Delivery centers across 18 countries</div>
+          </div>
+          <div class="exp-row reveal" style="--d:360ms">
+            <div class="exp-value" data-count="800" data-suffix="+">800+</div>
+            <div class="exp-label">Professionals supporting GCC operations</div>
+          </div>
+          <div class="exp-row reveal" style="--d:460ms">
+            <div class="exp-value" data-count="14" data-suffix="+">14+</div>
+            <div class="exp-label">Active GCC clients</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ================= PROOF IN PRACTICE ================= -->
   <section class="sec sec-dark">
@@ -1179,24 +1501,28 @@
           <h2 class="section-title">AI Capability That Shows Up In the Work.</h2>
         </div>
         <p class="section-lede">
-          Measured in delivery speed and production readiness, not course completions.
+          Measured in real business outcomes, not course completions.
         </p>
       </div>
 
       <div class="stat-row">
         <div class="stat">
-          <div class="stat-value">30&ndash;40%</div>
-          <div class="stat-label">Reduction in feature cycle time</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">55%</div>
-          <div class="stat-label">Of new code written with AI assistance</div>
+          <div class="stat-value">80%+</div>
+          <div class="stat-label">Of code automated through AI-native engineering practices</div>
         </div>
         <div class="stat">
           <div class="stat-value">35%</div>
-          <div class="stat-label">Faster time-to-production for agentic workflows</div>
+          <div class="stat-label">Faster time-to-production for AI workflows</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">40%</div>
+          <div class="stat-label">Improvement in business productivity through AI</div>
         </div>
       </div>
+
+      <p class="proof-note">
+        From building AI capability to embedding it into everyday work, the impact should be visible in how teams operate, deliver, and grow.
+      </p>
 
       <div class="story-grid">
 
@@ -1237,21 +1563,12 @@
   <!-- ================= FINAL CTA ================= -->
   <section class="final">
     <div class="container">
-      <div class="final-panel">
+      <div class="final-panel reveal">
 
-        <h2 class="section-title">What Does Your GCC Need to Be AI-Ready For?</h2>
-        <p class="final-kicker">Tell us where the mandate is heading.</p>
+        <h2 class="section-title reveal" style="--d:140ms">Build Your GCC Roadmap.</h2>
 
-        <div class="need-list">
-          <span class="need"><span class="need-dot"></span>Build AI engineering capability</span>
-          <span class="need"><span class="need-dot"></span>Scale AI-assisted delivery</span>
-          <span class="need"><span class="need-dot"></span>Upskill engineers on AI</span>
-          <span class="need"><span class="need-dot"></span>Embed AI in real workflows</span>
-          <span class="need"><span class="need-dot"></span>Stand up AI governance</span>
-        </div>
-
-        <button type="button" class="btn btn-dark" id="open-gcc-modal">
-          Build Your GCC AI Capability Roadmap
+        <button type="button" class="btn btn-dark reveal" style="--d:260ms" id="open-gcc-modal">
+          Start Today
           <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
         </button>
 
@@ -1263,8 +1580,8 @@
   <div class="gcc-modal-overlay" id="gcc-modal-overlay" aria-hidden="true">
     <div class="gcc-modal" role="dialog" aria-modal="true" aria-labelledby="gcc-modal-heading">
       <button type="button" class="gcc-modal-close" id="gcc-modal-close" aria-label="Close">&times;</button>
-      <div class="form-heading" id="gcc-modal-heading">Build your GCC AI capability roadmap</div>
-      <p class="form-subheading">Tell us where the mandate is heading.</p>
+      <div class="form-heading" id="gcc-modal-heading">Build your GCC roadmap</div>
+      <p class="form-subheading">We’re here to help you navigate the journey.</p>
       <div class="mc-form">
             <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=00f0bfe0f0" method="post" id="gcc-form-modal" name="mc-embedded-subscribe-form" class="validate">
               <h2>Subscribe</h2>
@@ -1479,6 +1796,64 @@
 
       wireForm('gcc-form-hero');
       wireForm('gcc-form-modal');
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia &&
+                   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var targets = document.querySelectorAll('.gcc-page .reveal');
+      if (!targets.length) return;
+
+      /* Counts a number up once, easing out so it settles rather than stops. */
+      function countUp(el) {
+        var end = parseFloat(el.getAttribute('data-count'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        if (isNaN(end)) return;
+
+        var duration = 1100;
+        var start = null;
+
+        function frame(now) {
+          if (start === null) start = now;
+          var p = Math.min((now - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(end * eased) + suffix;
+          if (p < 1) requestAnimationFrame(frame);
+        }
+        el.textContent = '0' + suffix;
+        requestAnimationFrame(frame);
+      }
+
+      function show(el) {
+        el.classList.add('is-visible');
+        var counter = el.matches('[data-count]')
+          ? el
+          : el.querySelector('[data-count]');
+        if (counter && !counter.dataset.counted) {
+          counter.dataset.counted = '1';
+          setTimeout(function () { countUp(counter); }, 180);
+        }
+      }
+
+      /* No observer support, or motion turned down: just show everything. */
+      if (reduce || !('IntersectionObserver' in window)) {
+        Array.prototype.forEach.call(targets, function (el) {
+          el.classList.add('is-visible');
+        });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          show(entry.target);
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+
+      Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
     })();
   </script>
 </div>
