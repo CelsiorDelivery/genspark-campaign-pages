@@ -1,0 +1,90 @@
+/*
+ * GenSpark Static Design System
+ * -----------------------------
+ * Shared design tokens for pages hosted on go.genspark.net.
+ *
+ * Derived from the GenSpark WordPress theme source.
+ * Keep page-specific styling OUT of this file.
+ */
+
+:root {
+
+  /* ---------------------------------
+     TYPOGRAPHY
+     --------------------------------- */
+
+  --gs-font-primary: "Barlow", Arial, sans-serif;
+
+
+  /* ---------------------------------
+     CORE BRAND COLORS
+     --------------------------------- */
+
+  --gs-green-dark: #13322B;
+  --gs-green: #36765F;
+  --gs-green-deep: #2C5E4C;
+  --gs-green-soft: #B3D1C7;
+
+  --gs-black: #101015;
+  --gs-charcoal: #1C1C1C;
+
+  --gs-cream: #FEFCF4;
+  --gs-neutral-light: #DDDDDA;
+  --gs-neutral: #B2B1AB;
+
+
+  /* ---------------------------------
+     SEMANTIC COLORS
+     --------------------------------- */
+
+  --gs-bg-dark: var(--gs-green-dark);
+  --gs-bg-black: var(--gs-black);
+  --gs-bg-light: var(--gs-cream);
+
+  --gs-text-dark: var(--gs-black);
+  --gs-text-light: var(--gs-cream);
+  --gs-text-muted: var(--gs-neutral);
+
+  --gs-border-dark: #4B4B4B;
+
+
+  /* ---------------------------------
+     LAYOUT
+     --------------------------------- */
+
+  --gs-container-width: 1320px;
+
+  --gs-section-space-desktop: 96px;
+  --gs-section-space-tablet: 72px;
+  --gs-section-space-mobile: 48px;
+
+
+  /* ---------------------------------
+     SPACING
+     --------------------------------- */
+
+  --gs-space-1: 4px;
+  --gs-space-2: 8px;
+  --gs-space-3: 12px;
+  --gs-space-4: 16px;
+  --gs-space-5: 24px;
+  --gs-space-6: 32px;
+  --gs-space-7: 40px;
+  --gs-space-8: 48px;
+  --gs-space-9: 64px;
+  --gs-space-10: 96px;
+
+
+  /* ---------------------------------
+     SHAPE
+     --------------------------------- */
+
+  --gs-radius-small: 4px;
+
+
+  /* ---------------------------------
+     TRANSITIONS
+     --------------------------------- */
+
+  --gs-transition: 0.25s ease;
+}

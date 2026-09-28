@@ -1,0 +1,12 @@
+/*
+ * Page-specific styles only.
+ *
+ * Do not redefine the GenSpark navbar, footer, typography,
+ * core colors, buttons or global components here.
+ *
+ * Namespace page-specific styles beneath .gs-page.
+ */
+
+.gs-page {
+  /* Page-specific rules go here. */
+}
