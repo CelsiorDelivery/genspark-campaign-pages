@@ -1,0 +1,2403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Generative AI Engineering Training | GenSpark</title>
+  <meta name="description" content="Live, instructor-led Generative AI engineering training covering LLMs, prompt engineering, RAG, AI agents, multi-agent orchestration and AI governance. Customized to your stack and use cases.">
+  <link rel="canonical" href="https://go.genspark.net/programs/generative-ai-engineering/">
+
+  <!-- Link previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://go.genspark.net/programs/generative-ai-engineering/">
+  <meta property="og:site_name" content="GenSpark">
+  <meta property="og:title" content="Generative AI Engineering Training">
+  <meta property="og:description" content="Hands-on, project-based training across LLMs, RAG, AI agents and AI-native engineering workflows. Customized to your technology stack and business use cases.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Generative AI Engineering Training">
+  <meta name="twitter:description" content="Hands-on, project-based training across LLMs, RAG, AI agents and AI-native engineering workflows.">
+
+  <!--
+    Structured data. The Course block helps search engines understand what
+    this page offers; the FAQPage block mirrors the FAQ section verbatim,
+    which is what generative answer engines quote from. Keep the two in
+    sync: if an FAQ answer changes on the page, change it here too.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Generative AI Engineering Training",
+    "description": "Live, instructor-led training that builds practical Generative AI capability across LLMs, prompt engineering, Retrieval-Augmented Generation, AI agents, multi-agent orchestration, responsible AI and enterprise use cases. Curriculum, projects and use cases are customized to the organization's technology stack and skill gaps.",
+    "url": "https://go.genspark.net/programs/generative-ai-engineering/",
+    "inLanguage": "en",
+    "teaches": [
+      "Generative AI and LLM foundations",
+      "Prompt engineering",
+      "AI-assisted development",
+      "Retrieval-Augmented Generation",
+      "Vector databases and semantic search",
+      "AI agents and agentic workflows",
+      "Multi-agent orchestration",
+      "Responsible AI, governance and evaluation"
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "GenSpark",
+      "url": "https://genspark.net/"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "Online",
+      "courseWorkload": "Customizable based on scope and learner level",
+      "instructor": {
+        "@type": "Organization",
+        "name": "GenSpark"
+      }
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Software engineers, AI and data professionals, technical leads, architects, engineering managers and technology teams"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this a standard Generative AI course?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GenSpark offers standard curriculum starting points, but programs can also be customized around an organization's technology stack, use cases, learner profiles and capability gaps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is this training designed for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The program can be designed for software engineers, AI and data professionals, technical leads, architects, engineering managers and broader technology teams."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can the curriculum be customized for our organization?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Curriculum scope, depth, projects and use cases can be adapted to the organization's requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the training hands-on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Training combines instructor-led technical sessions with practical coding and application, followed by instructor feedback. Roughly half of training time is teaching and coding sessions, with the remainder on hands-on work and feedback."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you train teams on our existing technology stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The curriculum can be aligned to the technologies, tools, frameworks and workflows relevant to the organization. GenSpark's training portfolio spans more than 100 technologies across application development, cloud, data and AI."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can the program include our own business use cases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Organization-specific use cases can be incorporated into the learning journey where appropriate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the training take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Duration depends on the learning objectives, learner level, scope and depth of the curriculum. For example, GenSpark's Agentic AI Foundations and Practitioner curriculum is structured as a 10 to 12 week program."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do we get started?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Share your team's goals, current capabilities and technology environment with the GenSpark team. They will help identify the appropriate learning path and determine where customization makes sense."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Typography: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Exact GenSpark header/footer dependencies -->
+<link rel="stylesheet"
+      href="https://genspark.net/wp-content/themes/genspark/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+      href="https://genspark.net/wp-content/themes/genspark/assets/css/app.min.css">
+
+<!-- Curriculum page design, isolated from GenSpark/Bootstrap -->
+<style id="cur-isolated-styles">
+
+  .cur-page{
+    --color-black: #131216;
+    --color-deep-green: #13322B;
+    --color-primary-green: #4C9560;
+    --color-pale-green: #EBF8EB;
+    --color-soft-pale-green: #E3F4E1;
+    --color-white: #FFFFFF;
+    --max-width: 1200px;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .cur-page *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  .cur-page{
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-family);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .cur-page img{ max-width: 100%; height: auto; display: block; }
+
+  .cur-page,
+  .cur-page h1, .cur-page h2, .cur-page h3, .cur-page h4,
+  .cur-page p, .cur-page span, .cur-page div, .cur-page li{
+    overflow-wrap: break-word;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .cur-page .container{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .cur-page .narrow{ max-width: 860px; }
+
+  .cur-page .eyebrow{
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary-green);
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+
+  .cur-page .section-title{
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.028em;
+    line-height: 1.16;
+    color: var(--color-black);
+  }
+
+  .cur-page .section-lede{
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--color-black);
+    opacity: 0.82;
+    max-width: 720px;
+    margin-top: 12px;
+  }
+
+  .cur-page .head-block{ max-width: 780px; margin-bottom: 40px; }
+
+  /* BUTTONS */
+  .cur-page .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .cur-page .btn-primary{
+    background-color: var(--color-primary-green);
+    border-color: var(--color-primary-green);
+    color: var(--color-white);
+  }
+
+  .cur-page .btn-primary:hover{
+    background-color: #3E7D50;
+    border-color: #3E7D50;
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  .cur-page .btn-dark{
+    background-color: var(--color-deep-green);
+    border-color: var(--color-deep-green);
+    color: var(--color-white);
+  }
+
+  .cur-page .btn-dark:hover{
+    background-color: #0D231E;
+    border-color: #0D231E;
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  .cur-page .btn-ghost{
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1.5px solid rgba(235, 248, 235, 0.55);
+  }
+
+  .cur-page .btn-ghost:hover{
+    background-color: rgba(235, 248, 235, 0.12);
+    border-color: var(--color-white);
+    color: var(--color-white);
+  }
+
+  .cur-page .arrow{ transition: transform 0.2s ease; }
+  .cur-page .btn:hover .arrow{ transform: translateX(3px); }
+
+  /* SECTION SHELLS */
+  .cur-page .sec{ padding: 82px 0; }
+  .cur-page .sec-white{ background-color: var(--color-white); }
+  .cur-page .sec-pale{ background-color: var(--color-pale-green); }
+  .cur-page .sec-soft{ background-color: var(--color-soft-pale-green); }
+
+  .cur-page .sec-dark{
+    background-color: var(--color-deep-green);
+    background-image: linear-gradient(180deg, var(--color-deep-green) 0%, #0D231E 100%);
+    color: var(--color-white);
+  }
+  .cur-page .sec-dark .section-title{ color: var(--color-white); }
+  .cur-page .sec-dark .section-lede{ color: var(--color-white); opacity: 0.85; }
+  .cur-page .sec-dark .eyebrow{ color: var(--color-soft-pale-green); }
+
+  /* ================= HERO ================= */
+  .cur-page .hero{
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-deep-green);
+    background-image:
+      radial-gradient(110% 80% at 88% 12%, rgba(76, 149, 96, 0.34) 0%, rgba(19, 50, 43, 0) 60%),
+      linear-gradient(165deg, var(--color-deep-green) 0%, #0D231E 100%);
+    color: var(--color-white);
+    padding: 74px 0 82px 0;
+  }
+
+  .cur-page .hero-grid{
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .cur-page .hero .eyebrow{ color: var(--color-soft-pale-green); }
+
+  .cur-page .hero-title{
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -0.034em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .cur-page .hero-copy{
+    font-size: 17px;
+    line-height: 1.6;
+    opacity: 0.88;
+    margin-bottom: 24px;
+    max-width: 540px;
+  }
+
+  .cur-page .tag-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .cur-page .tag{
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-soft-pale-green);
+    background-color: rgba(235, 248, 235, 0.10);
+    border: 1px solid rgba(235, 248, 235, 0.24);
+    border-radius: 999px;
+    padding: 6px 13px;
+  }
+
+  /* Form panel */
+  .cur-page .form-panel{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 22px;
+    padding: 32px 32px 30px 32px;
+    box-shadow:
+      0 2px 4px rgba(19, 50, 43, 0.08),
+      0 32px 64px -18px rgba(19, 50, 43, 0.55);
+  }
+
+  .cur-page .form-heading{
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.018em;
+    color: var(--color-black);
+    margin-bottom: 6px;
+  }
+
+  .cur-page .form-subheading{
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--color-black);
+    opacity: 0.72;
+    margin-bottom: 20px;
+  }
+
+  /* ================= FORM ================= */
+  .cur-page .mc-form h2{ display: none; }
+  .cur-page .mc-form .asterisk{ color: var(--color-primary-green); }
+
+  .cur-page .mc-field-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    min-width: 0;
+  }
+
+  .cur-page .mc-field-group label{
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--color-deep-green);
+    margin-bottom: 4px;
+  }
+
+  .cur-page .mc-field-group input,
+  .cur-page .mc-field-group textarea{
+    font-family: var(--font-family);
+    font-size: 14px;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    border: 1.5px solid rgba(76, 149, 96, 0.3);
+    border-radius: 8px;
+    padding: 10px 12px;
+    width: 100%;
+    min-width: 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cur-page .mc-field-group textarea{
+    min-height: 74px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+
+  .cur-page .mc-field-group input:focus,
+  .cur-page .mc-field-group textarea:focus{
+    outline: none;
+    border-color: var(--color-primary-green);
+    box-shadow: 0 0 0 3px rgba(76, 149, 96, 0.16);
+  }
+
+  .cur-page .mc-error-response{
+    display: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    background-color: var(--color-soft-pale-green);
+    color: var(--color-deep-green);
+    border: 1px solid rgba(76, 149, 96, 0.4);
+  }
+
+  .cur-page .mc-submit{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 6px;
+    padding: 13px 26px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    background-color: var(--color-deep-green);
+    color: var(--color-white);
+    border: 1px solid var(--color-deep-green);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .cur-page .mc-submit:hover{
+    background-color: #0D231E;
+    border-color: #0D231E;
+    transform: translateY(-1px);
+  }
+
+  .cur-page .mc-submit[disabled]{
+    opacity: 0.6;
+    cursor: progress;
+    transform: none;
+  }
+
+  /* ================= MODALS ================= */
+  .cur-page .cur-modal-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: rgba(19, 50, 43, 0.58);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .cur-page .cur-modal-overlay.is-open{ opacity: 1; pointer-events: auto; }
+
+  .cur-page .cur-modal{
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.3);
+    border-radius: 20px;
+    padding: 32px 30px 28px 30px;
+    box-shadow: 0 30px 60px -12px rgba(19, 50, 43, 0.5);
+    transform: translateY(16px);
+    transition: transform 0.25s ease;
+  }
+
+  .cur-page .cur-modal-overlay.is-open .cur-modal{ transform: translateY(0); }
+
+  .cur-page .cur-modal-close{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    line-height: 1;
+    font-family: var(--font-family);
+    color: var(--color-black);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: background-color 0.15s ease, opacity 0.15s ease;
+  }
+
+  .cur-page .cur-modal-close:hover{
+    background-color: rgba(76, 149, 96, 0.12);
+    opacity: 1;
+  }
+
+  .cur-page .cur-thanks{ max-width: 400px; text-align: center; padding: 40px 32px 34px 32px; }
+
+  .cur-page .thanks-tick{
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px auto;
+    border-radius: 999px;
+    background-color: var(--color-primary-green);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cur-page .thanks-title{
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-black);
+    margin-bottom: 6px;
+  }
+
+  .cur-page .thanks-sub{
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--color-black);
+    opacity: 0.75;
+  }
+
+  /* ================= BRIDGE STRIP ================= */
+  .cur-page .bridge{
+    background-color: var(--color-soft-pale-green);
+    border-top: 1px solid rgba(76, 149, 96, 0.22);
+    border-bottom: 1px solid rgba(76, 149, 96, 0.22);
+    padding: 34px 0;
+  }
+
+  .cur-page .bridge-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .cur-page .bridge-title{
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-black);
+    margin-bottom: 4px;
+  }
+
+  .cur-page .bridge-text{
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--color-black);
+    opacity: 0.8;
+    max-width: 640px;
+  }
+
+  /* ================= PROGRAM AT A GLANCE ================= */
+  .cur-page .glance{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(19, 50, 43, 0.04),
+      0 12px 30px -20px rgba(19, 50, 43, 0.3);
+  }
+
+  .cur-page .glance-row{
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 20px;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(76, 149, 96, 0.16);
+  }
+
+  .cur-page .glance-row:last-child{ border-bottom: none; }
+
+  .cur-page .glance-key{
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-deep-green);
+    padding-top: 2px;
+  }
+
+  .cur-page .glance-val{
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-black);
+    opacity: 0.85;
+  }
+
+  /* ================= PILL LISTS ================= */
+  .cur-page .sub-title{
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: var(--color-black);
+    margin-bottom: 14px;
+  }
+
+  .cur-page .block{ margin-top: 44px; }
+
+  .cur-page .pill-list{ display: flex; flex-wrap: wrap; gap: 9px; }
+
+  .cur-page .pill{
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-deep-green);
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.3);
+    border-radius: 999px;
+    padding: 8px 15px;
+  }
+
+  .cur-page .sec-white .pill{ background-color: var(--color-pale-green); }
+
+  /* ================= FLOW ================= */
+  .cur-page .flow{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .cur-page .flow-item{
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--color-deep-green);
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.3);
+    border-radius: 10px;
+    padding: 11px 16px;
+  }
+
+  .cur-page .flow-sep{ color: var(--color-primary-green); font-weight: 800; }
+
+  /* ================= MODULES ================= */
+  .cur-page .mod{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(19, 50, 43, 0.03),
+      0 8px 22px -18px rgba(19, 50, 43, 0.28);
+  }
+
+  .cur-page .mod summary{
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cur-page .mod summary::-webkit-details-marker{ display: none; }
+
+  .cur-page .mod-num{
+    flex: 0 0 auto;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-green);
+    min-width: 24px;
+  }
+
+  .cur-page .mod-name{
+    flex: 1 1 auto;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.012em;
+    color: var(--color-black);
+    line-height: 1.3;
+  }
+
+  .cur-page .mod-caret{
+    flex: 0 0 auto;
+    color: var(--color-primary-green);
+    transition: transform 0.2s ease;
+  }
+
+  .cur-page .mod[open] .mod-caret{ transform: rotate(90deg); }
+
+  .cur-page .mod-body{
+    padding: 0 24px 22px 64px;
+    border-top: 1px solid rgba(76, 149, 96, 0.14);
+    padding-top: 18px;
+    margin-top: 2px;
+  }
+
+  .cur-page .mod-desc{
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-black);
+    opacity: 0.85;
+    margin-bottom: 14px;
+  }
+
+  .cur-page .topic-label{
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-deep-green);
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .cur-page .topics{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+    list-style: none;
+  }
+
+  .cur-page .topics li{
+    position: relative;
+    padding-left: 16px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--color-black);
+    opacity: 0.82;
+  }
+
+  .cur-page .topics li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background-color: var(--color-primary-green);
+  }
+
+  /* ================= CARD GRIDS ================= */
+  .cur-page .card-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .cur-page .card{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow:
+      0 1px 2px rgba(19, 50, 43, 0.04),
+      0 10px 26px -18px rgba(19, 50, 43, 0.28);
+  }
+
+  .cur-page .card{
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cur-page .card:hover{
+    transform: translateY(-3px);
+    border-color: var(--color-primary-green);
+    box-shadow: 0 14px 32px -12px rgba(19, 50, 43, 0.18);
+  }
+
+  .cur-page .mod{ transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+
+  .cur-page .mod:hover{
+    border-color: rgba(76, 149, 96, 0.45);
+    box-shadow: 0 1px 2px rgba(19, 50, 43, 0.04), 0 12px 28px -18px rgba(19, 50, 43, 0.34);
+  }
+
+  .cur-page .mod[open]{ border-color: var(--color-primary-green); }
+
+  .cur-page .glance-row{ transition: background-color 0.18s ease; }
+  .cur-page .glance-row:hover{ background-color: rgba(235, 248, 235, 0.55); }
+
+  .cur-page .pill{ transition: border-color 0.18s ease, transform 0.18s ease; }
+  .cur-page .pill:hover{ border-color: var(--color-primary-green); transform: translateY(-1px); }
+
+  .cur-page .card-title{
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.012em;
+    color: var(--color-black);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .cur-page .card-text{
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--color-black);
+    opacity: 0.8;
+  }
+
+  /* ================= ROLE LIST ================= */
+  .cur-page .role-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 36px;
+    list-style: none;
+    margin-bottom: 22px;
+  }
+
+  .cur-page .role-list li{
+    position: relative;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--color-black);
+  }
+
+  .cur-page .role-list li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background-color: var(--color-primary-green);
+  }
+
+  .cur-page .role-note{
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--color-black);
+    opacity: 0.82;
+    max-width: 720px;
+  }
+
+  /* ================= PREREQUISITES ================= */
+  .cur-page .prereq{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.25);
+    border-left: 3px solid var(--color-primary-green);
+    border-radius: 0 14px 14px 0;
+    padding: 24px 26px;
+  }
+
+  .cur-page .prereq ul{ list-style: none; margin-top: 12px; }
+
+  .cur-page .prereq li{
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 6px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--color-black);
+    opacity: 0.82;
+  }
+
+  .cur-page .prereq li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background-color: var(--color-primary-green);
+  }
+
+  /* ================= INLINE CTA BAND ================= */
+  .cur-page .cta-band{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    background-color: var(--color-deep-green);
+    border-radius: 16px;
+    padding: 26px 30px;
+    margin-top: 44px;
+  }
+
+  .cur-page .cta-band-text{
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: var(--color-white);
+    max-width: 640px;
+  }
+
+  .cur-page .cta-band-sub{
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--color-white);
+    opacity: 0.8;
+    margin-top: 5px;
+  }
+
+  .cur-page .sec-dark .cta-band{
+    background-color: rgba(235, 248, 235, 0.08);
+    border: 1px solid rgba(235, 248, 235, 0.2);
+  }
+
+  /* ================= JOURNEY ================= */
+  .cur-page .journey{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .cur-page .step{
+    padding-top: 20px;
+    border-top: 2px solid rgba(76, 149, 96, 0.4);
+  }
+
+  .cur-page .sec-dark .step{ border-top-color: rgba(235, 248, 235, 0.35); }
+
+  .cur-page .step-num{
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--color-primary-green);
+    margin-bottom: 9px;
+  }
+
+  .cur-page .sec-dark .step-num{ color: var(--color-soft-pale-green); }
+
+  .cur-page .step-title{
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--color-black);
+    margin-bottom: 6px;
+  }
+
+  .cur-page .sec-dark .step-title{ color: var(--color-white); }
+
+  .cur-page .step-text{
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--color-black);
+    opacity: 0.8;
+  }
+
+  .cur-page .sec-dark .step-text{ color: var(--color-white); opacity: 0.8; }
+
+  /* ================= FAQ ================= */
+  .cur-page .faq{
+    border-bottom: 1px solid rgba(76, 149, 96, 0.25);
+  }
+
+  .cur-page .faq summary{
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 40px 20px 0;
+    position: relative;
+    font-size: 16.5px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+    line-height: 1.4;
+  }
+
+  .cur-page .faq summary::-webkit-details-marker{ display: none; }
+
+  .cur-page .faq summary::after{
+    content: "+";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-primary-green);
+    line-height: 1;
+  }
+
+  .cur-page .faq[open] summary::after{ content: "–"; }
+
+  .cur-page .faq-body{
+    padding: 0 40px 22px 0;
+  }
+
+  .cur-page .faq-body p{
+    font-size: 15px;
+    line-height: 1.62;
+    color: var(--color-black);
+    opacity: 0.82;
+    margin-bottom: 10px;
+  }
+
+  .cur-page .faq-body p:last-child{ margin-bottom: 0; }
+
+  /* ================= FINAL CTA ================= */
+  .cur-page .final{
+    padding: 80px 0 88px 0;
+    background-color: var(--color-pale-green);
+    border-top: 1px solid rgba(76, 149, 96, 0.25);
+  }
+
+  .cur-page .final-panel{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 24px;
+    padding: 54px 48px 50px 48px;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow:
+      0 2px 4px rgba(19, 50, 43, 0.05),
+      0 24px 56px -28px rgba(19, 50, 43, 0.35);
+  }
+
+  .cur-page .final-panel .section-title{ max-width: 560px; margin: 0 auto; }
+
+  /* ================= SCROLL REVEALS ================= */
+  /*
+   * Elements settle into place as they enter the viewport. --d staggers
+   * siblings. Anyone who has asked their OS to reduce motion sees the
+   * finished state immediately, with no transition at all.
+   */
+  .cur-page .reveal{
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 0.8, 0.3, 1),
+      transform 0.65s cubic-bezier(0.22, 0.8, 0.3, 1);
+    transition-delay: var(--d, 0ms);
+  }
+
+  .cur-page .reveal.is-visible{ opacity: 1; transform: none; }
+
+  .cur-page .glance.reveal,
+  .cur-page .cta-band.reveal,
+  .cur-page .final-panel.reveal{ transform: translateY(20px) scale(0.99); }
+
+  .cur-page .glance.reveal.is-visible,
+  .cur-page .cta-band.reveal.is-visible,
+  .cur-page .final-panel.reveal.is-visible{ transform: none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .cur-page .reveal{ opacity: 1; transform: none; transition: none; }
+    .cur-page .card:hover,
+    .cur-page .pill:hover{ transform: none; }
+  }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 992px){
+    .cur-page .container{ padding: 0 32px; }
+    .cur-page .hero-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .cur-page .hero-title{ font-size: 36px; }
+    .cur-page .section-title{ font-size: 29px; }
+    .cur-page .card-grid{ grid-template-columns: repeat(2, 1fr); }
+    .cur-page .journey{ grid-template-columns: repeat(2, 1fr); gap: 26px 18px; }
+    .cur-page .glance-row{ grid-template-columns: 170px 1fr; }
+  }
+
+  @media (max-width: 720px){
+    .cur-page .card-grid{ grid-template-columns: 1fr; }
+    .cur-page .topics{ grid-template-columns: 1fr; }
+    .cur-page .role-list{ grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  @media (max-width: 640px){
+    .cur-page .container{ padding: 0 20px; }
+    .cur-page .sec, .cur-page .final{ padding: 56px 0; }
+    .cur-page .hero{ padding: 50px 0 58px 0; }
+    .cur-page .hero-title{ font-size: 29px; }
+    .cur-page .hero-copy{ font-size: 15.5px; }
+    .cur-page .section-title{ font-size: 25px; }
+    .cur-page .journey{ grid-template-columns: 1fr; }
+    .cur-page .glance-row{ grid-template-columns: 1fr; gap: 4px; padding: 15px 20px; }
+    .cur-page .mod summary{ padding: 17px 18px; gap: 12px; }
+    .cur-page .mod-name{ font-size: 16px; }
+    .cur-page .mod-body{ padding: 16px 18px 20px 18px; }
+    .cur-page .form-panel{ padding: 24px 20px; border-radius: 18px; }
+    .cur-page .cur-modal{ padding: 28px 20px 24px 20px; }
+    .cur-page .final-panel{ padding: 36px 22px; border-radius: 18px; }
+    .cur-page .cta-band{ padding: 22px 20px; }
+    .cur-page .cta-band-text{ font-size: 16.5px; }
+    .cur-page .btn{ width: 100%; }
+    .cur-page .bridge-inner{ gap: 18px; }
+
+    /* iOS zooms the page when a focused field is under 16px. */
+    .cur-page .mc-field-group input,
+    .cur-page .mc-field-group textarea{ font-size: 16px; }
+  }
+
+</style>
+
+
+<style id="cur-integration-safeguards">
+/* Do not allow Bootstrap's blue primary button to win. */
+.cur-page .btn-primary{
+    background-color: var(--color-primary-green);
+    border-color: var(--color-primary-green);
+    color: var(--color-white);
+}
+.cur-page .btn-primary:hover{
+    background-color: #3E7D50;
+    border-color: #3E7D50;
+    color: var(--color-white);
+}
+/* Bootstrap styles .card; this page has its own. */
+.cur-page .card{
+    background-color: var(--color-white);
+    border: 1px solid rgba(76, 149, 96, 0.22);
+    border-radius: 16px;
+}
+</style>
+
+
+<style id="cur-header-offset-fix">
+/*
+ * GenSpark's navbar is fixed at every breakpoint and its height differs
+ * between desktop and mobile, so a script measures it and publishes the
+ * value as --gs-header-h. The numbers below are the pre-script fallback.
+ *
+ * Padding only. Do NOT add `transform` here: a transformed element becomes
+ * the containing block for its `position: fixed` descendants, which breaks
+ * the modals.
+ */
+.cur-page{ padding-top: var(--gs-header-h, 76px); }
+
+@media (min-width: 992px){
+    .cur-page{ padding-top: var(--gs-header-h, 105px); }
+}
+
+.cur-page [id]{
+    scroll-margin-top: calc(var(--gs-header-h, 76px) + 16px);
+}
+</style>
+
+
+<style id="cur-typography-fix">
+.cur-page p {
+    text-align: left !important;
+    text-align-last: left !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    white-space: normal !important;
+}
+</style>
+
+</head>
+
+<body>
+<!-- Exact rendered GenSpark navbar -->
+<header class="header__navbar__wrapper">
+  <!-- Top Nav -->
+  <div class="top__nav__wrapper">
+    <div class="container">
+      <div class="nav_bar_flex">
+        <div class="items">
+          <div class="inner_flex">
+            <a href="https://pyramidci.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791-1.svg" class="dark" alt="Pyramid Consulting Logo" width="90" height="29"/>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg" class="light" alt="Pyramid Consulting Logo"/>
+            </a>
+            <a href="https://pyramidci.com/talent-home-page/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792-1.svg" class="dark" alt="Pyramid Talent Logo" width="90" height="28"/>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg" class="light" alt="Pyramid Talent Logo"/>
+            </a>
+            <a href="https://celsiortech.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685-1.svg" class="dark" alt="Celsior Logo" width="67" height="28"/>
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg" class="light" alt="Celsior Logo"/>
+            </a>
+          </div>
+        </div>
+
+        <div class="items">
+          <div class="inner_flex second">
+            <div class="dropdown">
+              <button class="dropdown-toggle" type="button" id="dropdownMenuButton0" data-bs-toggle="dropdown" aria-expanded="false">
+              Company              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton0">
+                <li><a class="dropdown-item" target="" href="https://pyramidci.com/about-us/">About Us</a></li>
+                <li><a class="dropdown-item" target="" href="https://pyramidci.com/career-overview/">Careers</a></li>
+              </ul>
+            </div>
+            <a href="https://genspark.net/contact-us/" target="" class="links">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botton Nav -->
+  <div class="main__navbar__wrapper">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container mobile">
+        <a class="navbar-brand" href="https://genspark.net">
+          <img src="https://genspark.net/wp-content/uploads/2024/11/Genspark.svg" alt="Genspark Logo" width="125" height="44" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        ></button>
+        <div class="collapse_wrapper collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/workforce-upskilling/" target="">
+              Workforce Upskilling              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/ai-adoption/" target="">
+              AI Adoption              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/hire-train-deploy/" target="">
+              Hire-Train-Deploy              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://genspark.net/resources/" target="">
+              Resources              </a>
+            </li>
+          </ul>
+
+          <!-- Mobile Nav -->
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/workforce-upskilling/" target="">Workforce Upskilling</a></h2>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/ai-adoption/" target="">AI Adoption</a></h2>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/hire-train-deploy/" target="">Hire-Train-Deploy</a></h2>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/resources/" target="">Resources</a></h2>
+            </div>
+          </div>
+
+          <div class="accordion accordion-flush" id="accordionFlushHeader">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTop0">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTop0"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTop0"
+                >
+                Company                </button>
+              </h2>
+              <div
+                id="flush-collapseTop0"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingTop0"
+                data-bs-parent="#accordionFlushHeader"
+              >
+                <div class="accordion-body">
+                  <ul>
+                    <li>
+                      <a href="https://pyramidci.com/about-us/" target="">About Us</a>
+                    </li>
+                    <li>
+                      <a href="https://pyramidci.com/career-overview/" target="">Careers</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2><a href="https://genspark.net/contact-us/" target="">Contact Us</a></h2>
+            </div>
+          </div>
+
+          <div class="products_flex d-lg-none">
+            <a href="https://pyramidci.com/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341791.svg" alt="Pyramid Consulting Logo" />
+            </a>
+            <a href="https://pyramidci.com/talent-home-page/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341792.svg" alt="Pyramid Talent Logo" />
+            </a>
+            <a href="https://celsiortech.com/" target="_blank" class="flex_link">
+            <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341685.svg" alt="Celsior Logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Curriculum page is deliberately isolated from GenSpark theme CSS -->
+<div class="cur-page">
+
+  <!-- ================= 1. HERO ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-content reveal">
+          <span class="eyebrow">Artificial Intelligence &amp; GenAI</span>
+          <h1 class="hero-title">Generative AI Engineering Training</h1>
+
+          <p class="hero-copy">
+            Practical Generative AI capability across LLMs, RAG, AI agents and vector databases, built through hands-on, project-based learning.
+          </p>
+
+          <div class="tag-row">
+            <span class="tag">Generative AI</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">AI Engineering</span>
+          </div>
+
+          <a href="genai-engineering-syllabus.pdf" class="btn btn-ghost" download>
+            Download Syllabus
+            <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13h10"/></svg>
+          </a>
+        </div>
+
+        <!-- FORM PANEL -->
+        <div class="form-panel reveal" id="training-form" style="--d:120ms">
+          <div class="form-heading">Talk to our team to build your roadmap</div>
+          <p class="form-subheading">Tell us about your team's goals, current capabilities and technology environment. We'll help you shape a learning program aligned to your business needs.</p>
+
+          <div class="mc-form">
+            <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=00f0bfe0f0" method="post" id="cur-form-hero" name="mc-embedded-subscribe-form" class="validate">
+              <div class="mc-field-group">
+                <label for="mce-FNAME">Name <span class="asterisk">*</span></label>
+                <input type="text" name="FNAME" id="mce-FNAME" required value="">
+              </div>
+
+              <div class="mc-field-group">
+                <label for="mce-EMAIL">Work Email <span class="asterisk">*</span></label>
+                <input type="email" name="EMAIL" id="mce-EMAIL" required value="">
+              </div>
+
+              <div class="mc-field-group">
+                <label for="mce-COMPANY">Company <span class="asterisk">*</span></label>
+                <input type="text" name="COMPANY" id="mce-COMPANY" required value="">
+              </div>
+
+              <div class="mc-field-group">
+                <label for="mce-DES">Designation <span class="asterisk">*</span></label>
+                <input type="text" name="DES" id="mce-DES" required value="">
+              </div>
+
+              <div class="response mc-error-response"></div>
+
+              <div aria-hidden="true" style="position:absolute; left:-5000px;">
+                <input type="text" name="b_5549e504ae14868b2410cb4cf_997b12936f" tabindex="-1" value="">
+              </div>
+
+              <input type="submit" name="subscribe" class="mc-submit" value="Discuss Your Training Needs">
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BRIDGE ================= -->
+  <section class="bridge">
+    <div class="container">
+      <div class="bridge-inner reveal">
+        <div>
+          <div class="bridge-title">Not an off-the-shelf course.</div>
+          <p class="bridge-text">
+            Live, hands-on technical enablement shaped around your technology stack, business use cases and team skill gaps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. COURSE OVERVIEW ================= -->
+  <section class="sec sec-pale" id="overview">
+    <div class="container">
+
+      <div class="head-block reveal">
+        <h2 class="section-title">Course Overview</h2>
+        <p class="section-lede">
+          Engineering and technology teams build Generative AI capability and apply it to real development and business workflows. The curriculum adapts to your team's skills, environment and priorities.
+        </p>
+      </div>
+
+      <h3 class="sub-title reveal">Program at a Glance</h3>
+      <div class="glance reveal">
+        <div class="glance-row">
+          <div class="glance-key">Level</div>
+          <div class="glance-val">3-10 YOE</div>
+        </div>
+        <div class="glance-row">
+          <div class="glance-key">Duration</div>
+          <div class="glance-val">12 Weeks (Customizable based on scope and learner level)</div>
+        </div>
+        <div class="glance-row">
+          <div class="glance-key">Format</div>
+          <div class="glance-val">Live, instructor-led</div>
+        </div>
+        <div class="glance-row">
+          <div class="glance-key">Delivery</div>
+          <div class="glance-val">Hands-on, project-based</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3 class="sub-title reveal">What the Program Covers</h3>
+        <div class="pill-list reveal">
+          <span class="pill">Generative AI and LLM foundations</span>
+          <span class="pill">Prompt engineering</span>
+          <span class="pill">AI-assisted development</span>
+          <span class="pill">Retrieval-Augmented Generation</span>
+          <span class="pill">AI agents and agentic workflows</span>
+          <span class="pill">Tools, memory and knowledge retrieval</span>
+          <span class="pill">Multi-step AI workflows</span>
+          <span class="pill">Multi-agent systems</span>
+          <span class="pill">AI safety, governance and evaluation</span>
+          <span class="pill">Enterprise AI use cases</span>
+          <span class="pill">Applied projects and capstone development</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. WHAT YOU'LL LEARN ================= -->
+  <section class="sec sec-white" id="curriculum">
+    <div class="container">
+
+      <div class="head-block reveal">
+        <h2 class="section-title">What You'll Learn</h2>
+        <p class="section-lede">
+          The technical skills to design, build and apply Generative AI across engineering and business workflows.
+        </p>
+      </div>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">01</span>
+          <span class="mod-name">Generative AI &amp; LLM Foundations</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">Understand the foundations behind modern Generative AI systems.</p>
+          <span class="topic-label">Topics</span>
+          <ul class="topics">
+            <li>AI, ML and Generative AI fundamentals</li>
+            <li>Large Language Models</li>
+            <li>Transformer-based models</li>
+            <li>Modern LLM ecosystem</li>
+            <li>LLM APIs and AI tools</li>
+            <li>Generative AI applications</li>
+            <li>Model limitations and practical considerations</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">02</span>
+          <span class="mod-name">Prompt Engineering &amp; AI Interaction</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">Design effective interactions with LLMs, with exercises against live LLM APIs.</p>
+          <span class="topic-label">Topics</span>
+          <ul class="topics">
+            <li>Prompt engineering principles</li>
+            <li>Prompt structures for reasoning tasks</li>
+            <li>Advanced prompting techniques</li>
+            <li>Prompt patterns for business workflows</li>
+            <li>Structured outputs</li>
+            <li>Context management</li>
+            <li>AI-assisted development workflows</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">03</span>
+          <span class="mod-name">Retrieval-Augmented Generation</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">Work with organizational and external knowledge through RAG pipelines and vector databases.</p>
+          <span class="topic-label">Topics</span>
+          <ul class="topics">
+            <li>Retrieval-Augmented Generation</li>
+            <li>Data sources and context retrieval</li>
+            <li>Embeddings</li>
+            <li>Semantic search</li>
+            <li>Knowledge retrieval</li>
+            <li>RAG architecture</li>
+            <li>Building AI-assisted workflows</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">04</span>
+          <span class="mod-name">AI Agents &amp; Agentic Workflows</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">Move to systems that reason through tasks and use tools. Labs build simple agents, then agents with tools and memory.</p>
+          <span class="topic-label">Topics</span>
+          <ul class="topics">
+            <li>Agentic AI concepts</li>
+            <li>Agent vs. workflow vs. automation</li>
+            <li>Agent architectures</li>
+            <li>Planning and reasoning</li>
+            <li>Task decomposition</li>
+            <li>Single-agent workflows</li>
+            <li>Tools and integrations</li>
+            <li>Agent memory</li>
+            <li>Knowledge retrieval</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">05</span>
+          <span class="mod-name">Multi-Step AI &amp; Orchestration</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">How multiple steps, tools and agents work together on complex tasks.</p>
+          <span class="topic-label">Topics</span>
+          <ul class="topics">
+            <li>Multi-step AI workflows</li>
+            <li>Workflow orchestration</li>
+            <li>Planning patterns</li>
+            <li>Error handling</li>
+            <li>Guardrails</li>
+            <li>Multi-agent collaboration</li>
+            <li>Coordinator and worker agents</li>
+            <li>Task distribution</li>
+            <li>Agent communication</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">06</span>
+          <span class="mod-name">Enterprise AI Applications</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">Apply Generative AI to real scenarios, with use cases matched to your environment.</p>
+          <span class="topic-label">Topics may include</span>
+          <ul class="topics">
+            <li>AI-powered development workflows</li>
+            <li>Development productivity</li>
+            <li>Research and analysis</li>
+            <li>Enterprise knowledge workflows</li>
+            <li>Customer support use cases</li>
+            <li>Document intelligence</li>
+            <li>AI-powered business processes</li>
+            <li>Enterprise AI integrations</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">07</span>
+          <span class="mod-name">Responsible AI, Governance &amp; Evaluation</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">Build AI systems with appropriate controls and evaluation practices.</p>
+          <span class="topic-label">Topics</span>
+          <ul class="topics">
+            <li>Responsible AI</li>
+            <li>AI guardrails</li>
+            <li>Risk management</li>
+            <li>AI evaluation</li>
+            <li>Governance and controls</li>
+            <li>Observability</li>
+            <li>Enterprise implementation considerations</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mod reveal">
+        <summary>
+          <span class="mod-num">08</span>
+          <span class="mod-name">Capstone Project</span>
+          <svg class="mod-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </summary>
+        <div class="mod-body">
+          <p class="mod-desc">An end-to-end AI solution, built and demonstrated by the participant.</p>
+          <span class="topic-label">Capstone activities</span>
+          <ul class="topics">
+            <li>Use-case definition</li>
+            <li>Solution architecture</li>
+            <li>AI workflow design</li>
+            <li>Development</li>
+            <li>Integration</li>
+            <li>Evaluation</li>
+            <li>Deployment considerations</li>
+            <li>Final demonstration</li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="cta-band reveal">
+        <div>
+          <div class="cta-band-text">Make the curriculum relevant to your business.</div>
+          <p class="cta-band-sub">Customize modules, projects and use cases around your stack and business priorities.</p>
+        </div>
+        <button type="button" class="btn btn-primary open-form">
+          Discuss a Custom Curriculum
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 4. LEARNING OUTCOMES ================= -->
+  <section class="sec sec-soft" id="outcomes">
+    <div class="container">
+
+      <div class="head-block reveal">
+        <h2 class="section-title">What Your Team Will Be Able to Do</h2>
+        <p class="section-lede">
+          Move past experimentation: build, integrate and operationalize AI across real engineering workflows.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card reveal" style="--d:0ms">
+          <h3 class="card-title">Build GenAI Solutions</h3>
+          <p class="card-text">Design and build applications using LLMs, RAG, agents and modern AI tooling.</p>
+        </div>
+        <div class="card reveal" style="--d:90ms">
+          <h3 class="card-title">Apply AI to Engineering Workflows</h3>
+          <p class="card-text">Use AI-assisted development across software delivery workflows.</p>
+        </div>
+        <div class="card reveal" style="--d:180ms">
+          <h3 class="card-title">Design AI-Powered Workflows</h3>
+          <p class="card-text">Connect models, data, tools and APIs into working AI workflows.</p>
+        </div>
+        <div class="card reveal" style="--d:270ms">
+          <h3 class="card-title">Work With Enterprise Knowledge</h3>
+          <p class="card-text">Use organizational data, context retrieval, embeddings and semantic search.</p>
+        </div>
+        <div class="card reveal" style="--d:360ms">
+          <h3 class="card-title">Develop Agentic Systems</h3>
+          <p class="card-text">Design agents that handle multi-step tasks, use tools and reach knowledge sources.</p>
+        </div>
+        <div class="card reveal" style="--d:450ms">
+          <h3 class="card-title">Build With Governance in Mind</h3>
+          <p class="card-text">Apply responsible AI, guardrails, evaluation and governance to what you build.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 5. WHO IS THIS FOR ================= -->
+  <section class="sec sec-white" id="audience">
+    <div class="container">
+
+      <div class="head-block reveal">
+        <h2 class="section-title">Who Is This Program For?</h2>
+        <p class="section-lede">
+          Programs are shaped to the roles, experience levels and skill gaps in your organization, so the mix of participants and the depth of each module can be set to your requirements.
+      </div>
+
+      <ul class="role-list reveal">
+        <li>Software Engineers &amp; Developers</li>
+        <li>AI &amp; Data Professionals</li>
+        <li>Technical Leads &amp; Architects</li>
+        <li>Engineering Managers</li>
+      </ul>
+
+      <p class="role-note reveal">
+        
+      </p>
+
+      <div class="block reveal">
+        <div class="prereq">
+          <h3 class="sub-title" style="margin-bottom:0;">Prerequisites</h3>
+          <p class="card-text" style="margin-top:8px;">Prerequisites vary by learning path and learner level. For an engineering-focused program, recommended experience includes:</p>
+          <ul>
+            <li>Working knowledge of software development</li>
+            <li>Familiarity with APIs and modern development workflows</li>
+            <li>Basic understanding of cloud or application environments</li>
+            <li>Programming experience appropriate to the selected track</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 6. WHY THIS PROGRAM ================= -->
+  <section class="sec sec-dark" id="why">
+    <div class="container">
+
+      <div class="head-block reveal">
+        <h2 class="section-title">Turn Generative AI Skills Into Business Capability</h2>
+        <p class="section-lede">
+          Training shouldn't stop at understanding the technology. The goal is applying AI to the workflows, systems and business problems that matter to you.
+        </p>
+      </div>
+
+      <div class="journey">
+        <div class="step reveal" style="--d:0ms">
+          <span class="step-num">01</span>
+          <div class="step-title">Build Relevant Skills</div>
+          <p class="step-text">Train on the AI technologies and workflows relevant to their roles and your priorities.</p>
+        </div>
+        <div class="step reveal" style="--d:90ms">
+          <span class="step-num">02</span>
+          <div class="step-title">Apply Learning to Real Work</div>
+          <p class="step-text">Hands-on exercises, projects and business-relevant use cases connect learning to practice.</p>
+        </div>
+        <div class="step reveal" style="--d:180ms">
+          <span class="step-num">03</span>
+          <div class="step-title">Accelerate AI Adoption</div>
+          <p class="step-text">Integrate AI into existing workflows rather than running it as a standalone experiment.</p>
+        </div>
+        <div class="step reveal" style="--d:270ms">
+          <span class="step-num">04</span>
+          <div class="step-title">Build Scalable Capability</div>
+          <p class="step-text">Repeatable skills across teams, not a small group of specialists.</p>
+        </div>
+      </div>
+
+      <div class="cta-band reveal">
+        <div>
+          <div class="cta-band-text">Start with your stack, not a generic curriculum.</div>
+          <p class="cta-band-sub">Tell us what your team works with today and we'll shape the learning path around it.</p>
+        </div>
+        <button type="button" class="btn btn-primary open-form">
+          Build Your Team's AI Roadmap
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 7. TRAINING & PEDAGOGY ================= -->
+  <section class="sec sec-pale" id="delivery">
+    <div class="container">
+
+      <div class="head-block reveal">
+        <h2 class="section-title">How We Deliver the Training</h2>
+        <p class="section-lede">
+          Roughly half of training time is teaching and coding sessions; the rest is hands-on work and instructor feedback.
+        </p>
+      </div>
+
+      <div class="journey">
+        <div class="step reveal" style="--d:0ms">
+          <span class="step-num">01</span>
+          <div class="step-title">Assess</div>
+          <p class="step-text">Understand your team's current capabilities, technology environment and learning goals.</p>
+        </div>
+        <div class="step reveal" style="--d:90ms">
+          <span class="step-num">02</span>
+          <div class="step-title">Customize</div>
+          <p class="step-text">Shape the curriculum around your skill gaps, technology stack and relevant use cases.</p>
+        </div>
+        <div class="step reveal" style="--d:180ms">
+          <span class="step-num">03</span>
+          <div class="step-title">Train</div>
+          <p class="step-text">Deliver live, instructor-led technical learning with hands-on application.</p>
+        </div>
+        <div class="step reveal" style="--d:270ms">
+          <span class="step-num">04</span>
+          <div class="step-title">Apply</div>
+          <p class="step-text">Reinforce learning through projects and organization-relevant applications.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="card-grid">
+          <div class="card reveal" style="--d:0ms">
+            <h3 class="card-title">Live &amp; Instructor-Led</h3>
+            <p class="card-text">Live sessions, guided demonstrations and technical walkthroughs with experienced instructors.</p>
+          </div>
+          <div class="card reveal" style="--d:100ms">
+            <h3 class="card-title">Hands-On From Day One</h3>
+            <p class="card-text">Coding exercises, labs and projects rather than passive learning.</p>
+          </div>
+          <div class="card reveal" style="--d:200ms">
+            <h3 class="card-title">Customized to Your Environment</h3>
+            <p class="card-text">Aligned to your stack, engineering workflows and business use cases.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 8. FAQ ================= -->
+  <section class="sec sec-white" id="faq">
+    <div class="container narrow">
+
+      <div class="head-block reveal">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <details class="faq reveal">
+        <summary>Is this a standard Generative AI course?</summary>
+        <div class="faq-body">
+          <p>GenSpark offers standard curriculum starting points, but programs can also be customized around an organization's technology stack, use cases, learner profiles and capability gaps.</p>
+        </div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>Who is this training designed for?</summary>
+        <div class="faq-body">
+          <p>The program can be designed for software engineers, AI and data professionals, technical leads, architects, engineering managers and broader technology teams.</p>
+        </div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>Can the curriculum be customized for our organization?</summary>
+        <div class="faq-body">
+          <p>Yes. Curriculum scope, depth, projects and use cases can be adapted to the organization's requirements.</p>
+        </div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>Is the training hands-on?</summary>
+        <div class="faq-body">
+          <p>Yes. Training combines instructor-led technical sessions with practical coding and application, followed by instructor feedback. Roughly half of training time is teaching and coding sessions, with the remainder on hands-on work and feedback.</p>
+        </div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>Can you train teams on our existing technology stack?</summary>
+        <div class="faq-body">
+          <p>Yes. The curriculum can be aligned to the technologies, tools, frameworks and workflows relevant to the organization. GenSpark's training portfolio spans more than 100 technologies across application development, cloud, data and AI.</p>
+        </div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>Can the program include our own business use cases?</summary>
+        <div class="faq-body">
+          <p>Yes. Organization-specific use cases can be incorporated into the learning journey where appropriate.</p>
+        </div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>How long does the training take?</summary>
+        <div class="faq-body">
+          <p>Duration depends on the learning objectives, learner level, scope and depth of the curriculum. For example, GenSpark's Agentic AI Foundations &amp; Practitioner curriculum is structured as a 10 to 12 week program.</p>
+        </div>
+      </details>
+
+      <details class="faq reveal">
+        <summary>How do we get started?</summary>
+        <div class="faq-body">
+          <p>Share your team's goals, current capabilities and technology environment with our team. We'll help identify the appropriate learning path and determine where customization makes sense.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="final">
+    <div class="container">
+      <div class="final-panel reveal">
+        <h2 class="section-title" style="margin-bottom:26px;">Ready to Build the Right Learning Path for Your Team?</h2>
+        <button type="button" class="btn btn-dark open-form">
+          Talk to Our Training Team
+          <svg class="arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8 4l4 4-4 4"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MODAL: FORM ================= -->
+  <div class="cur-modal-overlay" id="cur-modal-overlay" aria-hidden="true">
+    <div class="cur-modal" role="dialog" aria-modal="true" aria-labelledby="cur-modal-heading">
+      <button type="button" class="cur-modal-close" id="cur-modal-close" aria-label="Close">&times;</button>
+      <div class="form-heading" id="cur-modal-heading">Talk to our team to build your roadmap</div>
+      <p class="form-subheading">Tell us about your team's goals, current capabilities and technology environment.</p>
+
+      <div class="mc-form">
+        <form action="https://celsiortech.us12.list-manage.com/subscribe/post?u=5549e504ae14868b2410cb4cf&amp;id=997b12936f&amp;f_id=00f0bfe0f0" method="post" id="cur-form-modal" name="mc-embedded-subscribe-form" class="validate">
+          <div class="mc-field-group">
+            <label for="mce-FNAME-modal">Name <span class="asterisk">*</span></label>
+            <input type="text" name="FNAME" id="mce-FNAME-modal" required value="">
+          </div>
+
+          <div class="mc-field-group">
+            <label for="mce-EMAIL-modal">Work Email <span class="asterisk">*</span></label>
+            <input type="email" name="EMAIL" id="mce-EMAIL-modal" required value="">
+          </div>
+
+          <div class="mc-field-group">
+            <label for="mce-COMPANY-modal">Company <span class="asterisk">*</span></label>
+            <input type="text" name="COMPANY" id="mce-COMPANY-modal" required value="">
+          </div>
+
+          <div class="mc-field-group">
+            <label for="mce-DES-modal">Designation <span class="asterisk">*</span></label>
+            <input type="text" name="DES" id="mce-DES-modal" required value="">
+          </div>
+
+          <div class="response mc-error-response"></div>
+
+          <div aria-hidden="true" style="position:absolute; left:-5000px;">
+            <input type="text" name="b_5549e504ae14868b2410cb4cf_997b12936f" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" name="subscribe" class="mc-submit" value="Discuss Your Training Needs">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: SUCCESS ================= -->
+  <div class="cur-modal-overlay" id="cur-thanks-overlay" aria-hidden="true">
+    <div class="cur-modal cur-thanks" role="dialog" aria-modal="true" aria-labelledby="cur-thanks-heading">
+      <button type="button" class="cur-modal-close" id="cur-thanks-close" aria-label="Close">&times;</button>
+      <div class="thanks-tick">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div class="thanks-title" id="cur-thanks-heading">Submitted</div>
+      <p class="thanks-sub">Our team will reach out to you within 24 hours.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var overlay      = document.getElementById('cur-modal-overlay');
+      var closeBtn     = document.getElementById('cur-modal-close');
+      var thanksOverlay= document.getElementById('cur-thanks-overlay');
+      var thanksClose  = document.getElementById('cur-thanks-close');
+
+      function openOverlay(el){
+        el.classList.add('is-open');
+        el.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeOverlay(el){
+        el.classList.remove('is-open');
+        el.setAttribute('aria-hidden', 'true');
+        if (!overlay.classList.contains('is-open') &&
+            !thanksOverlay.classList.contains('is-open')) {
+          document.body.style.overflow = '';
+        }
+      }
+
+      /* Every CTA on the page opens the same enquiry modal. */
+      Array.prototype.forEach.call(
+        document.querySelectorAll('.cur-page .open-form'),
+        function (btn) {
+          btn.addEventListener('click', function () { openOverlay(overlay); });
+        }
+      );
+
+      if (closeBtn)    closeBtn.addEventListener('click', function(){ closeOverlay(overlay); });
+      if (thanksClose) thanksClose.addEventListener('click', function(){ closeOverlay(thanksOverlay); });
+
+      [overlay, thanksOverlay].forEach(function (ov) {
+        if (!ov) return;
+        ov.addEventListener('click', function (e) { if (e.target === ov) closeOverlay(ov); });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (overlay.classList.contains('is-open')) closeOverlay(overlay);
+        if (thanksOverlay.classList.contains('is-open')) closeOverlay(thanksOverlay);
+      });
+
+      /* ----------------------------------------------------------------
+       * Mailchimp submission over JSONP.
+       *
+       * The default embed posts the browser to Mailchimp's own confirmation
+       * page. Posting to the post-json endpoint instead keeps the visitor
+       * here AND returns {result, msg}, so the success panel only appears
+       * on a genuine success. Errors render inside the form.
+       * ---------------------------------------------------------------- */
+
+      function showError(form, message){
+        var el = form.querySelector('.mc-error-response');
+        if (!el) return;
+        if (!message) { el.style.display = 'none'; el.textContent = ''; return; }
+        el.textContent = message;
+        el.style.display = 'block';
+      }
+
+      function cleanMessage(msg){
+        return String(msg || '')
+          .replace(/<[^>]*>/g, '')
+          .replace(/^\d+\s*-\s*/, '')
+          .trim() || 'Something went wrong. Please try again.';
+      }
+
+      function submitToMailchimp(form, onSuccess, onError){
+        var action = form.getAttribute('action');
+        if (action.indexOf('/post?') === -1) {
+          onError('This form is misconfigured. Please contact us directly.');
+          return;
+        }
+
+        var cb = 'mcCallback_' + Date.now() + '_' + Math.floor(Math.random() * 1e6);
+        var params = [];
+
+        new FormData(form).forEach(function (value, key) {
+          if (key === 'subscribe') return;
+          params.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+        });
+
+        var url = action.replace('/post?', '/post-json?') + '&' + params.join('&') + '&c=' + cb;
+        var script = document.createElement('script');
+        var timer = null;
+
+        function cleanup(){
+          if (timer) clearTimeout(timer);
+          delete window[cb];
+          if (script.parentNode) script.parentNode.removeChild(script);
+        }
+
+        window[cb] = function (data) {
+          cleanup();
+          if (data && data.result === 'success') { onSuccess(); }
+          else { onError(cleanMessage(data && data.msg)); }
+        };
+
+        script.onerror = function(){
+          cleanup();
+          onError('We could not reach the signup service. Please try again.');
+        };
+
+        timer = setTimeout(function(){
+          cleanup();
+          onError('The request timed out. Please try again.');
+        }, 10000);
+
+        script.src = url;
+        document.body.appendChild(script);
+      }
+
+      function wireForm(formId){
+        var form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          if (typeof form.checkValidity === 'function' && !form.checkValidity()) {
+            if (typeof form.reportValidity === 'function') form.reportValidity();
+            return;
+          }
+
+          var button = form.querySelector('.mc-submit');
+          var original = button ? button.value : '';
+
+          showError(form, null);
+          if (button) { button.disabled = true; button.value = 'Sending...'; }
+
+          function restore(){
+            if (!button) return;
+            button.disabled = false;
+            button.value = original;
+          }
+
+          submitToMailchimp(form,
+            function () {
+              restore();
+              form.reset();
+              if (overlay.classList.contains('is-open')) closeOverlay(overlay);
+              openOverlay(thanksOverlay);
+            },
+            function (message) {
+              restore();
+              showError(form, message);
+            }
+          );
+        });
+      }
+
+      wireForm('cur-form-hero');
+      wireForm('cur-form-modal');
+    })();
+  </script>
+
+  <script>
+    (function () {
+      /* --------------------------------------------------------------
+       * Clearance under GenSpark's navbar. Their theme renders it, its
+       * height differs between desktop and mobile, and on mobile the
+       * element that is actually fixed is a child of <header>. So scan
+       * the header and its descendants for anything fixed or sticky
+       * parked at the top of the viewport and take the lowest edge.
+       * -------------------------------------------------------------- */
+      var page = document.querySelector('.cur-page');
+      var header = document.querySelector('.header__navbar__wrapper');
+      if (!page || !header) return;
+
+      var last = null;
+
+      function overlayHeight() {
+        var nodes = [header].concat(
+          Array.prototype.slice.call(header.querySelectorAll('*'))
+        );
+        var lowest = 0;
+
+        for (var i = 0; i < nodes.length; i++) {
+          var el = nodes[i];
+          var pos = window.getComputedStyle(el).position;
+          if (pos !== 'fixed' && pos !== 'sticky') continue;
+
+          var r = el.getBoundingClientRect();
+          if (r.height > 0 && r.top <= 2 && r.bottom > lowest) lowest = r.bottom;
+        }
+        return Math.round(lowest);
+      }
+
+      function sync() {
+        var h = overlayHeight();
+        if (h === last) return;
+        last = h;
+        page.style.setProperty('--gs-header-h', h + 'px');
+      }
+
+      sync();
+      window.addEventListener('load', sync);
+      window.addEventListener('resize', sync);
+      window.addEventListener('orientationchange', sync);
+      window.addEventListener('scroll', sync, { passive: true });
+      [120, 400, 1000, 2500].forEach(function (ms) { setTimeout(sync, ms); });
+      if ('ResizeObserver' in window) new ResizeObserver(sync).observe(header);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia &&
+                   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var targets = document.querySelectorAll('.cur-page .reveal');
+      if (!targets.length) return;
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        Array.prototype.forEach.call(targets, function (el) {
+          el.classList.add('is-visible');
+        });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+
+      Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
+    })();
+  </script>
+</div>
+<!-- /.cur-page -->
+
+<!-- Exact rendered GenSpark footer -->
+<footer class="footer_wrap footer_new">
+  <div class="sub_footer">
+    <div class="container">
+
+      <!--Desktop View-->
+      <div class="row d-none d-md-flex">
+        <div class="col-12 col-md-3">
+          <div class="share_logos_wrap">
+            <a href="https://www.linkedin.com/company/genspark1/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg" width="24" height="24" alt="LinkedIn" />
+            </a>
+            <a href="https://www.facebook.com/GenSpark2/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg" width="24" height="24" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/genspark1/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg" width="24" height="24" alt="Instagram" />
+            </a>
+            <a href="https://x.com/GenSpark4" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg" width="24" height="24" alt="X" />
+            </a>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-2 ">
+          <div class="footer_menu">
+            <h6>SOLUTIONS</h6>
+            <ul class="footer_item our_programs_list">
+              <li><a href="https://genspark.net/workforce-upskilling/" target="">Workforce Upskilling</a></li>
+              <li><a href="https://genspark.net/hire-train-deploy/" target="">Hire-Train-Deploy</a></li>
+              <li><a href="https://genspark.net/ai-adoption/" target="">AI Adoption</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 offset-md-1">
+          <div class="footer_menu">
+            <h6>RESOURCES</h6>
+            <ul class="footer_item our_programs_list">
+              <li><a href="https://genspark.net/resources/?type=post" target="">Blogs</a></li>
+              <li><a href="https://genspark.net/resources/?type=case-study" target="">Case Studies</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 ">
+          <div class="footer_menu">
+            <h6>CONTACT</h6>
+            <ul class="footer_item our_programs_list">
+              <li><a href="https://genspark.net/contact-us/" target="">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!--Desktop View Completed-->
+
+      <!--Mobile View-->
+      <div class="mobile_view d-block d-md-none">
+
+        <div class="share_logos_wrap mb-4">
+          <a href="https://www.linkedin.com/company/genspark1/" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1.svg" width="24" height="24" alt="LinkedIn" />
+          </a>
+          <a href="https://www.facebook.com/GenSpark2/" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/Frame-1-1.svg" width="24" height="24" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/genspark1/" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/2-2.svg" width="24" height="24" alt="Instagram" />
+          </a>
+          <a href="https://x.com/GenSpark4" target="_blank">
+            <img src="https://genspark.net/wp-content/uploads/2025/09/3-2.svg" width="24" height="24" alt="X" />
+          </a>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordionFlushExamplefooter">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading-solutions-0">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#flush-collapse-solutions-0"
+                aria-expanded="false" aria-controls="flush-collapse-solutions-0">
+                SOLUTIONS              </button>
+            </h2>
+            <div id="flush-collapse-solutions-0" class="accordion-collapse collapse"
+              aria-labelledby="flush-heading-solutions-0"
+              data-bs-parent="#accordionFlushExamplefooter">
+              <div class="accordion-body">
+                <ul class="footer_item our_programs_list">
+                  <li><a href="https://genspark.net/workforce-upskilling/" target="">Workforce Upskilling</a></li>
+                  <li><a href="https://genspark.net/hire-train-deploy/" target="">Hire-Train-Deploy</a></li>
+                  <li><a href="https://genspark.net/ai-adoption/" target="">AI Adoption</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading-resources-1">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#flush-collapse-resources-1"
+                aria-expanded="false" aria-controls="flush-collapse-resources-1">
+                RESOURCES              </button>
+            </h2>
+            <div id="flush-collapse-resources-1" class="accordion-collapse collapse"
+              aria-labelledby="flush-heading-resources-1"
+              data-bs-parent="#accordionFlushExamplefooter">
+              <div class="accordion-body">
+                <ul class="footer_item our_programs_list">
+                  <li><a href="https://genspark.net/resources/?type=post" target="">Blogs</a></li>
+                  <li><a href="https://genspark.net/resources/?type=case-study" target="">Case Studies</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading-contact-2">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#flush-collapse-contact-2"
+                aria-expanded="false" aria-controls="flush-collapse-contact-2">
+                CONTACT              </button>
+            </h2>
+            <div id="flush-collapse-contact-2" class="accordion-collapse collapse"
+              aria-labelledby="flush-heading-contact-2"
+              data-bs-parent="#accordionFlushExamplefooter">
+              <div class="accordion-body">
+                <ul class="footer_item our_programs_list">
+                  <li><a href="https://genspark.net/contact-us/" target="">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--Mobile View Completed-->
+
+    </div>
+  </div>
+
+  <div class="images_footer_wrap">
+    <div class="container">
+      <div class="main_content_wrap">
+        <div class="logos_wrap">
+          <div class="logo_consulting">
+            <a href="https://pyramidci.com/" target="_blank">
+              <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341810-1.svg"
+                   alt="Pyramid Consulting Logo" width="164" height="32">
+            </a>
+          </div>
+          <ul class="sub_logos">
+            <li>
+              <a href="https://pyramidci.com/talent-home-page/" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806.svg" class="n_img" alt="Pyramid Talent Logo" width="97" height="30" />
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341806-1.svg" class="h_img" alt="Pyramid Talent Logo" />
+              </a>
+            </li>
+            <li>
+              <a href="https://celsiortech.com/" target="_blank">
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807.svg" class="n_img" alt="Celsior Logo" width="81" height="30" />
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341807-1.svg" class="h_img" alt="Celsior Logo" />
+              </a>
+            </li>
+            <li>
+              <a href="https://genspark.net/" target="_self">
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808.svg" class="n_img" alt="Genspark Logo" width="104" height="29" />
+                <img src="https://genspark.net/wp-content/uploads/2024/07/Frame-1973341808-1.svg" class="h_img" alt="Genspark Logo" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rights_footer_wrap">
+    <div class="container">
+      <div class="rights_wrap">
+        <span>
+          <a href="https://genspark.net/wp-content/uploads/2024/08/GDPR-v1-6-072024.pdf" target="_blank">GDPR</a>
+          |          <a href="https://genspark.net/wp-content/uploads/2024/08/CCPA-CRA-v1-3-072024.pdf" target="_blank">CCPA/CCRA</a>
+          |          <a href="https://genspark.net/wp-content/uploads/2025/10/web-privacy-policy.pdf" target="_blank">Privacy</a>
+          |          <a href="https://genspark.net/wp-content/uploads/2025/07/PCI_072025_Reasonable-Accomodation-Policy.pdf" target="_blank">Reasonable Accommodation Policy</a>
+          |          <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Microsoft privacy statement</a>
+        </span>
+        <span>
+          <a href="https://genspark.net/wp-content/uploads/2024/08/Web-Accessibility-v1-2-072024.pdf" target="_blank">Web accessibility</a> |
+          <a href="https://genspark.net/wp-content/uploads/2024/08/Privacy-Policy-Introduction-v2-072024.pdf" target="_blank">Privacy introduction</a> |
+          &copy; 2026 Pyramid Consulting, Inc. | All rights reserved
+        </span>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Exact GenSpark navbar/footer behaviour -->
+<script src="https://genspark.net/wp-content/themes/genspark/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://genspark.net/wp-content/themes/genspark/assets/js/app.min.js"></script>
+</body>
+
+</html>
